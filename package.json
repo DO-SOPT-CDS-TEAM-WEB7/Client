@@ -15,7 +15,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.19.0",
     "styled-components": "^6.1.1",
-    "styled-reset": "^4.5.1"
+    "styled-reset": "^4.5.1",
+    "stylelint-config-standard": "^34.0.0"
   },
   "devDependencies": {
     "@stylelint/postcss-css-in-js": "^0.38.0",
@@ -39,7 +40,6 @@
     "prettier": "^3.1.0",
     "stylelint": "^15.11.0",
     "stylelint-config-concentric-order": "^5.2.0",
-    "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-recommended": "^13.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "typescript": "^5.2.2",

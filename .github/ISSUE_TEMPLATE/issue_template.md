@@ -1,9 +1,9 @@
 ---
-name: Refactor request
-about: 리팩토링 템플릿
-title: "[Refactor] 제목"
-labels: ""
-assignees: ""
+name: 이슈 템플릿
+about: 이슈 템플릿
+title: '[이슈 종류] 제목'
+labels: ''
+assignees: ''
 ---
 
 ## 🛠 Issue

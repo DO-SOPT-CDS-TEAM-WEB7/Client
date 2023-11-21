@@ -93,7 +93,7 @@ const St = {
   MenuLi: styled.div<{ clicked: boolean }>`
     display: flex;
     align-items: center;
-    margin-right: 0.12rem;
+    margin-right: 1.2rem;
     border-bottom: ${({ clicked, theme }) => (clicked ? `1px solid ${theme.colors.skscanBk}` : 'none')};
     cursor: pointer;
     padding: 0.4rem;

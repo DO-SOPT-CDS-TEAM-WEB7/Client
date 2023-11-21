@@ -84,11 +84,8 @@ const St = {
   `,
   MenuUl: styled.ul`
     display: flex;
-    position: absolute;
-    top: 8.7rem;
-    left: 16rem;
     align-items: center;
-    margin-top: 0.85rem;
+    margin-top: 0.3rem;
   `,
   MenuLi: styled.div<{ clicked: boolean }>`
     display: flex;

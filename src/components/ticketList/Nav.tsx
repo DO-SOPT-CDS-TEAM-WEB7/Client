@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { LogoIcon, SearchImg } from '../../assets/image';
+import { AirplaneImg, BedImg, CarImg, LogoIcon, SearchImg } from '../../assets/image';
 
 const Nav = () => {
   return (
@@ -21,6 +21,20 @@ const Nav = () => {
           <St.SearchImg src={SearchImg} alt="검색 아이콘" />
         </St.SearchBarUl>
       </St.SearchBarContainer>
+      <St.MenuUl>
+        <St.MenuLi clicked={true}>
+          <St.MenuImg src={AirplaneImg} />
+          <St.MenuSpan>항공권</St.MenuSpan>
+        </St.MenuLi>
+        <St.MenuLi clicked={false}>
+          <St.MenuImg src={BedImg} />
+          <St.MenuSpan>호텔</St.MenuSpan>
+        </St.MenuLi>
+        <St.MenuLi clicked={false}>
+          <St.MenuImg src={CarImg} />
+          <St.MenuSpan>렌터카</St.MenuSpan>
+        </St.MenuLi>
+      </St.MenuUl>
     </St.NavContainer>
   );
 };
@@ -67,5 +81,29 @@ const St = {
     cursor: pointer;
     width: 3.6rem;
     height: 3.6rem;
+  `,
+  MenuUl: styled.ul`
+    display: flex;
+    position: absolute;
+    top: 8.7rem;
+    left: 16rem;
+    align-items: center;
+    margin-top: 0.85rem;
+  `,
+  MenuLi: styled.div<{ clicked: boolean }>`
+    display: flex;
+    align-items: center;
+    margin-right: 0.12rem;
+    border-bottom: ${({ clicked, theme }) => (clicked ? `1px solid ${theme.colors.skscanBk}` : 'none')};
+    cursor: pointer;
+    padding: 0.4rem;
+  `,
+  MenuImg: styled.img`
+    width: 2.4rem;
+    height: 2.4rem;
+  `,
+  MenuSpan: styled.span`
+    margin: 0.35rem 0 0.35rem 0.2rem;
+    ${({ theme }) => theme.fonts.caption01};
   `,
 };

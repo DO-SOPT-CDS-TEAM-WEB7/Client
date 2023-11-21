@@ -1,5 +1,7 @@
+import Nav from "./Nav";
+
 const TicketListTest = () => {
-  return <div>TicketListTest</div>;
+  return <Nav />;
 };
 
 export default TicketListTest;

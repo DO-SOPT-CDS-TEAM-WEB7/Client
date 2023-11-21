@@ -6,6 +6,12 @@ import { LogoIcon, SearchImg } from '../../assets/image';
 const Nav = () => {
   return (
     <St.NavContainer>
+      <St.LanUl>
+        <St.LanLi clicked={true}>한국어</St.LanLi>
+        <St.LanLi clicked={false}>English</St.LanLi> {/* 폰트 디자인 수정 필 */}
+        <St.LanLi clicked={false}>日本語</St.LanLi>
+        <St.LanLi clicked={false}>中文</St.LanLi>
+      </St.LanUl>
       <St.SearchBarContainer>
         <img src={LogoIcon} alt="로고" />
         <St.SearchBarUl>
@@ -23,7 +29,22 @@ export default Nav;
 
 const St = {
   NavContainer: styled.nav`
+    position: relative;
     padding: 3.6rem 16rem;
+  `,
+  LanUl: styled.ul`
+    display: flex;
+    position: absolute;
+    top: 0.8rem;
+    right: 14.8rem;
+    align-items: center;
+    justify-content: space-between;
+  `,
+  LanLi: styled.li<{ clicked: boolean }>`
+    margin-right: 1.2rem;
+    cursor: pointer;
+    padding: 0.4rem;
+    ${({ clicked, theme }) => (clicked ? theme.fonts.caption03 : theme.fonts.caption04)};
   `,
   SearchBarContainer: styled.div`
     display: flex;

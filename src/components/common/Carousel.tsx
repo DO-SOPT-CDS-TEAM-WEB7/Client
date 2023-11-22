@@ -6,50 +6,24 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 
 import { BackwardArrow, ForwardArrow } from '../../assets/image';
+// import Test from '../priceCompare/CarouselTest';
 
-// div 오른쪽 화살표 맞추기 !!!!!
-// :after를 기준으로 설정하면 될듯..
+interface CarouselProps {
+  children: React.ReactNode;
+}
 
-const Carousel = () => {
+const Carousel = (props: CarouselProps) => {
+  const { children } = props;
   const settings = {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    nextArrow: <NextArrow />,   
+    nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    variableWidth: true,
   };
-  return (
-    <StlyedSlider {...settings}>
-      <div>
-        <h3>1</h3>
-      </div>
-      <div>
-        <h3>2</h3>
-      </div>
-      <div>
-        <h3>3</h3>
-      </div>
-      <div>
-        <h3>4</h3>
-      </div>
-      <div>
-        <h3>5</h3>
-      </div>
-      <div>
-        <h3>6</h3>
-      </div>
-      <div>
-        <h3>7</h3>
-      </div>
-      <div>
-        <h3>8</h3>
-      </div>
-      <div>
-        <h3>9</h3>
-      </div>
-    </StlyedSlider>
-  );
+  return <StlyedSlider {...settings}>{children}</StlyedSlider>;
 };
 
 export default Carousel;
@@ -68,6 +42,19 @@ const NextArrow = (props: ArrowProps) => {
     </NextBtn>
   );
 };
+
+// interface TestProps {
+//   style?: React.CSSProperties;
+//   width?: string;
+//   height?: string;
+// }
+
+// 내가 정의하는 컴포넌트 (라이브러리의 div.slick-slide의 자식으로 꽉 차도록)
+// 컴포넌트 만들어서 export할 때 내 width랑 height값 넘겨주기
+// const Test = (props: TestProps) => {
+//   const { style } = props;
+//   return <TestDiv style={{ ...style, width: '25rem', height: '21.7rem' }}></TestDiv>;
+// };
 
 const PrevArrow = (props: ArrowProps) => {
   const { className, style, onClick } = props;
@@ -91,23 +78,38 @@ const StlyedSlider = styled(Slider)`
   }
 
   .slick-prev:hover,
-  .slick-prev:focus {
+  .slick-prev:focus,
+  .slick-next:hover,
+  .slick-next:focus {
     background-color: ${({ theme }) => theme.colors.skscanWt};
   }
 
-  .slick-track {
-    display: flex;
-    gap: 1.6rem;
+  .slick-list {
+    width: 100%;
   }
 
   .slick-slide {
     display: flex;
     align-items: center;
+    margin-right: 1.6rem;
     border: 1px solid;
     width: 25rem;
-    height: 30.8rem;
+    height: 21.7rem;
   }
 `;
+/* 
+.slick-slider (전체 요소 포함 부모)
+  > .slick-list (눈에 보이는 요소 포함 부모)
+    > .slick-track (전체 요소 포함 track)
+        > .slick-slide (라이브러리 상 각 요소 wrapper)
+            > .내가 정의한 컴포넌트 요소
+
+라이브러리 상의 각 요소들 wrapper
+.slick-slide {
+    width: 내 컴포넌트 element width값
+    height: 내 컴포넌트 element height값
+}
+ */
 
 const NextBtn = styled.div`
   position: absolute;
@@ -139,3 +141,8 @@ const PrevBtn = styled.div`
   width: 4.2rem;
   height: 4.2rem;
 `;
+
+// const TestDiv = styled.div`
+//   width: 25rem;
+//   height: 21.7rem;
+// `;

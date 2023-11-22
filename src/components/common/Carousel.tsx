@@ -87,6 +87,11 @@ const StlyedSlider = styled(Slider)`
     opacity: 0;
   }
 
+  .slick-prev:hover,
+  .slick-prev:focus {
+    background-color: ${({ theme }) => theme.colors.skscanWt};
+  }
+
   .slick-slide div {
     display: flex;
     align-items: center;

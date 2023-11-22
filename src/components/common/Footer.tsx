@@ -102,6 +102,7 @@ const NavTitle = styled.h1`
 `;
 
 const NavItem = styled.li`
+  cursor: pointer;
   ${({ theme }) => theme.fonts.caption02}
 
   color: ${({ theme }) => theme.colors.skscanGrey600};

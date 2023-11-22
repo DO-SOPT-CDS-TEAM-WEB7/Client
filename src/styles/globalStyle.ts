@@ -46,6 +46,9 @@ const GlobalStyle = styled.createGlobalStyle`
   }
 
   select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
     cursor: pointer;
   }
 `;

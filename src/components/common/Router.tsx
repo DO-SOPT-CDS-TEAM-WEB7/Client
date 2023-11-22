@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Main from '../../pages/Main';
-import CarouselTest from './Carousel';
+import Carousel from './Carousel';
 import TicketListTest from '../ticketList/TicketListTest';
 const Router = () => {
   return (

@@ -1,21 +1,25 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 
 import { BackwardArrow, ForwardArrow } from '../../assets/image';
 import CustomSlide from '../ticketList/CustomSlide';
 
-const CarouselTest = () => {
+const Carousel = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  console.log(currentSlide);
   const settings = {
     infinite: false,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} />,
+    prevArrow: <PrevArrow currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} />,
+    afterChange: (index) => setCurrentSlide(index),
+    beforeChange: (current, next) => setCurrentSlide(next),
   };
   return (
     <CarouselContainer>
@@ -35,27 +39,36 @@ const CarouselTest = () => {
   );
 };
 
-export default CarouselTest;
+export default Carousel;
 
 interface ArrowProps {
+  currentSlide?: number;
+  setCurrentSlide: any;
   className?: string;
   style?: any;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
+// 전체 요소 개수 -1 -4 만큼 넣어주기
 const NextArrow = (props: ArrowProps) => {
-  const { className, style, onClick } = props;
+  const { currentSlide, setCurrentSlide, className, style, onClick } = props;
   return (
-    <NextBtn className={className} style={{ ...style, display: 'flex' }} onClick={onClick}>
+    <NextBtn
+      className={className}
+      style={{ ...style, display: 'flex', visibility: currentSlide === 6 ? 'hidden' : 'visible' }}
+      onClick={onClick}>
       <ArrowImg src={ForwardArrow} alt="다음으로" />
     </NextBtn>
   );
 };
 
 const PrevArrow = (props: ArrowProps) => {
-  const { className, style, onClick } = props;
+  const { currentSlide, setCurrentSlide, className, style, onClick } = props;
   return (
-    <PrevBtn className={className} style={{ ...style, display: 'flex' }} onClick={onClick}>
+    <PrevBtn
+      className={className}
+      style={{ ...style, display: 'flex', visibility: currentSlide === 0 ? 'hidden' : 'visible' }}
+      onClick={onClick}>
       <ArrowImg src={BackwardArrow} alt="이전으로" />
     </PrevBtn>
   );

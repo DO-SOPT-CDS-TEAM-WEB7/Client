@@ -1,7 +1,7 @@
-import CarouselTest from "../common/Carousel";
+import Carousel from "../common/Carousel";
 
 const TicketListTest = () => {
-  return <CarouselTest />;
+  return <Carousel />;
 };
 
 export default TicketListTest;

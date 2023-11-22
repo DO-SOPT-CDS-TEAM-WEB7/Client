@@ -42,7 +42,9 @@ const ElementImg = styled.img`
 const DescriptionWrapper = styled.div`
   display: flex;
   align-items: center;
-  padding: 0.2rem;
+  border-top: 1px solid;
+  padding: 2rem;
+  height: 10.6rem;
 `;
 
 const HotelDescription = styled.div`
@@ -57,8 +59,15 @@ const HotelName = styled.p`
 `;
 
 const HotelInfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   margin-top: 0.5rem;
   ${({ theme }) => theme.fonts.caption02};
 `;
 
 const HotelInfo = styled.span``;
+
+
+// 가격 부분 flex 작성 필요, 커밋 푸시 필요
+// children으로 변경 필요
+// 버튼 없애기 구현 필요

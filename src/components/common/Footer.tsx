@@ -52,26 +52,75 @@ const Footer = () => {
 
 export default Footer;
 
-const FooterWrapper = styled.footer``;
+const FooterWrapper = styled.footer`
+  display: flex;
+  justify-content: space-between;
+  padding: 5.1rem 16rem 10.2rem;
+`;
 
-const SelectBoxWrapper = styled.div``;
+const SelectBoxWrapper = styled.div`
+  display: flex;
+  gap: 1.2rem;
+`;
 
-const SelectBox = styled.select``;
+const SelectBox = styled.select`
+  border: 1px solid ${({ theme }) => theme.colors.skscanGrey150};
+  border-radius: 0.4rem;
+  padding: 1.2rem 1.6rem;
+  color: ${({ theme }) => theme.colors.skscanGrey800};
+`;
 
-const SelectBoxOption = styled.option``;
+const SelectBoxOption = styled.option`
+  padding: 1.6rem;
+  ${({ theme }) => theme.fonts.caption02}
 
-const LeftSide = styled.div``;
+  color:${({ theme }) => theme.colors.skscanGrey800};
+`;
 
-const NavList = styled.nav``;
+const LeftSide = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4.6rem;
+`;
 
-const NavMenu = styled.ol``;
+const NavList = styled.nav`
+  display: flex;
+  gap: 1.6rem;
+`;
 
-const NavTitle = styled.h1``;
+const NavMenu = styled.ol`
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  width: 16rem;
+`;
 
-const NavItem = styled.li``;
+const NavTitle = styled.h1`
+  ${({ theme }) => theme.fonts.body06}
 
-const TextWrapper = styled.div``;
+  color: ${({ theme }) => theme.colors.skscanGrey800};
+`;
 
-const Text = styled.p``;
+const NavItem = styled.li`
+  ${({ theme }) => theme.fonts.caption02}
 
-const CopyRight = styled.p``;
+  color: ${({ theme }) => theme.colors.skscanGrey600};
+`;
+
+const TextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+`;
+
+const Text = styled.p`
+  ${({ theme }) => theme.fonts.body05}
+
+  color: ${({ theme }) => theme.colors.skscanGrey800};
+`;
+
+const CopyRight = styled.p`
+  ${({ theme }) => theme.fonts.body06}
+
+  color: ${({ theme }) => theme.colors.skscanGrey800};
+`;

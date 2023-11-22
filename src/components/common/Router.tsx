@@ -1,13 +1,14 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import CarouselTest from '../priceCompare/CarouselTest';
 import Main from '../../pages/Main';
+import CarouselTest from './Carousel';
+import TicketListTest from '../ticketList/TicketListTest';
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         {/* <Route path="/" element={<Main />} /> */}
-        <Route path="/" element={<CarouselTest />} />
+        <Route path="/test" element={<TicketListTest />} />
       </Routes>
     </BrowserRouter>
   );

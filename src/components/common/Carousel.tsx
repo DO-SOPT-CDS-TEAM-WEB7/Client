@@ -6,27 +6,36 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 
 import { BackwardArrow, ForwardArrow } from '../../assets/image';
-// import Test from '../priceCompare/CarouselTest';
+import CustomSlide from '../ticketList/CustomSlide';
 
-interface CarouselProps {
-  children: React.ReactNode;
-}
-
-const Carousel = (props: CarouselProps) => {
-  const { children } = props;
+const CarouselTest = () => {
   const settings = {
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    variableWidth: true,
   };
-  return <StlyedSlider {...settings}>{children}</StlyedSlider>;
+  return (
+    <CarouselContainer>
+      <StlyedSlider {...settings}>
+        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+      </StlyedSlider>
+    </CarouselContainer>
+  );
 };
 
-export default Carousel;
+export default CarouselTest;
 
 interface ArrowProps {
   className?: string;
@@ -43,19 +52,6 @@ const NextArrow = (props: ArrowProps) => {
   );
 };
 
-// interface TestProps {
-//   style?: React.CSSProperties;
-//   width?: string;
-//   height?: string;
-// }
-
-// 내가 정의하는 컴포넌트 (라이브러리의 div.slick-slide의 자식으로 꽉 차도록)
-// 컴포넌트 만들어서 export할 때 내 width랑 height값 넘겨주기
-// const Test = (props: TestProps) => {
-//   const { style } = props;
-//   return <TestDiv style={{ ...style, width: '25rem', height: '21.7rem' }}></TestDiv>;
-// };
-
 const PrevArrow = (props: ArrowProps) => {
   const { className, style, onClick } = props;
   return (
@@ -66,10 +62,15 @@ const PrevArrow = (props: ArrowProps) => {
 };
 
 const StlyedSlider = styled(Slider)`
-  display: flex;
   position: relative;
-  justify-content: space-between;
-  padding: 0 16rem;
+
+  .slick-slide > div {
+    padding-right: 1.6rem;
+  }
+
+  .slick-list {
+    margin-right: -1.6rem;
+  }
 
   .slick-prev::before,
   .slick-next::before {
@@ -83,37 +84,15 @@ const StlyedSlider = styled(Slider)`
   .slick-next:focus {
     background-color: ${({ theme }) => theme.colors.skscanWt};
   }
-
-  .slick-list {
-    width: 100%;
-  }
-
-  .slick-slide {
-    display: flex;
-    align-items: center;
-    margin-right: 1.6rem;
-    border: 1px solid;
-    width: 25rem;
-    height: 21.7rem;
-  }
 `;
-/* 
-.slick-slider (전체 요소 포함 부모)
-  > .slick-list (눈에 보이는 요소 포함 부모)
-    > .slick-track (전체 요소 포함 track)
-        > .slick-slide (라이브러리 상 각 요소 wrapper)
-            > .내가 정의한 컴포넌트 요소
 
-라이브러리 상의 각 요소들 wrapper
-.slick-slide {
-    width: 내 컴포넌트 element width값
-    height: 내 컴포넌트 element height값
-}
- */
+const CarouselContainer = styled.section`
+  padding: 0 14.4rem 0 16rem;
+`;
 
 const NextBtn = styled.div`
   position: absolute;
-  right: 13.9rem;
+  right: 1.5rem;
   align-items: center;
   justify-content: center;
   z-index: 3;
@@ -131,7 +110,7 @@ const ArrowImg = styled.img`
 
 const PrevBtn = styled.div`
   position: absolute;
-  left: 13.9rem;
+  left: -2.1rem;
   align-items: center;
   justify-content: center;
   z-index: 3;
@@ -141,8 +120,3 @@ const PrevBtn = styled.div`
   width: 4.2rem;
   height: 4.2rem;
 `;
-
-// const TestDiv = styled.div`
-//   width: 25rem;
-//   height: 21.7rem;
-// `;

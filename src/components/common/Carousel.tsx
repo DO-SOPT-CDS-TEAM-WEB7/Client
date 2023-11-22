@@ -1,11 +1,14 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import React, { Component } from 'react';
+import React from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 
 import { BackwardArrow, ForwardArrow } from '../../assets/image';
+
+// div 오른쪽 화살표 맞추기 !!!!!
+// :after를 기준으로 설정하면 될듯..
 
 const Carousel = () => {
   const settings = {
@@ -13,7 +16,7 @@ const Carousel = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    nextArrow: <NextArrow />,
+    nextArrow: <NextArrow />,   
     prevArrow: <PrevArrow />,
   };
   return (
@@ -92,7 +95,12 @@ const StlyedSlider = styled(Slider)`
     background-color: ${({ theme }) => theme.colors.skscanWt};
   }
 
-  .slick-slide div {
+  .slick-track {
+    display: flex;
+    gap: 1.6rem;
+  }
+
+  .slick-slide {
     display: flex;
     align-items: center;
     border: 1px solid;

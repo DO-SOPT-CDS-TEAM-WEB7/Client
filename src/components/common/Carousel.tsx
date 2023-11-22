@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 
-import { BackwardImg, ForwardImg } from '../../assets/image';
+import { BackwardArrow, ForwardArrow } from '../../assets/image';
 
 const Carousel = () => {
   const settings = {
@@ -60,8 +60,8 @@ interface ArrowProps {
 const NextArrow = (props: ArrowProps) => {
   const { className, style, onClick } = props;
   return (
-    <NextBtn className={className} style={style} onClick={onClick}>
-      <ArrowImg src={ForwardImg} alt="다음으로" />
+    <NextBtn className={className} style={{ ...style, display: 'flex' }} onClick={onClick}>
+      <ArrowImg src={ForwardArrow} alt="다음으로" />
     </NextBtn>
   );
 };
@@ -69,15 +69,17 @@ const NextArrow = (props: ArrowProps) => {
 const PrevArrow = (props: ArrowProps) => {
   const { className, style, onClick } = props;
   return (
-    <PrevBtn className={className} style={style} onClick={onClick}>
-      <ArrowImg src={BackwardImg} alt="이전으로" />
+    <PrevBtn className={className} style={{ ...style, display: 'flex' }} onClick={onClick}>
+      <ArrowImg src={BackwardArrow} alt="이전으로" />
     </PrevBtn>
   );
 };
 
 const StlyedSlider = styled(Slider)`
+  display: flex;
   position: relative;
-  padding: 2rem;
+  justify-content: space-between;
+  padding: 0 16rem;
 
   .slick-prev::before,
   .slick-next::before {
@@ -85,29 +87,42 @@ const StlyedSlider = styled(Slider)`
     opacity: 0;
   }
 
-  .slick-slide {
-    cursor: pointer;
-    height: 5rem;
+  .slick-slide div {
+    display: flex;
+    align-items: center;
+    border: 1px solid;
+    width: 25rem;
+    height: 30.8rem;
   }
 `;
 
 const NextBtn = styled.div`
   position: absolute;
-  right: 1rem;
+  right: 13.9rem;
+  align-items: center;
+  justify-content: center;
   z-index: 3;
+  border: 1px solid ${({ theme }) => theme.colors.skscanGrey150};
+  border-radius: 5rem;
+  background-color: ${({ theme }) => theme.colors.skscanWt};
   width: 4.2rem;
   height: 4.2rem;
 `;
 
 const ArrowImg = styled.img`
-  width: 4.2rem;
-  height: 4.2rem;
+  width: 0.897rem;
+  height: 1.559rem;
 `;
 
 const PrevBtn = styled.div`
   position: absolute;
-  left: 1rem;
+  left: 13.9rem;
+  align-items: center;
+  justify-content: center;
   z-index: 3;
+  border: 1px solid ${({ theme }) => theme.colors.skscanGrey150};
+  border-radius: 5rem;
+  background-color: ${({ theme }) => theme.colors.skscanWt};
   width: 4.2rem;
   height: 4.2rem;
 `;

@@ -35,8 +35,8 @@ const Carousel = (props: CarouselProps) => {
     slidesToScroll: 1,
     nextArrow: <NextArrow currentslide={currentslide} disappearindex={disappearindex} />,
     prevArrow: <PrevArrow currentslide={currentslide} disappearindex={disappearindex} />,
-    afterChange: (index) => setCurrentSlide(index),
-    beforeChange: (current, next) => setCurrentSlide(next),
+    afterChange: (index: number) => setCurrentSlide(index),
+    beforeChange: (current: number, next: number) => setCurrentSlide(next),
   };
 
   // data에 따른 map, prop 전달
@@ -57,7 +57,7 @@ interface ArrowProps {
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-// 전체 요소 개수 -1 -4 만큼 넣어주기
+// 전체 요소 개수 -1 -3 만큼 넣어주기
 const NextArrow = (props: ArrowProps) => {
   const { disappearindex, className, currentslide, style, onClick } = props;
   return (
@@ -81,11 +81,6 @@ const PrevArrow = (props: ArrowProps) => {
     </PrevBtn>
   );
 };
-
-/*
-.slick-slide > div  // 아이템 간 여백값 넣어주기 (양수값)
-.slick-list // 아이템 간 여백값 넣어주기 (음수값)
-*/
 
 const StlyedSlider = styled(Slider)`
   position: relative;
@@ -112,13 +107,11 @@ const StlyedSlider = styled(Slider)`
   }
 `;
 
-// 2번째 : 맨 오른쪽 여백 제외하기 (아이템간 여백만큼 빼주기)
 const CarouselContainer = styled.section`
   display: block;
   padding-right: -1.6rem;
 `;
 
-// position 맞추기
 const NextBtn = styled.div`
   position: absolute;
   right: -2.1rem;
@@ -127,12 +120,12 @@ const NextBtn = styled.div`
   z-index: 3;
   border: 1px solid ${({ theme }) => theme.colors.skscanGrey150};
   border-radius: 5rem;
+  box-shadow: 0 4px 25px 0 #0000001a;
   background-color: ${({ theme }) => theme.colors.skscanWt};
   width: 4.2rem;
   height: 4.2rem;
 `;
 
-// position 맞추기
 const PrevBtn = styled.div`
   position: absolute;
   left: -2.1rem;
@@ -141,6 +134,7 @@ const PrevBtn = styled.div`
   z-index: 3;
   border: 1px solid ${({ theme }) => theme.colors.skscanGrey150};
   border-radius: 5rem;
+  box-shadow: 0 4px 25px 0;
   background-color: ${({ theme }) => theme.colors.skscanWt};
   width: 4.2rem;
   height: 4.2rem;

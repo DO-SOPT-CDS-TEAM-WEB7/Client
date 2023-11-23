@@ -82,6 +82,7 @@ const PrevArrow = (props: ArrowProps) => {
   );
 };
 
+// 캐러셀 컴포넌트 라이브러리 레이아웃 커스텀
 const StlyedSlider = styled(Slider)`
   position: relative;
 
@@ -112,15 +113,16 @@ const CarouselContainer = styled.section`
   padding-right: -1.6rem;
 `;
 
+// 화살표 커스텀
 const NextBtn = styled.div`
   position: absolute;
   right: -2.1rem;
   align-items: center;
   justify-content: center;
   z-index: 3;
-  border: 1px solid ${({ theme }) => theme.colors.skscanGrey150};
+  border: 0.1rem solid ${({ theme }) => theme.colors.skscanGrey150};
   border-radius: 5rem;
-  box-shadow: 0 4px 25px 0 #0000001a;
+  box-shadow: 0 0.4rem 2.5rem 0;
   background-color: ${({ theme }) => theme.colors.skscanWt};
   width: 4.2rem;
   height: 4.2rem;
@@ -132,9 +134,9 @@ const PrevBtn = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 3;
-  border: 1px solid ${({ theme }) => theme.colors.skscanGrey150};
+  border: 0.1rem solid ${({ theme }) => theme.colors.skscanGrey150};
   border-radius: 5rem;
-  box-shadow: 0 4px 25px 0;
+  box-shadow: 0 0.4rem 2.5rem 0;
   background-color: ${({ theme }) => theme.colors.skscanWt};
   width: 4.2rem;
   height: 4.2rem;

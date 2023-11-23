@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { HotelImg, StarImg } from '../../assets/image';
+
 interface CustomSlideProps {
   hotelName: string;
   hotelRoom: string;
@@ -10,18 +12,18 @@ const CustomSlide = (props: CustomSlideProps) => {
   const { hotelName, hotelRoom, hotelBed } = props;
   return (
     <ElementContainer>
-      <ElementImg alt="이미지" />
+      <ElementImg src={HotelImg} alt="이미지" />
       <DescriptionWrapper>
         <HotelDescription>
           <HotelName>{hotelName}</HotelName>
           <HotelInfoContainer>
-            <HotelInfo>{hotelRoom}</HotelInfo>
-            <HotelInfo>{hotelBed}</HotelInfo>
+            <HotelRoomInfo>{hotelRoom}</HotelRoomInfo>
+            <HotelBedInfo>{hotelBed}</HotelBedInfo>
           </HotelInfoContainer>
         </HotelDescription>
         <HotelPriceStarContainer>
           <HotelStarContainer>
-            <HotelStarImg alt="별점" />
+            <HotelStarImg src={StarImg} alt="별점" />
             <HotelStarRate>4.7</HotelStarRate>
             <HotelStarNum>(173)</HotelStarNum>
           </HotelStarContainer>
@@ -74,12 +76,15 @@ const HotelName = styled.p`
 const HotelInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
   margin-top: 0.5rem;
   ${({ theme }) => theme.fonts.caption02};
 `;
 
-const HotelInfo = styled.span`
+const HotelRoomInfo = styled.span`
+  margin-bottom: 0.5rem;
+  color: ${({ theme }) => theme.colors.skscanGrey700};
+`;
+const HotelBedInfo = styled.span`
   color: ${({ theme }) => theme.colors.skscanGrey700};
 `;
 
@@ -93,12 +98,13 @@ const HotelStarContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2.6rem;
+  margin-bottom: 1.9rem;
   ${({ theme }) => theme.fonts.caption02};
 `;
 
 const HotelStarImg = styled.img`
-  margin: 0.3rem;
+  width: 2.4rem;
+  height: 2.4rem;
 `;
 
 const HotelStarRate = styled.span`
@@ -107,6 +113,7 @@ const HotelStarRate = styled.span`
 `;
 
 const HotelStarNum = styled.span`
+  padding: 0.35rem 0 0.35rem 0.2rem;
   color: ${({ theme }) => theme.colors.skscanGrey700};
 `;
 
@@ -115,6 +122,7 @@ const HotelPriceContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
+  margin-top: 0.5rem;
 `;
 
 const HotelPrice = styled.span`
@@ -128,7 +136,6 @@ const HotelPerDay = styled.span`
   ${({ theme }) => theme.fonts.caption02};
 `;
 
-// 가격 부분 flex 작성 필요, 커밋 푸시 필요
 // children으로 변경 필요
 // 반응형 필요
 // 반응형일시 화살표 포지션 정하기

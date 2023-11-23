@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { HotelImg, StarImg } from '../../assets/image';
+import { HeartImg, HotelImg, StarImg } from '../../assets/image';
 
 interface CustomSlideProps {
   hotelName: string;
@@ -12,6 +12,7 @@ const CustomSlide = (props: CustomSlideProps) => {
   const { hotelName, hotelRoom, hotelBed } = props;
   return (
     <ElementContainer>
+      <Heart src={HeartImg} alt="좋아요" />
       <ElementImg src={HotelImg} alt="이미지" />
       <DescriptionWrapper>
         <HotelDescription>
@@ -40,7 +41,6 @@ const CustomSlide = (props: CustomSlideProps) => {
 export default CustomSlide;
 
 const ElementContainer = styled.article`
-  border: 0.1rem solid ${({ theme }) => theme.colors.skscanGrey200};
   border-radius: 1.6rem;
   width: 25rem;
   height: 30.8rem;
@@ -56,6 +56,11 @@ const DescriptionWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border: 0;
+  border-right: 1px solid ${({ theme }) => theme.colors.skscanGrey200};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.skscanGrey200};
+  border-left: 1px solid ${({ theme }) => theme.colors.skscanGrey200};
+  border-radius: 0 0 1.6rem 1.6rem;
   padding: 2rem;
   height: 10.6rem;
 `;
@@ -133,6 +138,10 @@ const HotelPrice = styled.span`
 const HotelPerDay = styled.span`
   color: ${({ theme }) => theme.colors.skscanGrey700};
   ${({ theme }) => theme.fonts.caption02};
+`;
+
+const Heart = styled.img`
+  position: absolute;
 `;
 
 // children으로 변경 필요

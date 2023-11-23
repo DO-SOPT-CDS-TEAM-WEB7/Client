@@ -26,8 +26,8 @@ const Carousel = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    nextArrow: <NextArrow currentSlide={currentslide} />,
-    prevArrow: <PrevArrow currentSlide={currentslide} />,
+    nextArrow: <NextArrow currentslide={currentslide} />,
+    prevArrow: <PrevArrow currentslide={currentslide} />,
     afterChange: (index) => setCurrentSlide(index),
     beforeChange: (current, next) => setCurrentSlide(next),
   };

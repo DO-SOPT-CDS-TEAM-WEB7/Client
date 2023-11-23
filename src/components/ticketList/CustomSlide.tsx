@@ -41,6 +41,7 @@ const CustomSlide = (props: CustomSlideProps) => {
 export default CustomSlide;
 
 const ElementContainer = styled.article`
+  position: relative;
   border-radius: 1.6rem;
   width: 25rem;
   height: 30.8rem;
@@ -142,6 +143,10 @@ const HotelPerDay = styled.span`
 
 const Heart = styled.img`
   position: absolute;
+  top: 0.8rem;
+  right: 1.2rem;
+  width: 4.8rem;
+  height: 4.8rem;
 `;
 
 // children으로 변경 필요

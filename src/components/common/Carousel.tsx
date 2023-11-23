@@ -18,7 +18,7 @@ const Carousel = () => {
       document.body.style.display = originalDisplayStyle;
     };
   }, []); 
-  
+
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const settings = {
@@ -86,8 +86,8 @@ const PrevArrow = (props: ArrowProps) => {
 };
 
 /*
-.slick-slide > div  // 아이템 간 여백값 넣어주기
-.slick-list // 아이템 간 여백값 넣어주기
+.slick-slide > div  // 아이템 간 여백값 넣어주기 (양수값)
+.slick-list // 아이템 간 여백값 넣어주기 (음수값)
 */
 
 const StlyedSlider = styled(Slider)`
@@ -124,7 +124,7 @@ const CarouselContainer = styled.section`
 // position 맞추기
 const NextBtn = styled.div`
   position: absolute;
-  right: 1.5rem;
+  right: -2.1rem;
   align-items: center;
   justify-content: center;
   z-index: 3;

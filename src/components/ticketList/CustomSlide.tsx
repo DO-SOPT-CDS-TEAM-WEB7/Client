@@ -40,7 +40,7 @@ const CustomSlide = (props: CustomSlideProps) => {
 export default CustomSlide;
 
 const ElementContainer = styled.article`
-  border: 1px solid;
+  border: 0.1rem solid ${({ theme }) => theme.colors.skscanGrey200};
   border-radius: 1.6rem;
   width: 25rem;
   height: 30.8rem;
@@ -56,7 +56,6 @@ const DescriptionWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid;
   padding: 2rem;
   height: 10.6rem;
 `;

@@ -1,7 +1,7 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 
@@ -9,6 +9,16 @@ import { BackwardArrow, ForwardArrow } from '../../assets/image';
 import CustomSlide from '../ticketList/CustomSlide';
 
 const Carousel = () => {
+  // body의 display:flex를 block으로 변경
+  useEffect(() => {
+    const originalDisplayStyle = document.body.style.display;
+    document.body.style.display = 'block'; 
+
+    return () => {
+      document.body.style.display = originalDisplayStyle;
+    };
+  }, []); 
+  
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const settings = {
@@ -107,7 +117,8 @@ const StlyedSlider = styled(Slider)`
 
 // 2번째 : 맨 오른쪽 여백 제외하기 (아이템간 여백만큼 빼주기)
 const CarouselContainer = styled.section`
-  padding: 0 14.4rem 0 16rem;
+  display: block;
+  padding-right: -1.6rem;
 `;
 
 // position 맞추기

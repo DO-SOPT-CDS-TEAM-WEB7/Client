@@ -6,14 +6,16 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 
 import { BackwardArrow, ForwardArrow } from '../../assets/image';
-import TicketListCarousel from '../ticketList/TicketListCarousel';
 
 interface CarouselProps {
   children: React.ReactNode;
+  dataLength: number;
 }
 
 const Carousel = (props: CarouselProps) => {
-  const { children } = props;
+  const { children, dataLength } = props;
+  const disappearindex: number = dataLength - 4;
+
   // body의 display:flex를 block으로 변경
   useEffect(() => {
     const originalDisplayStyle = document.body.style.display;
@@ -31,8 +33,8 @@ const Carousel = (props: CarouselProps) => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    nextArrow: <NextArrow currentslide={currentslide} />,
-    prevArrow: <PrevArrow currentslide={currentslide} />,
+    nextArrow: <NextArrow currentslide={currentslide} disappearindex={disappearindex} />,
+    prevArrow: <PrevArrow currentslide={currentslide} disappearindex={disappearindex} />,
     afterChange: (index) => setCurrentSlide(index),
     beforeChange: (current, next) => setCurrentSlide(next),
   };
@@ -48,19 +50,20 @@ const Carousel = (props: CarouselProps) => {
 export default Carousel;
 
 interface ArrowProps {
-  currentslide?: number;
   className?: string;
-  style?: any;
+  disappearindex?: number;
+  currentslide?: number;
+  style?: React.CSSProperties;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 // 전체 요소 개수 -1 -4 만큼 넣어주기
 const NextArrow = (props: ArrowProps) => {
-  const { currentslide, className, style, onClick } = props;
+  const { disappearindex, className, currentslide, style, onClick } = props;
   return (
     <NextBtn
       className={className}
-      style={{ ...style, display: 'flex', visibility: currentslide === 6 ? 'hidden' : 'visible' }}
+      style={{ ...style, display: 'flex', visibility: currentslide === disappearindex ? 'hidden' : 'visible' }}
       onClick={onClick}>
       <ArrowImg src={ForwardArrow} alt="다음으로" />
     </NextBtn>

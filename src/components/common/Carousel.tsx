@@ -6,18 +6,17 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 
 import { BackwardArrow, ForwardArrow } from '../../assets/image';
-import CustomSlide from '../ticketList/CustomSlide';
-
+import TicketListCarousel from '../ticketList/TicketListCarousel';
 const Carousel = () => {
   // body의 display:flex를 block으로 변경
   useEffect(() => {
     const originalDisplayStyle = document.body.style.display;
-    document.body.style.display = 'block'; 
+    document.body.style.display = 'block';
 
     return () => {
       document.body.style.display = originalDisplayStyle;
     };
-  }, []); 
+  }, []);
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -36,16 +35,16 @@ const Carousel = () => {
   return (
     <CarouselContainer>
       <StlyedSlider {...settings}>
-        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
-        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
-        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
-        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
-        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
-        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
-        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
-        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
-        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
-        <CustomSlide hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
+        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
       </StlyedSlider>
     </CarouselContainer>
   );

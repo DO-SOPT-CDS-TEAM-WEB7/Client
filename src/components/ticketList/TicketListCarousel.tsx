@@ -2,13 +2,13 @@ import styled from 'styled-components';
 
 import { HeartImg, HotelImg, StarImg } from '../../assets/image';
 
-interface CustomSlideProps {
+interface TicketListCarouselProps {
   hotelName: string;
   hotelRoom: string;
   hotelBed: string;
 }
 
-const CustomSlide = (props: CustomSlideProps) => {
+const TicketListCarousel = (props: TicketListCarouselProps) => {
   const { hotelName, hotelRoom, hotelBed } = props;
   return (
     <ElementContainer>
@@ -38,7 +38,7 @@ const CustomSlide = (props: CustomSlideProps) => {
   );
 };
 
-export default CustomSlide;
+export default TicketListCarousel;
 
 const ElementContainer = styled.article`
   position: relative;

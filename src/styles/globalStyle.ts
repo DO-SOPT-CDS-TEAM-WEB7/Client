@@ -32,6 +32,14 @@ const GlobalStyle = styled.createGlobalStyle`
     font-size: 62.5%;
   }
 
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 auto;
+    width: 1046px;
+  }
+
   a {
     cursor: pointer;
     text-decoration: none;

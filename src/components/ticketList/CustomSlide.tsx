@@ -145,6 +145,7 @@ const Heart = styled.img`
   position: absolute;
   top: 0.8rem;
   right: 1.2rem;
+  cursor: pointer;
   width: 4.8rem;
   height: 4.8rem;
 `;

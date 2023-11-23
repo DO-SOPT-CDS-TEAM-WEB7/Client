@@ -165,7 +165,7 @@ const fonts = {
   caption05: FONT({
     family: 'Pretendard Variable',
     weight: 400,
-    size: 1.0,
+    size: 1.2,
   }),
 };
 

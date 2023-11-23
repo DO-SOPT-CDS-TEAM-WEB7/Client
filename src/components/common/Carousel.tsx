@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 import { BackwardArrow, ForwardArrow } from '../../assets/image';
 import TicketListCarousel from '../ticketList/TicketListCarousel';
+
 const Carousel = () => {
   // body의 display:flex를 block으로 변경
   useEffect(() => {
@@ -18,15 +19,15 @@ const Carousel = () => {
     };
   }, []);
 
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentslide, setCurrentSlide] = useState(0);
 
   const settings = {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    nextArrow: <NextArrow currentSlide={currentSlide} />,
-    prevArrow: <PrevArrow currentSlide={currentSlide} />,
+    nextArrow: <NextArrow currentSlide={currentslide} />,
+    prevArrow: <PrevArrow currentSlide={currentslide} />,
     afterChange: (index) => setCurrentSlide(index),
     beforeChange: (current, next) => setCurrentSlide(next),
   };
@@ -53,7 +54,7 @@ const Carousel = () => {
 export default Carousel;
 
 interface ArrowProps {
-  currentSlide?: number;
+  currentslide?: number;
   className?: string;
   style?: any;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
@@ -61,11 +62,11 @@ interface ArrowProps {
 
 // 전체 요소 개수 -1 -4 만큼 넣어주기
 const NextArrow = (props: ArrowProps) => {
-  const { currentSlide, className, style, onClick } = props;
+  const { currentslide, className, style, onClick } = props;
   return (
     <NextBtn
       className={className}
-      style={{ ...style, display: 'flex', visibility: currentSlide === 6 ? 'hidden' : 'visible' }}
+      style={{ ...style, display: 'flex', visibility: currentslide === 6 ? 'hidden' : 'visible' }}
       onClick={onClick}>
       <ArrowImg src={ForwardArrow} alt="다음으로" />
     </NextBtn>
@@ -73,11 +74,11 @@ const NextArrow = (props: ArrowProps) => {
 };
 
 const PrevArrow = (props: ArrowProps) => {
-  const { currentSlide, className, style, onClick } = props;
+  const { currentslide, className, style, onClick } = props;
   return (
     <PrevBtn
       className={className}
-      style={{ ...style, display: 'flex', visibility: currentSlide === 0 ? 'hidden' : 'visible' }}
+      style={{ ...style, display: 'flex', visibility: currentslide === 0 ? 'hidden' : 'visible' }}
       onClick={onClick}>
       <ArrowImg src={BackwardArrow} alt="이전으로" />
     </PrevBtn>

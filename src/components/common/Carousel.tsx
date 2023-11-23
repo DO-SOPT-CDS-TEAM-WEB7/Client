@@ -10,7 +10,7 @@ import CustomSlide from '../ticketList/CustomSlide';
 
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  console.log(currentSlide);
+
   const settings = {
     infinite: true,
     speed: 500,

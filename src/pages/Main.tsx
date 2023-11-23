@@ -1,7 +1,7 @@
-import MainTest from '../components/main/MainTest';
+import Header from '../components/main/Header';
 
 const Main = () => {
-  return <MainTest />;
+  return <Header />;
 };
 
 export default Main;

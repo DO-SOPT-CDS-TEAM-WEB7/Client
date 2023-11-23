@@ -8,7 +8,12 @@ import styled from 'styled-components';
 import { BackwardArrow, ForwardArrow } from '../../assets/image';
 import TicketListCarousel from '../ticketList/TicketListCarousel';
 
-const Carousel = () => {
+interface CarouselProps {
+  children: React.ReactNode;
+}
+
+const Carousel = (props: CarouselProps) => {
+  const { children } = props;
   // body의 display:flex를 block으로 변경
   useEffect(() => {
     const originalDisplayStyle = document.body.style.display;
@@ -35,18 +40,7 @@ const Carousel = () => {
   // data에 따른 map, prop 전달
   return (
     <CarouselContainer>
-      <StlyedSlider {...settings}>
-        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
-        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
-        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
-        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
-        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
-        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
-        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
-        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
-        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
-        <TicketListCarousel hotelName="삿포로의 호스텔" hotelRoom="더블룸 (전용 욕실)" hotelBed="침대 1개" />
-      </StlyedSlider>
+      <StlyedSlider {...settings}>{children}</StlyedSlider>
     </CarouselContainer>
   );
 };

@@ -142,14 +142,12 @@ const HotelPerDay = styled.span`
 `;
 
 const Heart = styled.img`
-cursor: pointer;
   position: absolute;
   top: 0.8rem;
   right: 1.2rem;
+  cursor: pointer;
   width: 4.8rem;
   height: 4.8rem;
 `;
 
 // children으로 변경 필요
-// 반응형 필요
-// 반응형일시 화살표 포지션 정하기

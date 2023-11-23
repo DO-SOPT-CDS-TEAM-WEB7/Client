@@ -70,4 +70,5 @@ const HotelInfo = styled.span``;
 
 // 가격 부분 flex 작성 필요, 커밋 푸시 필요
 // children으로 변경 필요
-// 버튼 없애기 구현 필요
+// 반응형 필요
+// 반응형일시 화살표 포지션 정하기

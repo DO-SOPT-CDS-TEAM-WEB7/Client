@@ -12,15 +12,17 @@ const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   console.log(currentSlide);
   const settings = {
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    nextArrow: <NextArrow currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} />,
-    prevArrow: <PrevArrow currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} />,
+    nextArrow: <NextArrow currentSlide={currentSlide} />,
+    prevArrow: <PrevArrow currentSlide={currentSlide} />,
     afterChange: (index) => setCurrentSlide(index),
     beforeChange: (current, next) => setCurrentSlide(next),
   };
+
+  // data에 따른 map, prop 전달
   return (
     <CarouselContainer>
       <StlyedSlider {...settings}>
@@ -43,7 +45,6 @@ export default Carousel;
 
 interface ArrowProps {
   currentSlide?: number;
-  setCurrentSlide: any;
   className?: string;
   style?: any;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
@@ -51,7 +52,7 @@ interface ArrowProps {
 
 // 전체 요소 개수 -1 -4 만큼 넣어주기
 const NextArrow = (props: ArrowProps) => {
-  const { currentSlide, setCurrentSlide, className, style, onClick } = props;
+  const { currentSlide, className, style, onClick } = props;
   return (
     <NextBtn
       className={className}
@@ -63,7 +64,7 @@ const NextArrow = (props: ArrowProps) => {
 };
 
 const PrevArrow = (props: ArrowProps) => {
-  const { currentSlide, setCurrentSlide, className, style, onClick } = props;
+  const { currentSlide, className, style, onClick } = props;
   return (
     <PrevBtn
       className={className}
@@ -73,6 +74,11 @@ const PrevArrow = (props: ArrowProps) => {
     </PrevBtn>
   );
 };
+
+/*
+.slick-slide > div  // 아이템 간 여백값 넣어주기
+.slick-list // 아이템 간 여백값 넣어주기
+*/
 
 const StlyedSlider = styled(Slider)`
   position: relative;
@@ -99,10 +105,12 @@ const StlyedSlider = styled(Slider)`
   }
 `;
 
+// 2번째 : 맨 오른쪽 여백 제외하기 (아이템간 여백만큼 빼주기)
 const CarouselContainer = styled.section`
   padding: 0 14.4rem 0 16rem;
 `;
 
+// position 맞추기
 const NextBtn = styled.div`
   position: absolute;
   right: 1.5rem;
@@ -116,11 +124,7 @@ const NextBtn = styled.div`
   height: 4.2rem;
 `;
 
-const ArrowImg = styled.img`
-  width: 0.897rem;
-  height: 1.559rem;
-`;
-
+// position 맞추기
 const PrevBtn = styled.div`
   position: absolute;
   left: -2.1rem;
@@ -132,4 +136,9 @@ const PrevBtn = styled.div`
   background-color: ${({ theme }) => theme.colors.skscanWt};
   width: 4.2rem;
   height: 4.2rem;
+`;
+
+const ArrowImg = styled.img`
+  width: 0.897rem;
+  height: 1.559rem;
 `;

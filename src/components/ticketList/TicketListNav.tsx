@@ -26,10 +26,10 @@ const TicketListNav = () => {
           <InfoTitle>도착지</InfoTitle>
           <InfoDestination>삿포로</InfoDestination>
         </InfoDiv>
-        <InfoDiv last={false}>
+        <InfoDateContainer>
           <InfoTitle>출발일 - 도착일</InfoTitle>
-          <InfoDate>11.23(목) ~ 11.30(목)</InfoDate>
-        </InfoDiv>
+          <InfoDate></InfoDate>
+        </InfoDateContainer>
         <InfoDiv last={true}>
           <InfoTitle>인원, 좌석등급</InfoTitle>
           <InfoSeat>1명, 일반석</InfoSeat>
@@ -73,7 +73,6 @@ const WayBtn = styled.div<{ clicked: boolean }>`
   background-color: ${({ clicked, theme }) => (clicked ? theme.colors.skscanSecondary : theme.colors.skscanGrey100)};
   cursor: pointer;
   padding: 0.8rem 1.5rem;
-  text-align: center;
   color: ${({ clicked, theme }) => (clicked ? theme.colors.skscanWt : theme.colors.skscanGrey800)};
   ${({ clicked, theme }) => (clicked ? theme.fonts.heading12 : theme.fonts.body04)};
 `;
@@ -108,8 +107,18 @@ const InfoDiv = styled.div<{ last: boolean }>`
   align-items: flex-start;
   justify-content: space-around;
   ${({ last, theme }) => (last ? '' : `border-right: 1px solid ${theme.colors.skscanGrey150};`)};
-
+  
   padding: 3rem 0 3rem 2rem;
+`;
+
+const InfoDateContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  border-right: 1px solid ${({ theme }) => theme.colors.skscanGrey150};
+  padding: 3rem 0 3rem 2rem;
+  width: 22.9rem;
 `;
 
 const InfoTitle = styled.span`
@@ -142,6 +151,9 @@ const InfoSeat = styled.span`
 `;
 
 const SearchBtn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 2.2rem 0;
   border-radius: 1.2rem;
   background-color: ${({ theme }) => theme.colors.skscanSecondary};

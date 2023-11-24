@@ -15,17 +15,6 @@ interface CarouselProps {
 const Carousel = (props: CarouselProps) => {
   const { children, dataLength } = props;
   const disappearindex: number = dataLength - 4;
-
-  // body의 display:flex를 block으로 변경
-  useEffect(() => {
-    const originalDisplayStyle = document.body.style.display;
-    document.body.style.display = 'block';
-
-    return () => {
-      document.body.style.display = originalDisplayStyle;
-    };
-  }, []);
-
   const [currentslide, setCurrentSlide] = useState(0);
 
   const settings = {

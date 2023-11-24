@@ -14,7 +14,7 @@ const MainTest = () => {
 export default MainTest;
 
 const MainTestWrapper = styled.main`
-  background-color: ${({ theme }) => theme.colors.skscan_primary};
+  background-color: ${({ theme }) => theme.colors.skscanPrimary};
   height: 100vh;
 `;
 
@@ -29,6 +29,6 @@ const Title = styled.h1`
   top: 15rem;
   justify-content: center;
   width: 100%;
-  color: ${({ theme }) => theme.colors.skscan_primary};
+  color: ${({ theme }) => theme.colors.skscanPrimary};
   font-size: 10rem;
 `;

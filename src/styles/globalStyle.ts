@@ -4,8 +4,6 @@ import reset from 'styled-reset';
 const GlobalStyle = styled.createGlobalStyle`
   ${reset}
 
-  @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
-
   * {
     box-sizing: border-box;
   }
@@ -32,6 +30,12 @@ const GlobalStyle = styled.createGlobalStyle`
     font-size: 62.5%;
   }
 
+  body {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
   a {
     cursor: pointer;
     text-decoration: none;
@@ -46,6 +50,9 @@ const GlobalStyle = styled.createGlobalStyle`
   }
 
   select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
     cursor: pointer;
   }
 `;

@@ -34,10 +34,8 @@ const GlobalStyle = styled.createGlobalStyle`
 
   body {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 auto;
-    width: 1046px;
+    justify-content: center;
+    width: 100%;
   }
 
   a {

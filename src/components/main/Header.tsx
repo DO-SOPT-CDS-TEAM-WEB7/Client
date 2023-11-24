@@ -4,59 +4,75 @@ import { AirplaneIcon, CarIcon, GlobeIcon, HotelIcon, LikeIcon, Logo, MenuIcon, 
 
 const Header = () => {
   return (
-    <HeaderBar>
-      <HeaderContainer>
-        <IconImg src={Logo} alt="Logo" />
-        <IconWrapper>
-          <IconImg src={GlobeIcon} alt="GlobeIcon" />
-          <IconImg src={LikeIcon} alt="LikeIcon" />
-          <IconImg src={ProfileIcon} alt="ProfileIcon" />
-          <PageName>로그인</PageName>
-          <IconImg src={MenuIcon} alt="MenuIcon" />
-        </IconWrapper>
-      </HeaderContainer>
-      <NavContainer>
-        <NavWrapper>
-          <IconImg src={AirplaneIcon} alt="AirplaneIcon" />
-          <PageName>항공</PageName>
-        </NavWrapper>
-        <NavWrapper>
-          <IconImg src={HotelIcon} alt="HotelIcon" />
-          <PageName>호텔</PageName>
-        </NavWrapper>
-        <NavWrapper>
-          <IconImg src={CarIcon} alt="CarIcon" />
-          <PageName>렌터카</PageName>
-        </NavWrapper>
-      </NavContainer>
-    </HeaderBar>
+    <HeaderContainer>
+      <HeaderBar>
+        <HeaderWrapper>
+          <IconImg src={Logo} alt="Logo" />
+          <IconWrapper>
+            <IconImg src={GlobeIcon} alt="GlobeIcon" />
+            <IconImg src={LikeIcon} alt="LikeIcon" />
+            <IconImg src={ProfileIcon} alt="ProfileIcon" />
+            <PageName>로그인</PageName>
+            <IconImg src={MenuIcon} alt="MenuIcon" />
+          </IconWrapper>
+        </HeaderWrapper>
+        <NavContainer>
+          <NavWrapper>
+            <IconImg src={AirplaneIcon} alt="AirplaneIcon" />
+            <PageName>항공</PageName>
+          </NavWrapper>
+          <NavWrapper>
+            <IconImg src={HotelIcon} alt="HotelIcon" />
+            <PageName>호텔</PageName>
+          </NavWrapper>
+          <NavWrapper>
+            <IconImg src={CarIcon} alt="CarIcon" />
+            <PageName>렌터카</PageName>
+          </NavWrapper>
+        </NavContainer>
+      </HeaderBar>
+    </HeaderContainer>
   );
 };
 
 export default Header;
 
-const HeaderBar = styled.header`
+const HeaderContainer = styled.header`
+  display: flex;
+  position: absolute;
+  left: 0;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.colors.skscanPrimary};
+  padding: 3.4rem calc((100vw - 104.6rem) / 2) 0;
+  width: 100vw;
+  height: 14.6rem;
+  color: ${({ theme }) => theme.colors.skscanWt};
+
+  @media (width <= 1046px) {
+    width: 104.6rem;
+  }
+`;
+
+const HeaderBar = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.colors.skscanPrimary};
-  height: 14.6rem;
-  color: ${({ theme }) => theme.colors.skscanWt};
+  width: 100%;
+  height: 100%;
 `;
 
-const HeaderContainer = styled.section`
+const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 `;
 
-const IconWrapper = styled.section`
+const IconWrapper = styled.div`
   display: flex;
   gap: 0.8rem;
   align-items: center;
 `;
 
 const PageName = styled.span`
-  /* 빈 스타일드 컴포넌트 태그를 주고 싶었는데 어떻게 해야될지를 모르겠어요ㅜ */
   text-align: center;
 `;
 

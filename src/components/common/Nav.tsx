@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { CheckboxImg } from '../../assets/image';
 
-const TicketListNav = () => {
+const Nav = () => {
   return (
     <HeaderContainer>
       <FlightWayContainer>
@@ -40,7 +40,7 @@ const TicketListNav = () => {
   );
 };
 
-export default TicketListNav;
+export default Nav;
 
 const HeaderContainer = styled.nav`
   display: flex;
@@ -107,7 +107,7 @@ const InfoDiv = styled.div<{ last: boolean }>`
   align-items: flex-start;
   justify-content: space-around;
   ${({ last, theme }) => (last ? '' : `border-right: 1px solid ${theme.colors.skscanGrey150};`)};
-  
+
   padding: 3rem 0 3rem 2rem;
 `;
 

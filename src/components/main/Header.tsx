@@ -12,7 +12,7 @@ const Header = () => {
             <IconImg src={GlobeIcon} alt="GlobeIcon" />
             <IconImg src={LikeIcon} alt="LikeIcon" />
             <IconImg src={ProfileIcon} alt="ProfileIcon" />
-            <PageName>로그인</PageName>
+            <PageName className="login">로그인</PageName>
             <IconImg src={MenuIcon} alt="MenuIcon" />
           </IconWrapper>
         </HeaderWrapper>
@@ -23,11 +23,11 @@ const Header = () => {
           </NavWrapper>
           <NavWrapper>
             <IconImg src={HotelIcon} alt="HotelIcon" />
-            <PageName>호텔</PageName>
+            <PageName className="inactive">호텔</PageName>
           </NavWrapper>
           <NavWrapper>
             <IconImg src={CarIcon} alt="CarIcon" />
-            <PageName>렌터카</PageName>
+            <PageName className="inactive">렌터카</PageName>
           </NavWrapper>
         </NavContainer>
       </HeaderBar>
@@ -73,7 +73,19 @@ const IconWrapper = styled.div`
 `;
 
 const PageName = styled.span`
-  text-align: center;
+  font: ${({ theme }) => theme.fonts.body04};
+
+  &.active {
+    font: ${({ theme }) => theme.fonts.heading12};
+  }
+
+  &.login {
+    font: ${({ theme }) => theme.fonts.body06};
+  }
+
+  &.inactive {
+    color: ${({ theme }) => theme.colors.skscanGrey500};
+  }
 `;
 
 const NavContainer = styled.nav`

@@ -4,8 +4,6 @@ import reset from 'styled-reset';
 const GlobalStyle = styled.createGlobalStyle`
   ${reset}
 
-  @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
-
   * {
     box-sizing: border-box;
   }
@@ -34,10 +32,8 @@ const GlobalStyle = styled.createGlobalStyle`
 
   body {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 auto;
-    width: 1046px;
+    justify-content: center;
+    width: 100%;
   }
 
   a {

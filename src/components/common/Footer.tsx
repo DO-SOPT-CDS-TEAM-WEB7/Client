@@ -1,22 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { ChevronDownIcon } from '../../assets/icon';
+
 const Footer = () => {
+  console.log(ChevronDownIcon);
   return (
     <FooterWrapper>
       <LeftSide>
         <SelectBoxWrapper>
-          <SelectBox>
+          <SelectBox className="country">
             <SelectBoxOption disabled selected>
               대한민국
             </SelectBoxOption>
           </SelectBox>
-          <SelectBox>
+          <SelectBox className="language">
             <SelectBoxOption disabled selected>
               한국어
             </SelectBoxOption>
           </SelectBox>
-          <SelectBox>
+          <SelectBox className="exchange">
             <SelectBoxOption disabled selected>
               KRW
             </SelectBoxOption>
@@ -55,7 +58,7 @@ export default Footer;
 const FooterWrapper = styled.footer`
   display: flex;
   justify-content: space-between;
-  padding: 5.1rem 16rem 10.2rem;
+  padding: 5.1rem 0 10.2rem;
 `;
 
 const SelectBoxWrapper = styled.div`
@@ -66,8 +69,25 @@ const SelectBoxWrapper = styled.div`
 const SelectBox = styled.select`
   border: 1px solid ${({ theme }) => theme.colors.skscanGrey150};
   border-radius: 0.4rem;
+  background-image: url(${ChevronDownIcon});
+  background-repeat: no-repeat;
   padding: 1.2rem 1.6rem;
   color: ${({ theme }) => theme.colors.skscanGrey800};
+
+  &.country {
+    background-position: 9.3rem;
+    width: 12.7rem;
+  }
+
+  &.language {
+    background-position: 8.1rem;
+    width: 11.5rem;
+  }
+
+  &.exchange {
+    background-position: 5.5rem;
+    width: 8.9rem;
+  }
 `;
 
 const SelectBoxOption = styled.option`

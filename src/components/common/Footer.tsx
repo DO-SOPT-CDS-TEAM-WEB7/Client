@@ -6,9 +6,9 @@ import { ChevronDownIcon } from '../../assets/icon';
 const Footer = () => {
   console.log(ChevronDownIcon);
   return (
-    <FooterWrapper>
+    <FooterContainer>
       <LeftSide>
-        <SelectBoxWrapper>
+        <SelectBoxContainer>
           <SelectBox className="country">
             <SelectBoxOption disabled selected>
               대한민국
@@ -24,11 +24,11 @@ const Footer = () => {
               KRW
             </SelectBoxOption>
           </SelectBox>
-        </SelectBoxWrapper>
-        <TextWrapper>
+        </SelectBoxContainer>
+        <TextContainer>
           <Text>전 세계 저가 항공권을 비교하고 예약하세요</Text>
           <CopyRight>© Skyscanner Ltd 2002 – 2023</CopyRight>
-        </TextWrapper>
+        </TextContainer>
       </LeftSide>
       <NavList>
         <NavMenu>
@@ -49,19 +49,19 @@ const Footer = () => {
           <NavItem>전세계 사이트</NavItem>
         </NavMenu>
       </NavList>
-    </FooterWrapper>
+    </FooterContainer>
   );
 };
 
 export default Footer;
 
-const FooterWrapper = styled.footer`
+const FooterContainer = styled.footer`
   display: flex;
   justify-content: space-between;
   padding: 5.1rem 0 10.2rem;
 `;
 
-const SelectBoxWrapper = styled.div`
+const SelectBoxContainer = styled.div`
   display: flex;
   gap: 1.2rem;
 `;
@@ -128,7 +128,7 @@ const NavItem = styled.li`
   color: ${({ theme }) => theme.colors.skscanGrey600};
 `;
 
-const TextWrapper = styled.div`
+const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.4rem;

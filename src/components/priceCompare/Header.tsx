@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ChevronLeft, PriceCompareLogo } from '../../assets/icon';
@@ -7,7 +8,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Contents>
-        <GoBackContainer>
+        <GoBackContainer to="/ticketList">
           <StyledImg src={ChevronLeft} />
           <GoBackText>돌아가기</GoBackText>
         </GoBackContainer>
@@ -38,7 +39,7 @@ const Contents = styled.div`
   width: 57.3rem;
 `;
 
-const GoBackContainer = styled.div`
+const GoBackContainer = styled(Link)`
   display: flex;
   gap: 1.6rem;
   align-items: center;

@@ -15,7 +15,7 @@ export interface HotelItemProps {
 const HotelItem = (props: HotelItemProps) => {
   const { hotelImg, hotelName, hotelRoom, hotelBed, hotelRate, hotelReview, hotelPrice } = props;
   return (
-    <ElementContainer>
+    <HotelItemContainer>
       <Heart src={HeartImg} alt="좋아요" />
       <ElementImg src={hotelImg} alt="이미지" />
       <DescriptionWrapper>
@@ -38,13 +38,13 @@ const HotelItem = (props: HotelItemProps) => {
           </HotelPriceContainer>
         </HotelPriceStarContainer>
       </DescriptionWrapper>
-    </ElementContainer>
+    </HotelItemContainer>
   );
 };
 
 export default HotelItem;
 
-const ElementContainer = styled.article`
+const HotelItemContainer = styled.article`
   position: relative;
   border-radius: 1.6rem;
   width: 25rem;

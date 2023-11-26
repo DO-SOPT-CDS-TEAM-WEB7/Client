@@ -1,14 +1,14 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Main from '../../pages/Main';
-import TicketListTest from '../ticketList/TicketListTest';
+import HotelItem from '../ticketList/HotelCarousel';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/ticketList" element={<TicketListTest />} />
+        <Route path="/ticketList" element={<HotelItem />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,19 +1,23 @@
 import styled from 'styled-components';
 
-import { HeartImg, HotelImg, StarImg } from '../../assets/image';
+import { HeartImg, StarImg } from '../../assets/image';
 
-interface TicketListCarouselProps {
+export interface HotelItemProps {
+  hotelImg: string;
   hotelName: string;
   hotelRoom: string;
   hotelBed: string;
+  hotelRate: number;
+  hotelReview: string;
+  hotelPrice: string;
 }
 
-const TicketListCarousel = (props: TicketListCarouselProps) => {
-  const { hotelName, hotelRoom, hotelBed } = props;
+const HotelItem = (props: HotelItemProps) => {
+  const { hotelImg, hotelName, hotelRoom, hotelBed, hotelRate, hotelReview, hotelPrice } = props;
   return (
     <ElementContainer>
       <Heart src={HeartImg} alt="좋아요" />
-      <ElementImg src={HotelImg} alt="이미지" />
+      <ElementImg src={hotelImg} alt="이미지" />
       <DescriptionWrapper>
         <HotelDescription>
           <HotelName>{hotelName}</HotelName>
@@ -25,11 +29,11 @@ const TicketListCarousel = (props: TicketListCarouselProps) => {
         <HotelPriceStarContainer>
           <HotelStarContainer>
             <HotelStarImg src={StarImg} alt="별점" />
-            <HotelStarRate>4.7</HotelStarRate>
-            <HotelStarNum>(173)</HotelStarNum>
+            <HotelStarRate>{hotelRate}</HotelStarRate>
+            <HotelStarNum>{hotelReview}</HotelStarNum>
           </HotelStarContainer>
           <HotelPriceContainer>
-            <HotelPrice>75,113원</HotelPrice>
+            <HotelPrice>{hotelPrice}</HotelPrice>
             <HotelPerDay>/박</HotelPerDay>
           </HotelPriceContainer>
         </HotelPriceStarContainer>
@@ -38,7 +42,7 @@ const TicketListCarousel = (props: TicketListCarouselProps) => {
   );
 };
 
-export default TicketListCarousel;
+export default HotelItem;
 
 const ElementContainer = styled.article`
   position: relative;

@@ -1,7 +1,7 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 
@@ -18,7 +18,7 @@ const Carousel = (props: CarouselProps) => {
   const [currentslide, setCurrentSlide] = useState(0);
 
   const settings = {
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,

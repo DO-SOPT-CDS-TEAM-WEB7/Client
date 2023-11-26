@@ -71,6 +71,7 @@ const BannerContents = styled.div`
   top: 50%;
   left: 50%;
   flex-direction: column;
+  gap: 0.3rem;
   align-items: center;
   justify-content: center;
   transform: translate(-50%, -50%);
@@ -83,7 +84,7 @@ const Title = styled.h1`
 `;
 
 const Description = styled.p`
-  ${({ theme }) => theme.fonts.caption05}
+  ${({ theme }) => theme.fonts.caption03}
 
   color: ${({ theme }) => theme.colors.skscanWt};
 `;

@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 import { CheckboxImg } from '../../assets/image';
 
-const Nav = () => {
+const SearchBar = () => {
   return (
-    <HeaderContainer>
+    <SearchBarContainer>
       <FlightWayContainer>
         <RoundOnewayContainer>
           <WayBtn clicked={true}>왕복</WayBtn>
@@ -36,13 +36,13 @@ const Nav = () => {
         </InfoDiv>
         <SearchBtn>검색하기</SearchBtn>
       </FlightInfoContainer>
-    </HeaderContainer>
+    </SearchBarContainer>
   );
 };
 
-export default Nav;
+export default SearchBar;
 
-const HeaderContainer = styled.nav`
+const SearchBarContainer = styled.nav`
   display: flex;
   flex-direction: column;
   border-radius: 1.2rem;

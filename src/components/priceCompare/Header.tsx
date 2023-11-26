@@ -58,12 +58,12 @@ const StyledImg = styled.img``;
 const Banner = styled.img`
   position: absolute;
   width: 100%;
+  height: 17.3rem;
 `;
 
 const BannerContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 11.4rem;
 `;
 
 const BannerContents = styled.div`
@@ -76,6 +76,7 @@ const BannerContents = styled.div`
   align-items: center;
   justify-content: center;
   transform: translate(-50%, -50%);
+  margin-top: 7.2rem;
 `;
 
 const Title = styled.h1`

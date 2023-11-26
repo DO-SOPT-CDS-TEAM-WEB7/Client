@@ -2,7 +2,9 @@ import { DefaultTheme } from 'styled-components';
 
 const colors = {
   skscanPrimary: '#05203C',
-  skscanSecondary: '#0062e3',
+  skscanPrimary2: '#003B88',
+  skscanSecondary: '#0062E3',
+  skscanSecondary2: '#D3E6FF',
   skscanBk: '#161616',
   skscanWt: '#FFFFFF',
   skscanRed: '#FF5B5B',
@@ -14,13 +16,13 @@ const colors = {
   skscanGrey100: '#EEF1F2',
   skscanGrey150: '#E6E7EB',
   skscanGrey200: '#D5D7E0',
-  skscanGrey300: '#B9BCC8',
-  skscanGrey400: '#9699A6',
-  skscanGrey500: '#7E8087',
-  skscanGrey600: '#636469',
-  skscanGrey700: '#555859',
-  skscanGrey800: '#48494A',
-  skscanGrey900: '#383939',
+  skscanGrey300: '#BFC2CE',
+  skscanGrey400: '#9DA1AD',
+  skscanGrey500: '#878c9B',
+  skscanGrey600: '#727682',
+  skscanGrey700: '#5C5F6A',
+  skscanGrey800: '#454851',
+  skscanGrey900: '#2A2B30',
 };
 
 export type ColorsTypes = typeof colors;
@@ -38,6 +40,20 @@ const FONT = ({ family, weight, size }: Font): string => {
     font-size:${size}rem;
     `;
 };
+
+const effects = {
+  boxDrop: `
+  box-shadow: 0 0.4rem 2.5rem 0 rgba(0, 0, 0, 0.10);
+  `,
+  boxDrop2: `
+  box-shadow: 0 0.8rem 2.5rem 0 rgba(0, 0, 0, 0.10);
+  `,
+  boxDrop3: `
+  box-shadow: 0 0.4rem 1.5rem 0 rgba(0, 0, 0, 0.10);
+  `,
+};
+
+export type EffectsTypes = typeof effects;
 
 const fonts = {
   heading01: FONT({
@@ -165,7 +181,7 @@ const fonts = {
   caption05: FONT({
     family: 'Pretendard Variable',
     weight: 400,
-    size: 1.0,
+    size: 1.2,
   }),
 };
 
@@ -174,4 +190,5 @@ export type FontsTypes = typeof fonts;
 export const theme: DefaultTheme = {
   colors,
   fonts,
+  effects,
 };

@@ -1,7 +1,5 @@
-import MainTest from '../components/main/MainTest';
-
 const Main = () => {
-  return <MainTest />;
+  return <></>;
 };
 
 export default Main;

@@ -47,10 +47,6 @@ const HeaderContainer = styled.header`
   width: 100vw;
   height: 14.6rem;
   color: ${({ theme }) => theme.colors.skscanWt};
-
-  @media (width <= 1046px) {
-    width: 104.6rem;
-  }
 `;
 
 const HeaderBar = styled.div`
@@ -73,14 +69,14 @@ const IconWrapper = styled.div`
 `;
 
 const PageName = styled.span`
-  font: ${({ theme }) => theme.fonts.body04};
+  ${({ theme }) => theme.fonts.body04};
 
   &.active {
-    font: ${({ theme }) => theme.fonts.heading12};
+    ${({ theme }) => theme.fonts.heading12};
   }
 
   &.login {
-    font: ${({ theme }) => theme.fonts.body06};
+    ${({ theme }) => theme.fonts.body06};
   }
 
   &.inactive {

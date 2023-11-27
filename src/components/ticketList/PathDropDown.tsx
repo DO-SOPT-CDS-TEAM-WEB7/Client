@@ -142,7 +142,7 @@ const SelectBtnContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  border-top: 0.1rem solid #d9d9d9;
+  border-top: 0.1rem solid ${({ theme }) => theme.colors.skscanGrey150};
   padding: 2rem 2rem 2rem 0;
   width: 100%;
 `;

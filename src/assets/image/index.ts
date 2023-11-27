@@ -21,3 +21,4 @@ export { default as HotelImg6 } from './img_hotel_6.png';
 export { default as HotelImg7 } from './img_hotel_7.png';
 export { default as HotelImg8 } from './img_hotel_8.png';
 export { default as MainImg } from './img_main.png';
+export { default as TabGraphImg } from './tabbox_depart_graph_default.png';

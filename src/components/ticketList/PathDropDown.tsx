@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { CheckImg, DownArrow } from '../../assets/image';
 
 const PathDropDown = () => {
+  const [dropDownClicked, setDropDownClicked] = useState(false);
+
+  const onClickDropDown = (e) => {
+    e.preventDefault();
+    setDropDownClicked(!dropDownClicked);
+  };
+
   return (
     <>
-      <Select>
+      <Select onClick={onClickDropDown}>
         <Name>경유</Name>
         <Arrow src={DownArrow} alt="아래 화살표" />
       </Select>
 
-      <OptionContainer>
+      <OptionContainer $isOpen={dropDownClicked}>
         <List>
           <StyledLabel htmlFor="직항">
             <StyledInput type="checkbox" id="직항" name="직항" />
@@ -66,11 +73,13 @@ const Name = styled.span`
 `;
 
 const Arrow = styled.img`
+  cursor: pointer;
   width: 2.4rem;
   height: 2.4rem;
 `;
 
-const OptionContainer = styled.div`
+const OptionContainer = styled.div<{ $isOpen: boolean }>`
+  display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
   position: absolute;
   top: 4.9rem;
   left: 0;

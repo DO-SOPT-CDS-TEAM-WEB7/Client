@@ -39,8 +39,8 @@ const Ticket = () => {
 
         <FlightContainer>
           <Depart>
-            <Time>13:15</Time>
-            <Place>ICN</Place>
+            <Time>17:05</Time>
+            <Place>CTS</Place>
           </Depart>
 
           <DurationContainer>
@@ -50,8 +50,8 @@ const Ticket = () => {
           </DurationContainer>
 
           <Arrive>
-            <Time>16:05</Time>
-            <Place>CTS</Place>
+            <Time>11:15</Time>
+            <Place>ICN</Place>
           </Arrive>
         </FlightContainer>
       </ArrivalContainer>
@@ -91,7 +91,7 @@ const FlightCompany = styled.div`
 `;
 
 const FlightLogo = styled.img`
-  margin: 0.8rem 2.4rem 0 0;
+  margin-right: 2.4rem;
   width: 4.8rem;
   height: 4.8rem;
 `;
@@ -109,7 +109,7 @@ const FlightContainer = styled.div`
 const Depart = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  align-items: flex-end;
   margin-right: 1.7rem;
 `;
 
@@ -125,8 +125,6 @@ const Time = styled.span`
   margin-bottom: 0.1rem;
 `;
 const Place = styled.span`
-  margin-left: 2.4rem;
-
   ${({ theme }) => theme.fonts.body04};
 
   color: ${({ theme }) => theme.colors.skscanGrey500};

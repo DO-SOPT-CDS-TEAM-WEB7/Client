@@ -14,6 +14,12 @@ const RecommendFlight = () => {
           <IconImg src={ArrowRightGrayIcon} alt="ArrowRightGrayIcon" />
         </SeeAll>
       </FlightHeader>
+      <BtnWrapper>
+        <TypeBtn className="selected">인기 도시</TypeBtn>
+        <TypeBtn className="not-selected">인기 국가</TypeBtn>
+        <TypeBtn className="not-selected">인기 항공편</TypeBtn>
+        <TypeBtn className="not-selected">주요 항공사</TypeBtn>
+      </BtnWrapper>
       <FlightCarousel />
     </RecommendFlightContainer>
   );
@@ -47,4 +53,26 @@ const SeeAll = styled.div`
 
 const IconImg = styled.img`
   object-fit: contain;
+`;
+
+const BtnWrapper = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
+const TypeBtn = styled.span`
+  border-radius: 2rem;
+  padding: 0.8rem 1.5rem;
+  width: max-content;
+  ${({ theme }) => theme.fonts.body04};
+
+  &.selected {
+    background-color: ${({ theme }) => theme.colors.skscanSecondary};
+    color: ${({ theme }) => theme.colors.skscanWt};
+  }
+
+  &.not-selected {
+    background-color: ${({ theme }) => theme.colors.skscanGrey100};
+    color: ${({ theme }) => theme.colors.skscanGrey900};
+  }
 `;

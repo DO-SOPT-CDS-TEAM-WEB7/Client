@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ArrowImg, KoreanAirImg, LeafImg } from '../../assets/image';
+import { ArrowImg, HeartBlackImg, KoreanAirImg, LeafImg } from '../../assets/image';
 
 const Ticket = () => {
   return (
@@ -69,6 +69,7 @@ const Ticket = () => {
           <ChooseBtn>선택하기</ChooseBtn>
         </PriceChooseContainer>
       </CarbonPriceContainer>
+      <Like src={HeartBlackImg} alt="좋아요" />
     </TicketContainer>
   );
 };
@@ -186,15 +187,15 @@ const CarbonImg = styled.img`
   height: 2.4rem;
 `;
 
-// 폰트 수정 필
 const CarbonMsg = styled.span`
   color: ${({ theme }) => theme.colors.skscanGreen};
   ${({ theme }) => theme.fonts.body04};
 `;
 // 폰트 수정 필
 const CarbonMsgBold = styled.span`
+  margin: 0 0.4rem;
   color: ${({ theme }) => theme.colors.skscanGreen};
-  ${({ theme }) => theme.fonts.body05};
+  ${({ theme }) => theme.fonts.heading12};
 `;
 
 const PriceChooseContainer = styled.div`
@@ -217,4 +218,11 @@ const ChooseBtn = styled.button`
   padding: 1.2rem 2.4rem;
   color: ${({ theme }) => theme.colors.skscanSecondary};
   ${({ theme }) => theme.fonts.heading07};
+`;
+const Like = styled.img`
+  position: absolute;
+  top: 2.6rem;
+  right: 3rem;
+  width: 3.6rem;
+  height: 3.6rem;
 `;

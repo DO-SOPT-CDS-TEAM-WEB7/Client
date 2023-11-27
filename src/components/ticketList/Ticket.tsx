@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ArrowImg, KoreanAirImg } from '../../assets/image';
+import { ArrowImg, KoreanAirImg, LeafImg } from '../../assets/image';
 
 const Ticket = () => {
   return (
@@ -55,6 +55,20 @@ const Ticket = () => {
           </Arrive>
         </FlightContainer>
       </ArrivalContainer>
+
+      <CarbonPriceContainer>
+        <Carbon>
+          <CarbonImg src={LeafImg} alt="탄소 나뭇잎" />
+          <CarbonMsg>탄소배출량</CarbonMsg>
+          <CarbonMsgBold>21% 감소</CarbonMsgBold>
+          <CarbonMsg>항공편</CarbonMsg>
+        </Carbon>
+        <PriceChooseContainer>
+          <Price>467,900</Price>
+          <Won>원</Won>
+          <ChooseBtn>선택하기</ChooseBtn>
+        </PriceChooseContainer>
+      </CarbonPriceContainer>
     </TicketContainer>
   );
 };
@@ -63,6 +77,7 @@ export default Ticket;
 
 const TicketContainer = styled.article`
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
@@ -148,4 +163,58 @@ const PathArrow = styled.img`
 const DurationTime = styled.span`
   color: ${({ theme }) => theme.colors.skscanGrey500};
   ${({ theme }) => theme.fonts.body06};
+`;
+
+const CarbonPriceContainer = styled.div`
+  display: flex;
+  position: absolute;
+  right: 3.6rem;
+  bottom: 3.6rem;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+
+const Carbon = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.6rem;
+`;
+
+const CarbonImg = styled.img`
+  margin-right: 0.6rem;
+  width: 2.4rem;
+  height: 2.4rem;
+`;
+
+// 폰트 수정 필
+const CarbonMsg = styled.span`
+  color: ${({ theme }) => theme.colors.skscanGreen};
+  ${({ theme }) => theme.fonts.body04};
+`;
+// 폰트 수정 필
+const CarbonMsgBold = styled.span`
+  color: ${({ theme }) => theme.colors.skscanGreen};
+  ${({ theme }) => theme.fonts.body05};
+`;
+
+const PriceChooseContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+const Price = styled.span`
+  color: ${({ theme }) => theme.colors.skscanBk};
+  ${({ theme }) => theme.fonts.heading03};
+`;
+const Won = styled.span`
+  margin-right: 2rem;
+  color: ${({ theme }) => theme.colors.skscanBk};
+  ${({ theme }) => theme.fonts.heading07};
+`;
+
+const ChooseBtn = styled.button`
+  border-radius: 1.2rem;
+  background-color: ${({ theme }) => theme.colors.skscanSecondary2};
+  padding: 1.2rem 2.4rem;
+  color: ${({ theme }) => theme.colors.skscanSecondary};
+  ${({ theme }) => theme.fonts.heading07};
 `;

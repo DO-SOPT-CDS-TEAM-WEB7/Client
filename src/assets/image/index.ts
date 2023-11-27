@@ -2,3 +2,4 @@
 export { default as ArrowImg } from './icn_arrow.png';
 export { default as KoreanAirImg } from './img_koreanair@2x.png';
 export { default as MainImg } from './img_main.png';
+export { default as LeafImg } from './leaf.fill@2x.png';

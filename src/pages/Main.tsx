@@ -1,7 +1,7 @@
-import MainTest from '../components/main/MainTest';
+import QnA from '../components/main/QnA';
 
 const Main = () => {
-  return <MainTest />;
+  return <QnA />;
 };
 
 export default Main;

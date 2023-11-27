@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Main from '../../pages/Main';
 import PriceCompare from '../../pages/PriceCompare';
 
+
 const Router = () => {
   return (
     <BrowserRouter>

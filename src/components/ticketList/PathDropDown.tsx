@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { CheckImg, DownArrow } from '../../assets/image';
+import { CheckImg, DownArrow, UpArrowImg } from '../../assets/image';
 
 const PathDropDown = () => {
   const [dropDownClicked, setDropDownClicked] = useState(false);
 
-  const onClickDropDown = (e) => {
+  const onClickDropDown = (e: React.MouseEvent) => {
     e.preventDefault();
     setDropDownClicked(!dropDownClicked);
   };
@@ -15,7 +15,7 @@ const PathDropDown = () => {
     <>
       <Select onClick={onClickDropDown}>
         <Name>경유</Name>
-        <Arrow src={DownArrow} alt="아래 화살표" />
+        {dropDownClicked ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
       </Select>
 
       <OptionContainer $isOpen={dropDownClicked}>
@@ -38,7 +38,7 @@ const PathDropDown = () => {
             <StyledInput type="checkbox" id="직항" name="직항" />
             <StyledTextContainer>
               <Path>2번 이상 경유</Path>
-              <Price>000,000원부터</Price>
+              <Price>없음</Price>
             </StyledTextContainer>
           </StyledLabel>
         </List>
@@ -59,6 +59,7 @@ const Select = styled.div`
   justify-content: center;
   border: 0.1rem solid ${({ theme }) => theme.colors.skscanGrey150};
   border-radius: 0.8rem;
+  cursor: pointer;
   padding: 0.8rem 1rem 0.8rem 1.6rem;
 
   &.end {
@@ -129,6 +130,8 @@ const StyledTextContainer = styled.div`
 
 const Path = styled.span`
   ${({ theme }) => theme.fonts.caption02};
+
+  margin-bottom: 0.3rem;
 `;
 const Price = styled.span`
   color: ${({ theme }) => theme.colors.skscanGrey600};

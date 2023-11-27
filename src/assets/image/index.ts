@@ -1,4 +1,5 @@
 // 명명규칙은 xxxxImg로 통일
+export { default as UpArrowImg } from './arrow_up.png';
 export { default as CheckImg } from './check.png';
 export { default as CheckboxImg } from './checkbox@2x.png';
 export { default as BackwardArrow } from './chevron.backward.png';

@@ -4,6 +4,7 @@ export { default as BackwardArrow } from './chevron.backward.png';
 export { default as ForwardArrow } from './chevron.forward.png';
 export { default as HeadBanner } from './headbanner.png';
 export { default as AirplaneImg } from './icn_airplane@2x.png';
+export { default as DownArrow } from './icn_arrow_default@2x.png';
 export { default as BedImg } from './icn_bed@2x.png';
 export { default as CarImg } from './icn_car@2x.png';
 export { default as HeartImg } from './icn_heart.png';

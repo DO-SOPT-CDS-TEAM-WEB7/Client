@@ -13,7 +13,7 @@ const PathDropDown = () => {
 
   return (
     <>
-      <Select onClick={onClickDropDown}>
+      <Select onClick={onClickDropDown} $isOpen={dropDownClicked}>
         <Name>경유</Name>
         {dropDownClicked ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
       </Select>
@@ -53,11 +53,11 @@ const PathDropDown = () => {
 
 export default PathDropDown;
 
-const Select = styled.div`
+const Select = styled.div<{ $isOpen: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 0.1rem solid ${({ theme }) => theme.colors.skscanGrey150};
+  border: 0.1rem solid ${({ $isOpen, theme }) => ($isOpen ? theme.colors.skscanSecondary : theme.colors.skscanGrey150)};
   border-radius: 0.8rem;
   cursor: pointer;
   padding: 0.8rem 1rem 0.8rem 1.6rem;

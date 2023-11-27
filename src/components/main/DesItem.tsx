@@ -27,7 +27,6 @@ export default DesItem;
 const DesItemContainer = styled.article`
   position: relative;
   height: 33.2rem;
-  ${({ theme }) => theme.effects.boxDrop};
 `;
 
 const DesImg = styled.img`

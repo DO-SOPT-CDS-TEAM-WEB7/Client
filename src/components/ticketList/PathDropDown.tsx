@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { DownArrow } from '../../assets/image';
+import { CheckImg, DownArrow } from '../../assets/image';
 
 const PathDropDown = () => {
   return (
@@ -10,6 +10,7 @@ const PathDropDown = () => {
         <Name>경유</Name>
         <Arrow src={DownArrow} alt="아래 화살표" />
       </Select>
+
       <OptionContainer>
         <List>
           <StyledLabel htmlFor="직항">
@@ -29,7 +30,7 @@ const PathDropDown = () => {
           <StyledLabel htmlFor="직항">
             <StyledInput type="checkbox" id="직항" name="직항" />
             <StyledTextContainer>
-              <Path>직항</Path>
+              <Path>2번 이상 경유</Path>
               <Price>000,000원부터</Price>
             </StyledTextContainer>
           </StyledLabel>
@@ -88,7 +89,22 @@ const List = styled.ul`
   width: 100%;
 `;
 
-const StyledInput = styled.input``;
+const StyledInput = styled.input`
+  appearance: none;
+  border-radius: 0.4rem;
+  background-color: ${({ theme }) => theme.colors.skscanGrey200};
+  background-image: url('${CheckImg}');
+  background-position: 50% 40%;
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+  width: 2rem;
+  height: 2rem;
+
+  &:checked {
+    background-color: ${({ theme }) => theme.colors.skscanSecondary};
+  }
+`;
+
 const StyledLabel = styled.label`
   display: flex;
   align-items: center;
@@ -114,7 +130,7 @@ const SelectBtnContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  border-top: 0.1rem solid #D9D9D9;
+  border-top: 0.1rem solid #d9d9d9;
   padding: 2rem 2rem 2rem 0;
   width: 100%;
 `;

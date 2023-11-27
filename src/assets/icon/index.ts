@@ -1,4 +1,5 @@
 // 명명규칙은 xxxxIcon으로 통일
+export { default as ChevronDownIcon } from './chevronDown.svg';
 export { default as AirplaneIcon } from './airplane.svg';
 export { default as CarIcon } from './car.svg';
 export { default as GlobeIcon } from './globe.svg';

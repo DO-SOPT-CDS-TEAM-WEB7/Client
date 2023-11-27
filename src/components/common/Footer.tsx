@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { ChevronDownIcon } from '../../assets/icon';
 
 const Footer = () => {
-  console.log(ChevronDownIcon);
   return (
     <FooterContainer>
       <LeftSide>

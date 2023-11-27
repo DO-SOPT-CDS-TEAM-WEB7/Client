@@ -31,13 +31,15 @@ interface Font {
   family: string;
   weight: number;
   size: number;
+  height: string;
 }
 
-const FONT = ({ family, weight, size }: Font): string => {
+const FONT = ({ family, weight, size, height }: Font): string => {
   return `
     font-family:${family};
     font-weight:${weight};
     font-size:${size}rem;
+    line-height: ${height}; 
     `;
 };
 
@@ -57,131 +59,156 @@ export type EffectsTypes = typeof effects;
 
 const fonts = {
   heading01: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 700,
     size: 4.8,
+    height: 'normal',
   }),
   heading02: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 700,
     size: 3.6,
+    height: 'normal',
   }),
   heading03: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 700,
     size: 3.2,
+    height: 'normal',
   }),
   heading04: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 700,
     size: 3.0,
+    height: 'normal',
   }),
   heading05: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 700,
     size: 2.8,
+    height: 'normal',
   }),
   heading06: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 700,
     size: 2.4,
+    height: 'normal',
   }),
   heading07: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 600,
     size: 2.4,
+    height: 'normal',
   }),
   heading08: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 600,
     size: 2.2,
+    height: 'normal',
   }),
   heading09: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 700,
     size: 2.1,
+    height: 'normal',
   }),
   heading10: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 600,
     size: 2.0,
+    height: 'normal',
   }),
   heading11: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 700,
     size: 2.0,
+    height: 'normal',
   }),
   heading12: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 700,
     size: 1.8,
+    height: 'normal',
   }),
   heading13: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 600,
     size: 1.8,
+    height: 'normal',
   }),
   heading14: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 700,
     size: 1.6,
+    height: 'normal',
   }),
 
   body01: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 600,
     size: 2.0,
+    height: 'normal',
   }),
   body02: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 400,
     size: 2.0,
+    height: 'normal',
   }),
   body03: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 500,
     size: 1.8,
+    height: 'normal',
   }),
   body04: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 400,
     size: 1.8,
+    height: 'normal',
   }),
   body05: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 600,
     size: 1.6,
+    height: 'normal',
   }),
   body06: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 400,
     size: 1.6,
+    height: 'normal',
   }),
 
   caption01: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 600,
     size: 1.4,
+    height: 'normal',
   }),
   caption02: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 400,
     size: 1.4,
+    height: 'normal',
   }),
   caption03: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 600,
     size: 1.2,
+    height: 'normal',
   }),
   caption04: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 500,
     size: 1.2,
+    height: 'normal',
   }),
   caption05: FONT({
-    family: 'Pretendard Variable',
+    family: 'Pretendard',
     weight: 400,
     size: 1.2,
+    height: 'normal',
   }),
 };
 

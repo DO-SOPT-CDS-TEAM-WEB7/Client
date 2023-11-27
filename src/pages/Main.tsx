@@ -1,5 +1,7 @@
+import QnA from '../components/main/QnA';
+
 const Main = () => {
-  return <></>;
+  return <QnA />;
 };
 
 export default Main;

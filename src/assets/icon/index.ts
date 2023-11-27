@@ -2,3 +2,5 @@
 export { default as ChevronLeft } from './chevronLeft.svg';
 export { default as ArrowDownIcon } from './ic_arrowdown.svg';
 export { default as PriceCompareLogo } from './priceCompareLogo.svg';
+export { default as ArrowDownIcon } from './ic_arrow_down.svg';
+export { default as ArrowRightGrayIcon } from './ic_arrow_right_gray.svg';

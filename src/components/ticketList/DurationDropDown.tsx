@@ -1,34 +1,27 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { DownArrow, TabGraphImg, UpArrowImg } from '../../assets/image';
+import { CheckImg, DownArrow, TabGraphImg, UpArrowImg } from '../../assets/image';
 
-const TimeDropDown = () => {
+const DurationDropDown = () => {
   const [dropDownClicked, setDropDownClicked] = useState(false);
 
   const onClickDropDown = (e: React.MouseEvent) => {
     e.preventDefault();
     setDropDownClicked(!dropDownClicked);
   };
-
   return (
     <>
       <Select onClick={onClickDropDown} $isOpen={dropDownClicked}>
-        <Name $isOpen={dropDownClicked}>출발 시간대 설정</Name>
+        <Name>총 소요시간</Name>
         {dropDownClicked ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
       </Select>
-
       <OptionContainer $isOpen={dropDownClicked}>
         <DepartArriveContainer>
-          <DepartArrive>가는 날 출발시간</DepartArrive>
-          <Time>오전 12:00 - 오후 11:59</Time>
+          <Time>2.0시간 - 14.0시간</Time>
           <GraphImg src={TabGraphImg} alt="그래프" />
         </DepartArriveContainer>
-        <DepartArriveContainer>
-          <DepartArrive>오는 날 출발시간</DepartArrive>
-          <Time>오전 12:00 - 오후 11:59</Time>
-          <GraphImg src={TabGraphImg} alt="그래프" />
-        </DepartArriveContainer>
+
         <SelectBtnContainer>
           <Cancle>취소</Cancle>
           <Confirm>적용하기</Confirm>
@@ -38,7 +31,7 @@ const TimeDropDown = () => {
   );
 };
 
-export default TimeDropDown;
+export default DurationDropDown;
 
 const Select = styled.div<{ $isOpen: boolean }>`
   display: flex;
@@ -55,10 +48,9 @@ const Select = styled.div<{ $isOpen: boolean }>`
 `;
 
 const Name = styled.span<{ $isOpen: boolean }>`
-  margin-right: 2.2rem;
-
   ${({ theme }) => theme.fonts.caption02};
 
+  margin-right: 2.2rem;
   color: ${({ $isOpen, theme }) => ($isOpen ? theme.colors.skscanSecondary : theme.colors.skscanGrey800)};
 `;
 
@@ -72,7 +64,7 @@ const OptionContainer = styled.div<{ $isOpen: boolean }>`
   display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
   position: absolute;
   top: 4.9rem;
-  left: 10.9rem;
+  left: 28.5rem;
   z-index: 1;
   border: 0.1rem solid ${({ theme }) => theme.colors.skscanSecondary};
   border-radius: 0.8rem;
@@ -87,11 +79,7 @@ const DepartArriveContainer = styled.div`
   align-items: flex-start;
   padding: 0 2.8rem 0.8rem;
 `;
-const DepartArrive = styled.span`
-  margin-bottom: 0.3rem;
-  color: ${({ theme }) => theme.colors.skscanBk};
-  ${({ theme }) => theme.fonts.caption02};
-`;
+
 const Time = styled.span`
   margin-bottom: 1.2rem;
   color: ${({ theme }) => theme.colors.skscanGrey600};

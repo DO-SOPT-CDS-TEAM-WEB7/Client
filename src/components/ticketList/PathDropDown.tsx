@@ -67,10 +67,11 @@ const Select = styled.div<{ $isOpen: boolean }>`
   }
 `;
 
-const Name = styled.span`
+const Name = styled.span<{ $isOpen: boolean }>`
+  margin-right: 2.2rem;
   ${({ theme }) => theme.fonts.caption02};
 
-  margin-right: 2.2rem;
+  color: ${({ $isOpen, theme }) => ($isOpen ? theme.colors.skscanSecondary : theme.colors.skscanGrey800)};
 `;
 
 const Arrow = styled.img`

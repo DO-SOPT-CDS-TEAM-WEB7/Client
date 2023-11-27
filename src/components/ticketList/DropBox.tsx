@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { DownArrow } from '../../assets/image';
+import DurationDropDown from './DurationDropDown';
 import PathDropDown from './PathDropDown';
 import TimeDropDown from './TimeDropDown';
 
@@ -10,11 +11,8 @@ const DropBox = () => {
     <DropBoxContainer>
       <PathDropDown />
       <TimeDropDown />
+      <DurationDropDown />
 
-      <Select>
-        <Name>총 소요시간</Name>
-        <Arrow src={DownArrow} alt="아래 화살표" />
-      </Select>
       <Select>
         <Name>항공사</Name>
         <Arrow src={DownArrow} alt="아래 화살표" />

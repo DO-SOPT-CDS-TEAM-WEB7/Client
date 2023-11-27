@@ -13,7 +13,7 @@ const DurationDropDown = () => {
   return (
     <>
       <Select onClick={onClickDropDown} $isOpen={dropDownClicked}>
-        <Name>총 소요시간</Name>
+        <Name $isOpen={dropDownClicked}>총 소요시간</Name>
         {dropDownClicked ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
       </Select>
       <OptionContainer $isOpen={dropDownClicked}>

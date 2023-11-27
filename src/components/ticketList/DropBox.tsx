@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { DownArrow } from '../../assets/image';
 import DurationDropDown from './DurationDropDown';
+import FlightDropDown from './FlightDropDown';
 import PathDropDown from './PathDropDown';
 import TimeDropDown from './TimeDropDown';
 
@@ -12,11 +13,8 @@ const DropBox = () => {
       <PathDropDown />
       <TimeDropDown />
       <DurationDropDown />
+      <FlightDropDown />
 
-      <Select>
-        <Name>항공사</Name>
-        <Arrow src={DownArrow} alt="아래 화살표" />
-      </Select>
       <Select className="end">
         <Name>추천순</Name>
         <Arrow src={DownArrow} alt="아래 화살표" />

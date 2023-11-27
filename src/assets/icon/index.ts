@@ -7,3 +7,7 @@ export { default as HotelIcon } from './hotel.svg';
 export { default as Logo } from './logo.svg';
 export { default as MenuIcon } from './menu.svg';
 export { default as ProfileIcon } from './profile.svg';
+export { default as ChevronLeft } from './chevronLeft.svg';
+export { default as ArrowDownIcon } from './ic_arrow_down.svg';
+export { default as ArrowRightGrayIcon } from './ic_arrow_right_gray.svg';
+export { default as PriceCompareLogo } from './priceCompareLogo.svg';

@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 // eslint-disable-next-line import/order
 import { DownArrow, UpArrowImg } from '../../../assets/image';
 // eslint-disable-next-line import/order
-import { Arrow, Cancle, Confirm, Name, OptionContainer, Select, SelectBtnContainer } from './DropDown.style';
-import { List, Path, Price, StyledInput, StyledLabel, StyledTextContainer } from './InputCustom.style';
+import { Arrow, Cancle, Confirm, Name, OptionContainer, Select, SelectBtnContainer } from './styles/DropDown.style';
+import { List, Path, Price, StyledInput, StyledLabel, StyledTextContainer } from './styles/InputCustom.style';
 
 // API 연결 필요
 const FlightDropDown = () => {

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { CheckImg } from '../../../assets/image';
+import { CheckImg } from '../../../../assets/image';
 
 export const List = styled.ul`
   display: flex;

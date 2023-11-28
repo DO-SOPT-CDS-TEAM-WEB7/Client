@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+export const DropDownContainer = styled.div``;
+
 export const Select = styled.div<{ $isOpen: boolean }>`
   display: flex;
   align-items: center;
@@ -27,7 +29,7 @@ export const Arrow = styled.img`
   height: 2.4rem;
 `;
 
-export const OptionContainer = styled.div<{ $isOpen: boolean; $width: string; $left: string }>`
+export const Option = styled.div<{ $isOpen: boolean; $width: string; $left: string }>`
   display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
   position: absolute;
   top: 4.9rem;
@@ -44,4 +46,3 @@ export const OptionContainer = styled.div<{ $isOpen: boolean; $width: string; $l
     padding: 0;
   }
 `;
-

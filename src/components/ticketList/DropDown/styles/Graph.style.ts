@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-export const DepartArriveContainer = styled.div`
+export const TimeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 0 2.8rem 0.8rem;
 `;
-export const DepartArrive = styled.span`
+export const Depart = styled.span`
   margin-bottom: 0.3rem;
   color: ${({ theme }) => theme.colors.skscanBk};
   ${({ theme }) => theme.fonts.caption02};

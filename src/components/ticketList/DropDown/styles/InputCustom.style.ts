@@ -33,7 +33,7 @@ export const StyledLabel = styled.label`
   user-select: none;
 `;
 
-export const StyledTextContainer = styled.div`
+export const StyledText = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;

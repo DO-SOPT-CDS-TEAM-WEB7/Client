@@ -3,33 +3,31 @@ import styled from 'styled-components';
 import { DownArrow, UpArrowImg } from '../../../assets/image';
 import { DropDownProps } from '../DropDown';
 // eslint-disable-next-line import/order
-import { Arrow, Name, OptionContainer, Select } from './styles/DropDown.style';
+import { Arrow, DropDownContainer, Name, Option, Select } from './styles/DropDown.style';
 
 const RecommendDropDown = (props: DropDownProps) => {
   const { isOpen, onToggle } = props;
 
   return (
-    <RecommendDropDownContainer>
+    <DropDownContainer>
       <Select onClick={() => onToggle('recommend')} $isOpen={isOpen} className="end">
         <Name $isOpen={isOpen}>추천순</Name>
         {isOpen ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
       </Select>
 
-      <OptionContainer $isOpen={isOpen} $width="10.9rem" $left="93.7rem" className="end">
+      <Option $isOpen={isOpen} $width="10.9rem" $left="93.7rem" className="end">
         <List>
           <SortName>최저가순</SortName>
           <SortName>최단시간순</SortName>
           <SortName>출국 시간순</SortName>
           <SortName className="end">귀국 시간순</SortName>
         </List>
-      </OptionContainer>
-    </RecommendDropDownContainer>
+      </Option>
+    </DropDownContainer>
   );
 };
 
 export default RecommendDropDown;
-
-const RecommendDropDownContainer = styled.div``;
 
 const List = styled.ul`
   display: flex;

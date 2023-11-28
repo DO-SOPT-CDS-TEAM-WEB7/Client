@@ -1,54 +1,48 @@
-import React from 'react';
-import styled from 'styled-components';
-
 // eslint-disable-next-line import/order
 import { DownArrow, UpArrowImg } from '../../../assets/image';
 // eslint-disable-next-line import/order
 import { DropDownProps } from '../DropDown';
 import ButtonContainer from './ButtonContainer';
-import { Arrow, Name, OptionContainer, Select } from './styles/DropDown.style';
-import { List, Path, Price, StyledInput, StyledLabel, StyledTextContainer } from './styles/InputCustom.style';
+import { Arrow, DropDownContainer, Name, Option, Select } from './styles/DropDown.style';
+import { List, Path, Price, StyledInput, StyledLabel, StyledText } from './styles/InputCustom.style';
 
 const PathDropDown = (props: DropDownProps) => {
   const { isOpen, onToggle } = props;
   return (
-    <PathDropDownContainer>
+    <DropDownContainer>
       <Select onClick={() => onToggle('path')} $isOpen={isOpen} id="path">
         <Name $isOpen={isOpen}>경유</Name>
         {isOpen ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
       </Select>
 
-      <OptionContainer $isOpen={isOpen} $width="17.8rem" $left="0">
+      <Option $isOpen={isOpen} $width="17.8rem" $left="0">
         <List>
           <StyledLabel htmlFor="직항">
             <StyledInput type="checkbox" id="직항" name="직항" />
-            <StyledTextContainer>
+            <StyledText>
               <Path>직항</Path>
               <Price>000,000원부터</Price>
-            </StyledTextContainer>
+            </StyledText>
           </StyledLabel>
           <StyledLabel htmlFor="직항">
             <StyledInput type="checkbox" id="직항" name="직항" />
-            <StyledTextContainer>
+            <StyledText>
               <Path>직항</Path>
               <Price>000,000원부터</Price>
-            </StyledTextContainer>
+            </StyledText>
           </StyledLabel>
-          <StyledLabel htmlFor="직항">
+          <StyledLabel htmlFor="경유">
             <StyledInput type="checkbox" id="직항" name="직항" />
-            <StyledTextContainer>
+            <StyledText>
               <Path>2번 이상 경유</Path>
               <Price>없음</Price>
-            </StyledTextContainer>
+            </StyledText>
           </StyledLabel>
         </List>
         <ButtonContainer />
-      </OptionContainer>
-    </PathDropDownContainer>
+      </Option>
+    </DropDownContainer>
   );
 };
 
-// PathDropDown.displayName = 'PathDropDown';
 export default PathDropDown;
-
-const PathDropDownContainer = styled.div``;

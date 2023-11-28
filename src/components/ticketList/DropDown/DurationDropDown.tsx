@@ -1,36 +1,31 @@
-import React from 'react';
-import styled from 'styled-components';
-
 // eslint-disable-next-line import/order
 import { DownArrow, TabGraphImg, UpArrowImg } from '../../../assets/image';
 // eslint-disable-next-line import/order
 import { DropDownProps } from '../DropDown';
 import ButtonContainer from './ButtonContainer';
-import { Arrow, Name, OptionContainer, Select } from './styles/DropDown.style';
-import { DepartArriveContainer, GraphImg, Time } from './styles/Graph.style';
+import { Arrow, DropDownContainer, Name, Option, Select } from './styles/DropDown.style';
+import { GraphImg, Time, TimeContainer } from './styles/Graph.style';
 
 const DurationDropDown = (props: DropDownProps) => {
   const { isOpen, onToggle } = props;
   return (
-    <DurationDropDownContainer>
+    <DropDownContainer>
+
       <Select onClick={() => onToggle('duration')} $isOpen={isOpen}>
         <Name $isOpen={isOpen}>총 소요시간</Name>
         {isOpen ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
       </Select>
-      <OptionContainer $isOpen={isOpen} $width="32rem" $left="28.5rem">
-        <DepartArriveContainer>
+
+      <Option $isOpen={isOpen} $width="32rem" $left="28.5rem">
+        <TimeContainer>
           <Time>2.0시간 - 14.0시간</Time>
           <GraphImg src={TabGraphImg} alt="그래프" />
-        </DepartArriveContainer>
+        </TimeContainer>
 
         <ButtonContainer />
-      </OptionContainer>
-    </DurationDropDownContainer>
+      </Option>
+    </DropDownContainer>
   );
 };
 
-// DurationDropDown.displayName = 'DurationDropDown';
-
 export default DurationDropDown;
-
-const DurationDropDownContainer = styled.div``;

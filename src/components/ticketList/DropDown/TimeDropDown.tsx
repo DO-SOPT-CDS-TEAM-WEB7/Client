@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 
+// eslint-disable-next-line import/order
 import { DownArrow, TabGraphImg, UpArrowImg } from '../../../assets/image';
 // eslint-disable-next-line import/order
 import { Arrow, Cancle, Confirm, Name, OptionContainer, Select, SelectBtnContainer } from './styles/DropDown.style';
+import { DepartArrive, DepartArriveContainer, GraphImg, Time } from './styles/Graph.style';
 
 const TimeDropDown = () => {
   const [dropDownClicked, setDropDownClicked] = useState(false);
@@ -41,24 +42,3 @@ const TimeDropDown = () => {
 };
 
 export default TimeDropDown;
-
-const DepartArriveContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0 2.8rem 0.8rem;
-`;
-const DepartArrive = styled.span`
-  margin-bottom: 0.3rem;
-  color: ${({ theme }) => theme.colors.skscanBk};
-  ${({ theme }) => theme.fonts.caption02};
-`;
-const Time = styled.span`
-  margin-bottom: 1.2rem;
-  color: ${({ theme }) => theme.colors.skscanGrey600};
-  ${({ theme }) => theme.fonts.caption05};
-`;
-const GraphImg = styled.img`
-  width: 26.4rem;
-  height: 2.4rem;
-`;

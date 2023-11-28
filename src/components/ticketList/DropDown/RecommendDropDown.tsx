@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { CheckImg, DownArrow, UpArrowImg } from '../../assets/image';
+import { DownArrow, UpArrowImg } from '../../../assets/image';
+// eslint-disable-next-line import/order
+import { Arrow, Name, OptionContainer, Select } from './DropBox.style';
 
 const RecommendDropDown = () => {
   const [dropDownClicked, setDropDownClicked] = useState(false);
@@ -17,7 +19,7 @@ const RecommendDropDown = () => {
         {dropDownClicked ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
       </Select>
 
-      <OptionContainer $isOpen={dropDownClicked}>
+      <OptionContainer $isOpen={dropDownClicked} $width="10.9rem" $left="93.7rem" className="end">
         <List>
           <SortName>최저가순</SortName>
           <SortName>최단시간순</SortName>
@@ -30,44 +32,6 @@ const RecommendDropDown = () => {
 };
 
 export default RecommendDropDown;
-
-const Select = styled.div<{ $isOpen: boolean }>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 0.1rem solid ${({ $isOpen, theme }) => ($isOpen ? theme.colors.skscanSecondary : theme.colors.skscanGrey150)};
-  border-radius: 0.8rem;
-  cursor: pointer;
-  padding: 0.8rem 1rem 0.8rem 1.6rem;
-
-  &.end {
-    margin-left: 37.6rem;
-  }
-`;
-
-const Name = styled.span<{ $isOpen: boolean }>`
-  margin-right: 2.2rem;
-  ${({ theme }) => theme.fonts.caption02};
-
-  color: ${({ $isOpen, theme }) => ($isOpen ? theme.colors.skscanSecondary : theme.colors.skscanGrey800)};
-`;
-
-const Arrow = styled.img`
-  cursor: pointer;
-  width: 2.4rem;
-  height: 2.4rem;
-`;
-const OptionContainer = styled.div<{ $isOpen: boolean }>`
-  display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
-  position: absolute;
-  top: 4.9rem;
-  left: 93.7rem;
-  z-index: 1;
-  border: 0.1rem solid ${({ theme }) => theme.colors.skscanSecondary};
-  border-radius: 0.8rem;
-  background-color: ${({ theme }) => theme.colors.skscanWt};
-  width: 10.9rem;
-`;
 
 const List = styled.ul`
   display: flex;

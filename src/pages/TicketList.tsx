@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DropBox from '../components/ticketList/DropBox';
+import DropBox from '../components/ticketList/DropDown';
 import HotelCarousel from '../components/ticketList/HotelCarousel';
 import Nav from '../components/ticketList/Nav';
 

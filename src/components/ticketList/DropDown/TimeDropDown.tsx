@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { DownArrow, TabGraphImg, UpArrowImg } from '../../assets/image';
+import { DownArrow, TabGraphImg, UpArrowImg } from '../../../assets/image';
+// eslint-disable-next-line import/order
+import { Arrow, Cancle, Confirm, Name, OptionContainer, Select, SelectBtnContainer } from './DropBox.style';
 
 const TimeDropDown = () => {
   const [dropDownClicked, setDropDownClicked] = useState(false);
@@ -18,7 +20,7 @@ const TimeDropDown = () => {
         {dropDownClicked ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
       </Select>
 
-      <OptionContainer $isOpen={dropDownClicked}>
+      <OptionContainer $isOpen={dropDownClicked} $width="32rem" $left="10.9rem">
         <DepartArriveContainer>
           <DepartArrive>가는 날 출발시간</DepartArrive>
           <Time>오전 12:00 - 오후 11:59</Time>
@@ -40,47 +42,6 @@ const TimeDropDown = () => {
 
 export default TimeDropDown;
 
-const Select = styled.div<{ $isOpen: boolean }>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 0.1rem solid ${({ $isOpen, theme }) => ($isOpen ? theme.colors.skscanSecondary : theme.colors.skscanGrey150)};
-  border-radius: 0.8rem;
-  cursor: pointer;
-  padding: 0.8rem 1rem 0.8rem 1.6rem;
-
-  &.end {
-    margin-left: 37.6rem;
-  }
-`;
-
-const Name = styled.span<{ $isOpen: boolean }>`
-  margin-right: 2.2rem;
-
-  ${({ theme }) => theme.fonts.caption02};
-
-  color: ${({ $isOpen, theme }) => ($isOpen ? theme.colors.skscanSecondary : theme.colors.skscanGrey800)};
-`;
-
-const Arrow = styled.img`
-  cursor: pointer;
-  width: 2.4rem;
-  height: 2.4rem;
-`;
-
-const OptionContainer = styled.div<{ $isOpen: boolean }>`
-  display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
-  position: absolute;
-  top: 4.9rem;
-  left: 10.9rem;
-  z-index: 1;
-  border: 0.1rem solid ${({ theme }) => theme.colors.skscanSecondary};
-  border-radius: 0.8rem;
-  background-color: ${({ theme }) => theme.colors.skscanWt};
-  padding-top: 2rem;
-  width: 32rem;
-`;
-
 const DepartArriveContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -100,23 +61,4 @@ const Time = styled.span`
 const GraphImg = styled.img`
   width: 26.4rem;
   height: 2.4rem;
-`;
-
-const SelectBtnContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-top: 2rem;
-  border-top: 0.1rem solid ${({ theme }) => theme.colors.skscanGrey150};
-  padding: 2rem 2rem 2rem 0;
-  width: 100%;
-`;
-
-const Cancle = styled.button`
-  color: ${({ theme }) => theme.colors.skscanGrey600};
-  ${({ theme }) => theme.fonts.caption01};
-`;
-const Confirm = styled.button`
-  color: ${({ theme }) => theme.colors.skscanSecondary};
-  ${({ theme }) => theme.fonts.caption01};
 `;

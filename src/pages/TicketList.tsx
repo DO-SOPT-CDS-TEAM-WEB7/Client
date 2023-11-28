@@ -1,4 +1,3 @@
-import React from 'react';
 
 import DropBox from '../components/ticketList/DropDown';
 import HotelCarousel from '../components/ticketList/HotelCarousel';

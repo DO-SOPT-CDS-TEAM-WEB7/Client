@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { DownArrow, TabGraphImg, UpArrowImg } from '../../../assets/image';
 // eslint-disable-next-line import/order
-import { Arrow, Cancle, Confirm, Name, OptionContainer, Select, SelectBtnContainer } from './DropBox.style';
+import { Arrow, Cancle, Confirm, Name, OptionContainer, Select, SelectBtnContainer } from './DropDown.style';
 
 const DurationDropDown = () => {
   const [dropDownClicked, setDropDownClicked] = useState(false);

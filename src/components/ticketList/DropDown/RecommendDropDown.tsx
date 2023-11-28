@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { DownArrow, UpArrowImg } from '../../../assets/image';
 // eslint-disable-next-line import/order
-import { Arrow, Name, OptionContainer, Select } from './DropBox.style';
+import { Arrow, Name, OptionContainer, Select } from './DropDown.style';
 
 const RecommendDropDown = () => {
   const [dropDownClicked, setDropDownClicked] = useState(false);

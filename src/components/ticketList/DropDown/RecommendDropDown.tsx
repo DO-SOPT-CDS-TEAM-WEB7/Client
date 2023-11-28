@@ -1,25 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import { DownArrow, UpArrowImg } from '../../../assets/image';
 // eslint-disable-next-line import/order
 import { Arrow, Name, OptionContainer, Select } from './styles/DropDown.style';
 
-const RecommendDropDown = () => {
-  const [dropDownClicked, setDropDownClicked] = useState(false);
+const RecommendDropDown = (props) => {
+  const { isOpen, onToggle } = props;
 
-  const onClickDropDown = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setDropDownClicked(!dropDownClicked);
-  };
   return (
     <RecommendDropDownContainer>
-      <Select onClick={onClickDropDown} $isOpen={dropDownClicked} className="end">
-        <Name $isOpen={dropDownClicked}>추천순</Name>
-        {dropDownClicked ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
+      <Select onClick={() => onToggle('recommend')} $isOpen={isOpen} className="end">
+        <Name $isOpen={isOpen}>추천순</Name>
+        {isOpen ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
       </Select>
 
-      <OptionContainer $isOpen={dropDownClicked} $width="10.9rem" $left="93.7rem" className="end">
+      <OptionContainer $isOpen={isOpen} $width="10.9rem" $left="93.7rem" className="end">
         <List>
           <SortName>최저가순</SortName>
           <SortName>최단시간순</SortName>

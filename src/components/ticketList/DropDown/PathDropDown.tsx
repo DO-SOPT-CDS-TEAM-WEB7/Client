@@ -1,27 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
+// eslint-disable-next-line import/order
 import { DownArrow, UpArrowImg } from '../../../assets/image';
-// eslint-disable-next-line import/order
-import { Arrow, Cancle, Confirm, Name, OptionContainer, Select, SelectBtnContainer } from './styles/DropDown.style';
-// eslint-disable-next-line import/order
+import ButtonContainer from './ButtonContainer';
+import { Arrow, Name, OptionContainer, Select } from './styles/DropDown.style';
 import { List, Path, Price, StyledInput, StyledLabel, StyledTextContainer } from './styles/InputCustom.style';
 
-const PathDropDown = () => {
-  const [dropDownClicked, setDropDownClicked] = useState(false);
-
-  const onClickDropDown = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setDropDownClicked(!dropDownClicked);
-  };
+const PathDropDown = (props) => {
+  const { isOpen, onToggle } = props;
   return (
     <PathDropDownContainer>
-      <Select onClick={onClickDropDown} $isOpen={dropDownClicked} id="path">
-        <Name $isOpen={dropDownClicked}>경유</Name>
-        {dropDownClicked ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
+      <Select onClick={() => onToggle('path')} $isOpen={isOpen} id="path">
+        <Name $isOpen={isOpen}>경유</Name>
+        {isOpen ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
       </Select>
 
-      <OptionContainer $isOpen={dropDownClicked} $width="17.8rem" $left="0">
+      <OptionContainer $isOpen={isOpen} $width="17.8rem" $left="0">
         <List>
           <StyledLabel htmlFor="직항">
             <StyledInput type="checkbox" id="직항" name="직항" />
@@ -45,10 +40,7 @@ const PathDropDown = () => {
             </StyledTextContainer>
           </StyledLabel>
         </List>
-        <SelectBtnContainer>
-          <Cancle>취소</Cancle>
-          <Confirm>적용하기</Confirm>
-        </SelectBtnContainer>
+        <ButtonContainer />
       </OptionContainer>
     </PathDropDownContainer>
   );

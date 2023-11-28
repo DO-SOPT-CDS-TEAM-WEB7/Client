@@ -12,13 +12,18 @@ import TimeDropDown from './DropDown/TimeDropDown';
 // 받아온 API로 map 돌릴 수 있도록
 
 const DropDown = () => {
+  const [activeDropdown, setActiveDropdown] = useState(null);
+
+  const handleDropDownClick = (dropdownName) => {
+    setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
+  };
   return (
     <DropDownContainer>
-      <PathDropDown />
-      <TimeDropDown />
-      <DurationDropDown />
-      <FlightDropDown />
-      <RecommendDropDown />
+      <PathDropDown isOpen={activeDropdown === 'path'} onToggle={handleDropDownClick} />
+      <TimeDropDown isOpen={activeDropdown === 'time'} onToggle={handleDropDownClick} />
+      <DurationDropDown isOpen={activeDropdown === 'duration'} onToggle={handleDropDownClick} />
+      <FlightDropDown isOpen={activeDropdown === 'flight'} onToggle={handleDropDownClick} />
+      <RecommendDropDown isOpen={activeDropdown === 'recommend'} onToggle={handleDropDownClick} />
     </DropDownContainer>
   );
 };

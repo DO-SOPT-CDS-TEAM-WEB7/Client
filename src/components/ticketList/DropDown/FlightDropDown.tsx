@@ -3,12 +3,14 @@ import styled from 'styled-components';
 
 // eslint-disable-next-line import/order
 import { DownArrow, UpArrowImg } from '../../../assets/image';
+// eslint-disable-next-line import/order
+import { DropDownProps } from '../DropDown';
 import ButtonContainer from './ButtonContainer';
 import { Arrow, Name, OptionContainer, Select } from './styles/DropDown.style';
 import { List, Path, Price, StyledInput, StyledLabel, StyledTextContainer } from './styles/InputCustom.style';
 
 // API 연결 필요
-const FlightDropDown = (props) => {
+const FlightDropDown = (props: DropDownProps) => {
   const { isOpen, onToggle } = props;
 
   return (

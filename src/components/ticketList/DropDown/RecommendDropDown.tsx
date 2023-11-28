@@ -1,11 +1,11 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import { DownArrow, UpArrowImg } from '../../../assets/image';
+import { DropDownProps } from '../DropDown';
 // eslint-disable-next-line import/order
 import { Arrow, Name, OptionContainer, Select } from './styles/DropDown.style';
 
-const RecommendDropDown = (props) => {
+const RecommendDropDown = (props: DropDownProps) => {
   const { isOpen, onToggle } = props;
 
   return (

@@ -1,14 +1,14 @@
-import React from 'react';
 import styled from 'styled-components';
 
 // eslint-disable-next-line import/order
 import { DownArrow, TabGraphImg, UpArrowImg } from '../../../assets/image';
-import ButtonContainer from './ButtonContainer';
 // eslint-disable-next-line import/order
+import { DropDownProps } from '../DropDown';
+import ButtonContainer from './ButtonContainer';
 import { Arrow, Name, OptionContainer, Select } from './styles/DropDown.style';
 import { DepartArrive, DepartArriveContainer, GraphImg, Time } from './styles/Graph.style';
 
-const TimeDropDown = (props) => {
+const TimeDropDown = (props: DropDownProps) => {
   const { isOpen, onToggle } = props;
 
   return (

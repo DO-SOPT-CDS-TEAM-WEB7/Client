@@ -13,7 +13,7 @@ const RecommendDropDown = () => {
     setDropDownClicked(!dropDownClicked);
   };
   return (
-    <>
+    <RecommendDropDownContainer>
       <Select onClick={onClickDropDown} $isOpen={dropDownClicked} className="end">
         <Name $isOpen={dropDownClicked}>추천순</Name>
         {dropDownClicked ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
@@ -27,11 +27,13 @@ const RecommendDropDown = () => {
           <SortName className="end">귀국 시간순</SortName>
         </List>
       </OptionContainer>
-    </>
+    </RecommendDropDownContainer>
   );
 };
 
 export default RecommendDropDown;
+
+const RecommendDropDownContainer = styled.div``;
 
 const List = styled.ul`
   display: flex;

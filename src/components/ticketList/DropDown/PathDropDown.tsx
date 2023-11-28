@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 
-// eslint-disable-next-line import/order
 import { DownArrow, UpArrowImg } from '../../../assets/image';
 // eslint-disable-next-line import/order
 import { Arrow, Cancle, Confirm, Name, OptionContainer, Select, SelectBtnContainer } from './styles/DropDown.style';
+// eslint-disable-next-line import/order
 import { List, Path, Price, StyledInput, StyledLabel, StyledTextContainer } from './styles/InputCustom.style';
 
 const PathDropDown = () => {
@@ -13,10 +14,9 @@ const PathDropDown = () => {
     e.preventDefault();
     setDropDownClicked(!dropDownClicked);
   };
-
   return (
-    <>
-      <Select onClick={onClickDropDown} $isOpen={dropDownClicked}>
+    <PathDropDownContainer>
+      <Select onClick={onClickDropDown} $isOpen={dropDownClicked} id="path">
         <Name $isOpen={dropDownClicked}>경유</Name>
         {dropDownClicked ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
       </Select>
@@ -50,8 +50,11 @@ const PathDropDown = () => {
           <Confirm>적용하기</Confirm>
         </SelectBtnContainer>
       </OptionContainer>
-    </>
+    </PathDropDownContainer>
   );
 };
 
+// PathDropDown.displayName = 'PathDropDown';
 export default PathDropDown;
+
+const PathDropDownContainer = styled.div``;

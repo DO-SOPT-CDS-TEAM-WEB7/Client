@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 
 // eslint-disable-next-line import/order
 import { DownArrow, UpArrowImg } from '../../../assets/image';
@@ -15,7 +16,7 @@ const FlightDropDown = () => {
   };
 
   return (
-    <>
+    <FlightDropDownContainer>
       <Select onClick={onClickDropDown} $isOpen={dropDownClicked}>
         <Name $isOpen={dropDownClicked}>항공사</Name>
         {dropDownClicked ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
@@ -43,8 +44,10 @@ const FlightDropDown = () => {
           <Confirm>적용하기</Confirm>
         </SelectBtnContainer>
       </OptionContainer>
-    </>
+    </FlightDropDownContainer>
   );
 };
 
 export default FlightDropDown;
+
+const FlightDropDownContainer = styled.div``;

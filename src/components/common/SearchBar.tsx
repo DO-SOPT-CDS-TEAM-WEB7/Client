@@ -1,5 +1,3 @@
-import '../../styles/CalendarStyle.css';
-
 import styled from 'styled-components';
 
 import { CheckboxImg } from '../../assets/image';

@@ -1,5 +1,7 @@
 // 명명규칙은 xxxxIcon으로 통일
 export { default as AirplaneIcon } from './airplane.svg';
+export { default as ArrowLeftIcon } from './arrow-left.svg';
+export { default as ArrowRightIcon } from './arrow-right.svg';
 export { default as CarIcon } from './car.svg';
 export { default as ChevronDownIcon } from './chevronDown.svg';
 export { default as ChevronLeft } from './chevronLeft.svg';

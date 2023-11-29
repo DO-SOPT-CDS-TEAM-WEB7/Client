@@ -1,6 +1,9 @@
+import '../../styles/CalendarStyle.css';
+
 import styled from 'styled-components';
 
 import { CheckboxImg } from '../../assets/image';
+import Calendar from '../main/Calendar';
 
 const SearchBar = () => {
   return (
@@ -28,7 +31,7 @@ const SearchBar = () => {
         </InfoDiv>
         <InfoDateContainer>
           <InfoTitle>출발일 - 도착일</InfoTitle>
-          <InfoDate></InfoDate>
+          <Calendar />
         </InfoDateContainer>
         <InfoDiv last={true}>
           <InfoTitle>인원, 좌석등급</InfoTitle>

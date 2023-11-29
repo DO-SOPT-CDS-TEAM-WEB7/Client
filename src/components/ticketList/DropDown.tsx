@@ -2,15 +2,13 @@ import { useRef, useState } from 'react';
 import styled from 'styled-components';
 
 // eslint-disable-next-line import/order
+import useClickOutside from '../../hooks/useOpenDropDown';
 import DurationDropDown from './DropDown/DurationDropDown';
 import FlightDropDown from './DropDown/FlightDropDown';
 import PathDropDown from './DropDown/PathDropDown';
 import RecommendDropDown from './DropDown/RecommendDropDown';
 import TimeDropDown from './DropDown/TimeDropDown';
-import useClickOutside from '../../hooks/useOpenDropDown';
 
-// 하나만 클릭되게 설정 필요
-// 받아온 API로 map 돌릴 수 있도록
 type DropdownName = 'path' | 'time' | 'duration' | 'flight' | 'recommend';
 
 export interface DropDownProps {
@@ -19,17 +17,20 @@ export interface DropDownProps {
 }
 
 const DropDown = () => {
+  // 각 드롭다운 handling
   const [activeDropdown, setActiveDropdown] = useState<DropdownName | null>(null);
 
   const handleDropDownClick = (dropdownName: DropdownName) => {
     setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
   };
 
+  // 화면 외부 클릭 handling
   const dropDownRef = useRef(null);
   const closeDropDown = () => {
     setActiveDropdown(null);
   };
   useClickOutside(dropDownRef, closeDropDown);
+  
   return (
     <DropDownContainer ref={dropDownRef}>
       <PathDropDown isOpen={activeDropdown === 'path'} onToggle={handleDropDownClick} />

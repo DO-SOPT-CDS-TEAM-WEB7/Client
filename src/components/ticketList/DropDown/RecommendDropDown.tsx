@@ -1,3 +1,4 @@
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 
 import { DownArrow, UpArrowImg } from '../../../assets/image';

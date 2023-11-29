@@ -1,31 +1,19 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
-const useOpenDropDown = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [elem, setElem] = useState<HTMLElement | null>(null);
-
+const useClickOutside = (ref: React.RefObject<HTMLElement>, callback:() => void) => {
   useEffect(() => {
-    // 창의 아무 곳이나 클릭하면 없애기 
-    const onClickDropDown = (e) => {
-      if (elem !== null && !elem.contains(e.target)) {
-        setIsOpen(false);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        callback();
       }
     };
 
-    if (isOpen) {
-      window.addEventListener('click', onClickDropDown);
-    }
+    document.addEventListener('click', handleClickOutside);
 
     return () => {
-      window.removeEventListener('click', onClickDropDown);
+      document.removeEventListener('click', handleClickOutside);
     };
-  }, [isOpen, elem]);
-
-  const toggleDropDown = () => {
-    setIsOpen(!isOpen);
-  };
-
-  return { isOpen, elem, toggleDropDown, setElem };
+  }, [ref, callback]);
 };
 
-export default useOpenDropDown;
+export default useClickOutside;

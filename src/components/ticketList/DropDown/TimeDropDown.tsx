@@ -1,8 +1,10 @@
-// eslint-disable-next-line import/order
-import { DownArrow, TabGraphImg, UpArrowImg } from '../../../assets/image';
-// eslint-disable-next-line import/order
+import React, { useRef } from 'react';
+
+import { DownArrow, TabGraphImg, UpArrowImg } from '../../../assets/image';// eslint-disable-next-line import/order
 import { DropDownProps } from '../DropDown';
+// eslint-disable-next-line import/order
 import ButtonContainer from './ButtonContainer';
+// eslint-disable-next-line import/order
 import { Arrow, DropDownContainer, Name, Option, Select } from './styles/DropDown.style';
 import { Depart, GraphImg, Time, TimeContainer } from './styles/Graph.style';
 

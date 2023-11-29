@@ -9,6 +9,7 @@ export { default as CarImg } from './icn_car@2x.png';
 export { default as HeartImg } from './icn_heart.png';
 export { default as SearchImg } from './icn_search.png';
 export { default as StarImg } from './icn_star@2x.png';
+export { default as AdImg } from './img_ad.png';
 export { default as HotelImg1 } from './img_hotel_1@2x.png';
 export { default as HotelImg2 } from './img_hotel_2@2x.png';
 export { default as HotelImg3 } from './img_hotel_3@2x.png';

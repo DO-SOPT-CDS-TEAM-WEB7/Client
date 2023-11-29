@@ -116,8 +116,8 @@ const CalendarWrapper = styled.section`
     position: relative;
     align-items: center;
     justify-content: center;
+    margin: 1.1rem 0.5rem;
     border-radius: 50%;
-    padding: 1.1rem 0.5rem;
     width: 3.8rem;
     height: 3.8rem;
 

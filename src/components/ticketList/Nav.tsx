@@ -58,7 +58,8 @@ const LanLi = styled.li<{ clicked: boolean }>`
   margin-right: 1.2rem;
   cursor: pointer;
   padding: 0.4rem;
-  ${({ clicked, theme }) => (clicked ? theme.fonts.caption03 : theme.fonts.caption04)};
+  color: ${({clicked, theme}) => (clicked ? theme.colors.skscanGrey900 : theme.colors.skscanGrey700)};
+  ${({ clicked, theme }) => (clicked ? theme.fonts.caption03 : theme.fonts.caption05)};
 `;
 const SearchBar = styled.div`
   display: flex;

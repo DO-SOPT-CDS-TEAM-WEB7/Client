@@ -46,7 +46,8 @@ const SearchBarContainer = styled.nav`
   display: flex;
   flex-direction: column;
   border-radius: 1.2rem;
-  box-shadow: 0 0.4rem 2.5rem 0 #0000001a;
+  box-shadow: ${({ theme }) => theme.effects.boxDrop}
+  background-color: ${({ theme }) => theme.colors.skscanWt};
   width: 100%;
 `;
 

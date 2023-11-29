@@ -7,7 +7,7 @@ const DesCarousel = () => {
   return (
     <Carousel dataLength={DES_ITEM_DATA.length}>
       {DES_ITEM_DATA.map((item: DesItemProps, idx: number) => (
-        <DesItem key={idx} desName={item.desName} desImg={item.desImg} />
+        <DesItem key={String(idx) + item.desName} desName={item.desName} desImg={item.desImg} />
       ))}
     </Carousel>
   );

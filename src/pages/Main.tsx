@@ -10,7 +10,7 @@ const Main = () => {
       <Header />
       <Container>
         <RecommendDestination />
-        <QnA />;
+        <QnA />
       </Container>
     </>
   );

@@ -43,6 +43,7 @@ export default Nav;
 
 const NavContainer = styled.nav`
   position: relative;
+  margin-bottom: 14.8rem;
   border-bottom: 0.1rem solid ${({ theme }) => theme.colors.skscanGrey150};
   padding-top: 3.6rem;
 `;

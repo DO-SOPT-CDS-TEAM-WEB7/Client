@@ -7,6 +7,8 @@ import DatePicker from 'react-datepicker';
 import styled from 'styled-components';
 
 import { ArrowLeftIcon, ArrowRightIcon } from '../../assets/icon';
+// eslint-disable-next-line import/order
+import CalendarItem from './CalendarItem';
 
 type MoveBtnProps = {
   $headerCount: number;
@@ -52,6 +54,7 @@ const Calendar = () => {
         showDisabledMonthNavigation
         disabledKeyboardNavigation
         renderDayContents={(day) => <DayWrapper>{day}</DayWrapper>}
+        calendarContainer={CalendarItem}
       />
     </CalendarWrapper>
   );
@@ -65,26 +68,20 @@ const CalendarWrapper = styled.section`
     padding: 0;
   }
 
-  .react-datepicker__input-container ::placeholder {
-    color: ${({ theme }) => theme.colors.skscanGrey900};
-  }
-
-  .react-datepicker {
-    display: flex;
-    gap: 2.4rem;
-    border: none;
+  .react-datepicker-popper {
+    margin-top: 5.35rem;
     border-radius: 1.2rem;
     padding: 2.4rem;
     color: ${({ theme }) => theme.colors.skscanGrey900};
     ${({ theme }) => theme.effects.boxDrop};
   }
 
-  .react-datepicker__triangle {
-    display: none;
+  .react-datepicker__input-container ::placeholder {
+    color: ${({ theme }) => theme.colors.skscanGrey900};
   }
 
-  .react-datepicker-popper[data-placement^='bottom'] {
-    padding-top: 5.35rem;
+  .react-datepicker__triangle {
+    display: none;
   }
 
   .react-datepicker__header {
@@ -120,10 +117,11 @@ const CalendarWrapper = styled.section`
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    padding: 1.1rem 0.5rem;
     width: 3.8rem;
     height: 3.8rem;
 
-    & :hover {
+    &:hover {
       border: 0.15rem solid ${({ theme }) => theme.colors.skscanSecondary};
       border-radius: 50%;
       background-color: ${({ theme }) => theme.colors.skscanWt};
@@ -146,18 +144,20 @@ const CalendarWrapper = styled.section`
     &--selected,
     &--in-selecting-range,
     &--in-range {
-      border-radius: 0;
-      background-color: ${({ theme }) => theme.colors.skscanSecondary2};
-      color: ${({ theme }) => theme.colors.skscanSecondary};
+      border: none !important;
+      border-radius: 0 !important;
+      background-color: ${({ theme }) => theme.colors.skscanSecondary2}!important;
+      color: ${({ theme }) => theme.colors.skscanSecondary}!important;
     }
 
     &--selecting-range-start,
     &--selecting-range-end,
     &--range-start,
     &--range-end {
-      border-radius: 50%;
-      background-color: ${({ theme }) => theme.colors.skscanSecondary};
-      color: ${({ theme }) => theme.colors.skscanWt};
+      border: none !important;
+      border-radius: 50% !important;
+      background-color: ${({ theme }) => theme.colors.skscanSecondary}!important;
+      color: ${({ theme }) => theme.colors.skscanWt} !important;
     }
 
     &--selecting-range-start::before,
@@ -238,13 +238,12 @@ const IconImg = styled.img`
   object-fit: contain;
 `;
 
-const DayWrapper = styled.span`
+const DayWrapper = styled.div`
+  display: flex;
   position: absolute;
+  align-items: center;
+  justify-content: center;
   z-index: 5;
+  width: 3.8rem;
+  height: 3.8rem;
 `;
-
-// const Price = styled.span`
-//   ${({ theme }) => theme.fonts.caption04};
-
-//   color: ${({ theme }) => theme.colors.skscanGrey500};
-// `;

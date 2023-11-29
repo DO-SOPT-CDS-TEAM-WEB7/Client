@@ -7,7 +7,7 @@ const FlightCarousel = () => {
   return (
     <Carousel dataLength={FLIGHT_ITEM_DATA.length}>
       {FLIGHT_ITEM_DATA.map((item: FlightItemProps, idx: number) => (
-        <FlightItem key={idx} flightName={item.flightName} flightImg={item.flightImg} />
+        <FlightItem key={String(idx) + item.flightName} flightName={item.flightName} flightImg={item.flightImg} />
       ))}
     </Carousel>
   );

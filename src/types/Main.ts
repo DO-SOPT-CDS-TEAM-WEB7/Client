@@ -7,6 +7,6 @@ export interface MainApiData {
   minPriceString: string;
 }
 
-export interface MainApiResponse {
-  data: MainApiData[];
+export interface MainApiObj {
+  cards: MainApiData[];
 }

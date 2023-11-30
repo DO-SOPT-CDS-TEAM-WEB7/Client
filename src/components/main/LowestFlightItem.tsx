@@ -12,8 +12,8 @@ const LowestFlightItem = (props: MainApiData) => {
       <ImgWrapper>
         <DesImg src={ParisImg} alt="ParisImg" />
         <Destination>
-          <City>제주</City>
-          <Country>대한민국</Country>
+          <City>{cityName}</City>
+          <Country>{country}</Country>
         </Destination>
       </ImgWrapper>
       <InfoWrapper>
@@ -22,8 +22,8 @@ const LowestFlightItem = (props: MainApiData) => {
             <AirlineImg src={SampleAirlineImg} alt="SampleAirlineImg" />
             <FlightInfo>
               <FlightDetail>
-                <FlightDate>11월 21일 (화)</FlightDate>
-                <FlightCode>티웨이 항공 TAE - CJU 항공</FlightCode>
+                <FlightDate>{startDate.toString()}</FlightDate>
+                <FlightCode>{companyAir} TAE - CJU 항공</FlightCode>
               </FlightDetail>
               <FlightType>직항</FlightType>
             </FlightInfo>
@@ -32,15 +32,15 @@ const LowestFlightItem = (props: MainApiData) => {
             <AirlineImg src={SampleAirlineImg} alt="SampleAirlineImg" />
             <FlightInfo>
               <FlightDetail>
-                <FlightDate>11월 21일 (화)</FlightDate>
-                <FlightCode>티웨이 항공 TAE - CJU 항공</FlightCode>
+                <FlightDate>{endDate.toString()}</FlightDate>
+                <FlightCode>{companyAir} TAE - CJU 항공</FlightCode>
               </FlightDetail>
               <FlightType>직항</FlightType>
             </FlightInfo>
           </Flight>
         </TwoWayFlight>
         <PriceLink>
-          <Price>218,390원 출발</Price>
+          <Price>{minPriceString}</Price>
           <ImgIcon src={ArrowRightBlueIcon} alt="ArrowRightBlueIcon" />
         </PriceLink>
       </InfoWrapper>
@@ -113,6 +113,7 @@ const TwoWayFlight = styled.div`
 
 const Flight = styled.div`
   display: flex;
+  position: relative;
   gap: 1.2rem;
   width: 100%;
 `;
@@ -142,12 +143,16 @@ const FlightDate = styled.span`
 `;
 
 const FlightCode = styled.span`
+  white-space: nowrap;
   ${({ theme }) => theme.fonts.body06};
 
   color: ${({ theme }) => theme.colors.skscanGrey600};
 `;
 
 const FlightType = styled.span`
+  position: absolute;
+  top: 0;
+  right: 0;
   ${({ theme }) => theme.fonts.body06};
 
   color: ${({ theme }) => theme.colors.skscanGrey900};

@@ -16,7 +16,7 @@ const LowestFlights = () => {
         data: { data },
       } = await getMainFlights();
 
-      setFlightInfo(data);
+      setFlightInfo(data.cards);
     } catch (err) {
       console.log(err);
     }
@@ -70,9 +70,11 @@ const SeeAll = styled.div`
   ${({ theme }) => theme.fonts.body04};
 `;
 
-const FlightListContainer = styled.ul`
+const FlightListContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  row-gap: 2.8rem;
+  justify-content: space-between;
   width: 100%;
 `;
 

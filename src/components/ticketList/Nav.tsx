@@ -8,7 +8,7 @@ const Nav = () => {
     <NavContainer>
       <LanUl>
         <LanLi clicked={true}>한국어</LanLi>
-        <LanLi clicked={false}>English</LanLi> {/* 폰트 디자인 수정 필 */}
+        <LanLi clicked={false}>English</LanLi>
         <LanLi clicked={false}>日本語</LanLi>
         <LanLi clicked={false}>中文</LanLi>
       </LanUl>
@@ -43,8 +43,9 @@ export default Nav;
 
 const NavContainer = styled.nav`
   position: relative;
+  margin-bottom: 14.8rem;
   border-bottom: 0.1rem solid ${({ theme }) => theme.colors.skscanGrey150};
-  padding-top: 3.6rem
+  padding-top: 3.6rem;
 `;
 const LanUl = styled.ul`
   display: flex;
@@ -58,7 +59,8 @@ const LanLi = styled.li<{ clicked: boolean }>`
   margin-right: 1.2rem;
   cursor: pointer;
   padding: 0.4rem;
-  ${({ clicked, theme }) => (clicked ? theme.fonts.caption03 : theme.fonts.caption04)};
+  color: ${({ clicked, theme }) => (clicked ? theme.colors.skscanGrey900 : theme.colors.skscanGrey700)};
+  ${({ clicked, theme }) => (clicked ? theme.fonts.caption03 : theme.fonts.caption05)};
 `;
 const SearchBar = styled.div`
   display: flex;

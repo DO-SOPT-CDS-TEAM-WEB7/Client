@@ -1,3 +1,3 @@
 # frontend
 
-GOSOPT 합동세미나 2조 웹
+DO SOPT 합동세미나 7조 웹

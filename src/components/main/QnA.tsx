@@ -50,14 +50,14 @@ const QnAHeader = styled.div`
 
 const Title = styled.h2`
   color: ${({ theme }) => theme.colors.skscanGrey900};
-  font: ${({ theme }) => theme.fonts.heading04};
+  ${({ theme }) => theme.fonts.heading04};
 `;
 
 const SeeAll = styled.div`
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.colors.skscanGrey800};
-  font: ${({ theme }) => theme.fonts.body04};
+  ${({ theme }) => theme.fonts.body04};
 `;
 
 const QnAListContainer = styled.ul`
@@ -78,7 +78,7 @@ const QnAListWrapper = styled.li`
 
 const ListContent = styled.span`
   color: ${({ theme }) => theme.colors.skscanGrey900};
-  font: ${({ theme }) => theme.fonts.body03};
+  ${({ theme }) => theme.fonts.body03};
 `;
 
 const IconImg = styled.img`

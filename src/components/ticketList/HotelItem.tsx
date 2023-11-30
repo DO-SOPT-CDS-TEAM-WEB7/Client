@@ -66,6 +66,7 @@ const DescriptionWrapper = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.colors.skscanGrey200};
   border-left: 1px solid ${({ theme }) => theme.colors.skscanGrey200};
   border-radius: 0 0 1.6rem 1.6rem;
+  background-color: ${({ theme }) => theme.colors.skscanWt};
   padding: 2rem;
   height: 10.6rem;
 `;

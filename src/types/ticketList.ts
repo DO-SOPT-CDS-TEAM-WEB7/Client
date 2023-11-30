@@ -18,6 +18,16 @@ export interface ReservationData {
   CO2: number;
 }
 
+export interface TicketItemProps {
+  reservationId: number;
+  airName: string;
+  startTime: TimeData;
+  endTime: TimeData;
+  price: string;
+  CO2: number;
+  onSelect: () => void;
+}
+
 export interface TicketListRequestBody {
   startDate: string;
   endDate: string;
@@ -27,7 +37,6 @@ export interface TicketListData {
   dateDto: DateDtoData;
   reservationListDto: ReservationData[];
 }
-
 
 export interface TicketListResponse {
   data: TicketListData;

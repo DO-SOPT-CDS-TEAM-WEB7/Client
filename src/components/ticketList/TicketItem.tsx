@@ -2,15 +2,15 @@ import styled from 'styled-components';
 
 import { ArrowImg, HeartBlackImg, LeafImg } from '../../assets/image';
 import TICKET_AIR_IMG from '../../data/TicketItemData';
-import { ReservationData } from '../../types/ticketList';
+import { TicketItemProps } from '../../types/ticketList';
 
-const TicketItem = (props: ReservationData) => {
-  const { reservationId, airName, startTime, endTime, price, CO2 } = props;
+const TicketItem = (props: TicketItemProps) => {
+  const { airName, startTime, endTime, price, CO2, onSelect } = props;
   const flight = TICKET_AIR_IMG.filter((item) => item.airName === airName);
   const flightImg = flight[0].airImg;
 
   return (
-    <TicketContainer key={reservationId}>
+    <TicketContainer>
       <DepartContainer>
         <FlightCompany>
           <FlightLogo src={flightImg} alt="항공사 로고" />
@@ -71,7 +71,7 @@ const TicketItem = (props: ReservationData) => {
         <PriceChooseContainer>
           <Price>{price}</Price>
           <Won>원</Won>
-          <ChooseBtn>선택하기</ChooseBtn>
+          <ChooseBtn onClick={onSelect}>선택하기</ChooseBtn>
         </PriceChooseContainer>
       </CarbonPriceContainer>
       <Like src={HeartBlackImg} alt="좋아요" />

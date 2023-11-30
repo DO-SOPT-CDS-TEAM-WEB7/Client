@@ -13,8 +13,11 @@ interface TickeProps {
 
 const Ticket = (props: TickeProps) => {
   const [ticketList, setTicketList] = useState<ReservationData[]>([]);
+  const [selectedTicket, setSelectedTicket] = useState<number | null>(null);
   const { rangeStart, rangeEnd } = props;
 
+  // 서버에서 티켓리스트 GET
+  // 날짜 동적 변경 필요 
   const getTickets = async () => {
     try {
       const params = {
@@ -35,9 +38,10 @@ const Ticket = (props: TickeProps) => {
     getTickets();
   }, []);
 
-  // if (ticketList.length === 0) {
-  //   return <p>로딩중</p>;
-  // }
+  // 선택된 티켓 저장
+  const handleTicketSelect = (reservationId: number) => {
+    setSelectedTicket(reservationId);
+  };
 
   return (
     <>
@@ -51,6 +55,7 @@ const Ticket = (props: TickeProps) => {
             endTime={item.endTime}
             price={item.price}
             CO2={item.CO2}
+            onSelect={() => handleTicketSelect(item.reservationId)}
           />
         ))}
       </TicketContainer>

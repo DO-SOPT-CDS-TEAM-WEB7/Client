@@ -17,7 +17,7 @@ const Ticket = (props: TicketProps) => {
   const { rangeStart, rangeEnd } = props;
 
   // 서버에서 티켓리스트 GET
-  // 날짜 동적 변경 필요 
+  // 날짜 동적 변경 필요
   const getTickets = async () => {
     try {
       const params = {
@@ -44,22 +44,20 @@ const Ticket = (props: TicketProps) => {
   };
 
   return (
-    <>
-      <TicketContainer>
-        {ticketList.slice(rangeStart, rangeEnd).map((item) => (
-          <TicketItem
-            key={item.reservationId}
-            reservationId={item.reservationId}
-            airName={item.airName}
-            startTime={item.startTime}
-            endTime={item.endTime}
-            price={item.price}
-            CO2={item.CO2}
-            onSelect={() => handleTicketSelect(item.reservationId)}
-          />
-        ))}
-      </TicketContainer>
-    </>
+    <TicketContainer>
+      {ticketList.slice(rangeStart, rangeEnd).map((item) => (
+        <TicketItem
+          key={item.reservationId}
+          reservationId={item.reservationId}
+          airName={item.airName}
+          startTime={item.startTime}
+          endTime={item.endTime}
+          price={item.price}
+          CO2={item.CO2}
+          onSelect={() => handleTicketSelect(item.reservationId)}
+        />
+      ))}
+    </TicketContainer>
   );
 };
 

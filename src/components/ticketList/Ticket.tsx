@@ -4,12 +4,17 @@ import styled from 'styled-components';
 import { getTicketList } from '../../apis/getTicketList';
 import { ReservationData } from '../../types/ticketList';
 // eslint-disable-next-line import/order
-import HotelCarousel from './HotelCarousel';
-// eslint-disable-next-line import/order
 import TicketItem from './TicketItem';
 
-const Ticket = () => {
+interface TickeProps {
+  rangeStart: number;
+  rangeEnd?: number;
+}
+
+const Ticket = (props: TickeProps) => {
   const [ticketList, setTicketList] = useState<ReservationData[]>([]);
+  const { rangeStart, rangeEnd } = props;
+
   const getTickets = async () => {
     try {
       const params = {
@@ -37,21 +42,7 @@ const Ticket = () => {
   return (
     <>
       <TicketContainer>
-        {ticketList.slice(0, 4).map((item) => (
-          <TicketItem
-            key={item.reservationId}
-            reservationId={item.reservationId}
-            airName={item.airName}
-            startTime={item.startTime}
-            endTime={item.endTime}
-            price={item.price}
-            CO2={item.CO2}
-          />
-        ))}
-      </TicketContainer>
-      <HotelCarousel />
-      <TicketContainer>
-        {ticketList.slice(4).map((item) => (
+        {ticketList.slice(rangeStart, rangeEnd).map((item) => (
           <TicketItem
             key={item.reservationId}
             reservationId={item.reservationId}

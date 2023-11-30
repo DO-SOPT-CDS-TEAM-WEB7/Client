@@ -1,3 +1,5 @@
+import { from } from 'stylis';
+
 // 명명규칙은 xxxxImg로 통일
 export { default as UpArrowImg } from './arrow_up.png';
 export { default as CheckImg } from './check.png';
@@ -16,6 +18,7 @@ export { default as SearchImg } from './icn_search.png';
 export { default as StarImg } from './icn_star@2x.png';
 export { default as RightArticleImg2 } from './image.png';
 export { default as RightArticleImg1 } from './image-1.png';
+export { default as SampleAirlineImg } from './img_card_l_1_airline.png';
 export { default as AdImg } from './img_ad.png';
 export { default as AirSeoulImg } from './img_airseoul@2x.png';
 export { default as AsianaImg } from './img_asiana@2x.png';

@@ -1,7 +1,7 @@
 import 'react-datepicker/dist/react-datepicker.css';
 
 import { ko } from 'date-fns/locale';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import styled from 'styled-components';
 
@@ -16,14 +16,25 @@ type MoveBtnProps = {
 const Calendar = () => {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
+  const [date, setDate] = useState<[Date | null, Date | null]>([null, null]);
   const selectDays = (dates: [Date | null, Date | null]) => {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
+    setStartDate(dates[0]);
+    setEndDate(dates[1]);
+    setDate(dates);
   };
 
+  const [isSame, setSame] = useState(false);
+
+  useEffect(() => {
+    setSame(
+      date[0]?.getFullYear() === date[1]?.getFullYear() &&
+        date[0]?.getMonth() === date[1]?.getMonth() &&
+        date[0]?.getDate() === date[1]?.getDate(),
+    );
+  }, [date]);
+
   return (
-    <CalendarWrapper>
+    <CalendarWrapper $isSame={isSame}>
       <StyledDatePicker
         renderCustomHeader={({ monthDate, customHeaderCount, decreaseMonth, increaseMonth }) => (
           <StyledHeader>
@@ -61,7 +72,7 @@ const Calendar = () => {
 
 export default Calendar;
 
-const CalendarWrapper = styled.section`
+const CalendarWrapper = styled.section<{ $isSame: boolean }>`
   position: relative;
 
   & div {
@@ -183,6 +194,7 @@ const CalendarWrapper = styled.section`
 
     &--selecting-range-start::after,
     &--range-start::after {
+      display: ${({ $isSame }) => ($isSame ? 'none' : 'block')};
       position: absolute;
       top: 0;
       left: 50%;
@@ -194,6 +206,7 @@ const CalendarWrapper = styled.section`
 
     &--selecting-range-end::after,
     &--range-end::after {
+      display: ${({ $isSame }) => ($isSame ? 'none' : 'block')};
       position: absolute;
       top: 0;
       right: 50%;

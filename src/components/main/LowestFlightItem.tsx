@@ -8,6 +8,32 @@ const LowestFlightItem = (props: MainApiData) => {
   const { cityName, country, startDate, endDate, companyAir, minPriceString } = props;
   const { img = '', icon = '', go = '', back = '' } = LOWEST_FLIGHT_ITEM.find((e) => e.place === cityName) || {};
 
+  const dateFormatter = (date: Date): string => {
+    let tempDate = date.toString();
+
+    const month = tempDate.substring(5, 7);
+    const day = tempDate.substring(8, 10);
+    let weekday = tempDate.substring(11, 15);
+
+    const cases: Record<string, string> = {
+      Mon: '월',
+      Tue: '화',
+      Wed: '수',
+      Thu: '목',
+      Fri: '금',
+      Sat: '토',
+      Sun: '일',
+    };
+    weekday = cases[weekday];
+
+    tempDate = `${month}월 ${day}일 (${weekday})`;
+
+    return tempDate;
+  };
+
+  const start = dateFormatter(startDate);
+  const end = dateFormatter(endDate);
+
   return (
     <CardContainer>
       <ImgWrapper>
@@ -23,7 +49,7 @@ const LowestFlightItem = (props: MainApiData) => {
             <AirlineImg src={icon} alt={icon} />
             <FlightInfo>
               <FlightDetail>
-                <FlightDate>{startDate.toString()}</FlightDate>
+                <FlightDate>{start}</FlightDate>
                 <FlightCode>
                   {companyAir}&nbsp;
                   {go}
@@ -36,7 +62,7 @@ const LowestFlightItem = (props: MainApiData) => {
             <AirlineImg src={icon} alt={icon} />
             <FlightInfo>
               <FlightDetail>
-                <FlightDate>{endDate.toString()}</FlightDate>
+                <FlightDate>{end}</FlightDate>
                 <FlightCode>
                   {companyAir}&nbsp;
                   {back}

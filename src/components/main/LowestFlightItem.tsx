@@ -129,6 +129,7 @@ const FlightInfo = styled.div`
 const FlightDetail = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 `;
 
 const FlightDate = styled.span`

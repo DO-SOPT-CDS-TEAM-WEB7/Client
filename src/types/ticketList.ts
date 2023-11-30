@@ -18,10 +18,16 @@ export interface ReservationData {
   CO2: number;
 }
 
+export interface TicketListRequestBody {
+  startDate: string;
+  endDate: string;
+}
+
 export interface TicketListData {
   dateDto: DateDtoData;
   reservationListDto: ReservationData[];
 }
+
 
 export interface TicketListResponse {
   data: TicketListData;

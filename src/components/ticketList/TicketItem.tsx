@@ -1,30 +1,34 @@
 import styled from 'styled-components';
 
 import { ArrowImg, HeartBlackImg, KoreanAirImg, LeafImg } from '../../assets/image';
+import { ReservationData } from '../../types/ticketList';
 
-const TicketItem = () => {
+// reservationId 넣기
+const TicketItem = (props: ReservationData) => {
+  const { reservationId, airName, startTime, endTime, price, CO2 } = props;
+
   return (
-    <TicketContainer>
+    <TicketContainer key={reservationId}>
       <DepartContainer>
         <FlightCompany>
           <FlightLogo src={KoreanAirImg} alt="항공사 로고" />
-          <FlightName>대한항공</FlightName>
+          <FlightName>{airName}</FlightName>
         </FlightCompany>
 
         <FlightContainer>
           <Depart>
-            <Time>13:15</Time>
+            <Time>{startTime.start}</Time>
             <Place>ICN</Place>
           </Depart>
 
           <DurationContainer>
             <Path>직항</Path>
             <PathArrow src={ArrowImg} alt="화살표" />
-            <DurationTime>02시간 50분</DurationTime>
+            <DurationTime>{startTime.during}</DurationTime>
           </DurationContainer>
 
           <Arrive>
-            <Time>16:05</Time>
+            <Time>{startTime.end}</Time>
             <Place>CTS</Place>
           </Arrive>
         </FlightContainer>
@@ -33,23 +37,23 @@ const TicketItem = () => {
       <ArrivalContainer>
         <FlightCompany>
           <FlightLogo src={KoreanAirImg} alt="항공사 로고" />
-          <FlightName>대한항공</FlightName>
+          <FlightName>{airName}</FlightName>
         </FlightCompany>
 
         <FlightContainer>
           <Depart>
-            <Time>17:05</Time>
+            <Time>{endTime.start}</Time>
             <Place>CTS</Place>
           </Depart>
 
           <DurationContainer>
             <Path>직항</Path>
             <PathArrow src={ArrowImg} alt="화살표" />
-            <DurationTime>02시간 50분</DurationTime>
+            <DurationTime>{endTime.during}</DurationTime>
           </DurationContainer>
 
           <Arrive>
-            <Time>11:15</Time>
+            <Time>{endTime.end}</Time>
             <Place>ICN</Place>
           </Arrive>
         </FlightContainer>
@@ -59,11 +63,11 @@ const TicketItem = () => {
         <Carbon>
           <CarbonImg src={LeafImg} alt="탄소 나뭇잎" />
           <CarbonMsg>탄소배출량</CarbonMsg>
-          <CarbonMsgBold>21% 감소</CarbonMsgBold>
+          <CarbonMsgBold>{`${CO2}% 감소`}</CarbonMsgBold>
           <CarbonMsg>항공편</CarbonMsg>
         </Carbon>
         <PriceChooseContainer>
-          <Price>467,900</Price>
+          <Price>{price}</Price>
           <Won>원</Won>
           <ChooseBtn>선택하기</ChooseBtn>
         </PriceChooseContainer>

@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 
 import { ArrowRightBlueIcon } from '../../assets/icon';
-import { ParisImg, SampleAirlineImg } from '../../assets/image';
+import LOWEST_FLIGHT_ITEM from '../../data/LowestFlightItemData';
 import { MainApiData } from '../../types/Main';
 
 const LowestFlightItem = (props: MainApiData) => {
   const { cityName, country, startDate, endDate, companyAir, minPriceString } = props;
+  const { img = '', icon = '', go = '', back = '' } = LOWEST_FLIGHT_ITEM.find((e) => e.place === cityName) || {};
 
   return (
     <CardContainer>
       <ImgWrapper>
-        <DesImg src={ParisImg} alt="ParisImg" />
+        <DesImg src={img} alt={img} />
         <Destination>
           <City>{cityName}</City>
           <Country>{country}</Country>
@@ -19,21 +20,27 @@ const LowestFlightItem = (props: MainApiData) => {
       <InfoWrapper>
         <TwoWayFlight>
           <Flight>
-            <AirlineImg src={SampleAirlineImg} alt="SampleAirlineImg" />
+            <AirlineImg src={icon} alt={icon} />
             <FlightInfo>
               <FlightDetail>
                 <FlightDate>{startDate.toString()}</FlightDate>
-                <FlightCode>{companyAir} TAE - CJU 항공</FlightCode>
+                <FlightCode>
+                  {companyAir}&nbsp;
+                  {go}
+                </FlightCode>
               </FlightDetail>
               <FlightType>직항</FlightType>
             </FlightInfo>
           </Flight>
           <Flight>
-            <AirlineImg src={SampleAirlineImg} alt="SampleAirlineImg" />
+            <AirlineImg src={icon} alt={icon} />
             <FlightInfo>
               <FlightDetail>
                 <FlightDate>{endDate.toString()}</FlightDate>
-                <FlightCode>{companyAir} TAE - CJU 항공</FlightCode>
+                <FlightCode>
+                  {companyAir}&nbsp;
+                  {back}
+                </FlightCode>
               </FlightDetail>
               <FlightType>직항</FlightType>
             </FlightInfo>

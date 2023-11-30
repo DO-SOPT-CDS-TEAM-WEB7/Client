@@ -1,18 +1,24 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { getMainFlights } from '../../apis/getMainFlights';
 import { ArrowRightGrayIcon } from '../../assets/icon';
+import { MainApiData } from '../../types/Main';
+// eslint-disable-next-line import/order
+import LowestFlightItem from './LowestFlightItem';
 
 const LowestFlights = () => {
+  const [flightInfo, setFlightInfo] = useState<MainApiData[]>([]);
+
   const getMainFlightsList = async () => {
     try {
       const {
         data: { data },
       } = await getMainFlights();
-      console.log(data);
-    } catch (e) {
-      console.log(e);
+
+      setFlightInfo(data);
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -23,13 +29,17 @@ const LowestFlights = () => {
   return (
     <FlightsContainer>
       <FlightsHeader>
-        <Title>자주 묻는 질문을 확인해보세요</Title>
+        <Title>최저가 항공을 서둘러 예약해보세요!</Title>
         <SeeAll>
           전체보기
           <IconImg src={ArrowRightGrayIcon} alt="ArrowRightGrayIcon" />
         </SeeAll>
       </FlightsHeader>
-      <FlightListContainer></FlightListContainer>
+      <FlightListContainer>
+        {flightInfo.map((item: MainApiData, idx: number) => (
+          <LowestFlightItem key={String(idx) + item.cityName} {...item} />
+        ))}
+      </FlightListContainer>
     </FlightsContainer>
   );
 };

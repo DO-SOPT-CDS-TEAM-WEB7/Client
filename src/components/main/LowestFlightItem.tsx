@@ -2,8 +2,11 @@ import styled from 'styled-components';
 
 import { ArrowRightBlueIcon } from '../../assets/icon';
 import { ParisImg, SampleAirlineImg } from '../../assets/image';
+import { MainApiData } from '../../types/Main';
 
-const LowestFlightItem = () => {
+const LowestFlightItem = (props: MainApiData) => {
+  const { cityName, country, startDate, endDate, companyAir, minPriceString } = props;
+
   return (
     <CardContainer>
       <ImgWrapper>

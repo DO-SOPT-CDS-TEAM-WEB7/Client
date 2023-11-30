@@ -2,19 +2,23 @@ import styled from 'styled-components';
 
 import Header from '../components/main/Header';
 import Insight from '../components/main/Insight';
+import LowestFlights from '../components/main/LowestFlights';
 import QnA from '../components/main/QnA';
 import RecommendDestination from '../components/main/RecommendDestination';
 import RecommendFlight from '../components/main/RecommendFlight';
 
 const Main = () => {
   return (
-    <Container>
+    <>
       <Header />
-      <Insight />
-      <RecommendDestination />
-      <RecommendFlight />
-      <QnA />
-    </Container>
+      <Container>
+        <Insight />
+        <RecommendDestination />
+        <RecommendFlight />
+        <LowestFlights />
+        <QnA />
+      </Container>
+    </>
   );
 };
 

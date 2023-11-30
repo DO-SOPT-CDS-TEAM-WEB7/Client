@@ -3,5 +3,5 @@ import { MainApiResponse } from '../types/Main';
 import { client } from './client';
 
 export const getMainFlights = () => {
-  return client.get<MainApiResponse>(`/air/min-prices`);
+  return client.get<MainApiResponse>(`/main`);
 };

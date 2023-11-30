@@ -10,6 +10,10 @@ import { ArrowLeftIcon, ArrowRightIcon } from '../../assets/icon';
 // eslint-disable-next-line import/order
 import CalendarItem from './CalendarItem';
 
+type DateProps = {
+  $isSameDate: boolean;
+};
+
 type MoveBtnProps = {
   $headerCount: number;
 };
@@ -17,14 +21,18 @@ type MoveBtnProps = {
 const Calendar = () => {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
+  const [isSameDate, setIsSameDate] = useState(false);
+
   const selectDays = (dates: [Date | null, Date | null]) => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
+    startDate?.toString() === endDate?.toString() ? setIsSameDate(true) : setIsSameDate(false);
+    console.log(isSameDate);
   };
 
   return (
-    <CalendarWrapper>
+    <CalendarWrapper $isSameDate={isSameDate}>
       <StyledDatePicker
         renderCustomHeader={({ monthDate, customHeaderCount, decreaseMonth, increaseMonth }) => (
           <StyledHeader>
@@ -62,13 +70,16 @@ const Calendar = () => {
 
 export default Calendar;
 
-const CalendarWrapper = styled.section`
+const CalendarWrapper = styled.section<DateProps>`
+  position: relative;
+
   & div {
     margin: 0;
     padding: 0;
   }
 
   .react-datepicker-popper {
+    inset: 0 -33.8rem auto auto !important;
     margin-top: 5.35rem;
     border-radius: 1.2rem;
     padding: 2.4rem;
@@ -186,7 +197,7 @@ const CalendarWrapper = styled.section`
       background-color: ${({ theme }) => theme.colors.skscanSecondary2};
       width: 2.4rem;
       height: 100%;
-      content: '';
+      content: ${({ $isSameDate }) => ($isSameDate ? 'none' : '')};
     }
 
     &--selecting-range-end::after,
@@ -197,7 +208,7 @@ const CalendarWrapper = styled.section`
       background-color: ${({ theme }) => theme.colors.skscanSecondary2};
       width: 2.4rem;
       height: 100%;
-      content: '';
+      content: ${({ $isSameDate }) => ($isSameDate ? 'none' : '')};
     }
   }
 `;
@@ -242,7 +253,7 @@ const IconImg = styled.img`
   object-fit: contain;
 `;
 
-const DayWrapper = styled.div`
+const DayWrapper = styled.span`
   position: absolute;
   z-index: 5;
 `;

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { getTicketList } from '../../apis/getTicketList';
@@ -12,6 +13,7 @@ interface TicketProps {
 }
 
 const Ticket = (props: TicketProps) => {
+  const navigate = useNavigate();
   const [ticketList, setTicketList] = useState<ReservationData[]>([]);
   const [selectedTicket, setSelectedTicket] = useState<number | null>(null);
   const { rangeStart, rangeEnd } = props;
@@ -41,6 +43,7 @@ const Ticket = (props: TicketProps) => {
   // 선택된 티켓 저장
   const handleTicketSelect = (reservationId: number) => {
     setSelectedTicket(reservationId);
+    navigate('/priceCompare');
   };
 
   return (

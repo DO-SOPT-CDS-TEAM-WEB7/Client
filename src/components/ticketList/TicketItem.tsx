@@ -110,6 +110,7 @@ const ArrivalContainer = styled.div`
 const FlightCompany = styled.div`
   display: flex;
   align-items: center;
+  width: 22.8rem;
 `;
 
 const FlightLogo = styled.img`
@@ -119,7 +120,6 @@ const FlightLogo = styled.img`
 `;
 
 const FlightName = styled.span`
-  margin-right: 11.2rem;
   ${({ theme }) => theme.fonts.body06};
 `;
 

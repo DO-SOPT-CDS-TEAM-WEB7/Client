@@ -6,12 +6,12 @@ import { ReservationData } from '../../types/ticketList';
 // eslint-disable-next-line import/order
 import TicketItem from './TicketItem';
 
-interface TickeProps {
+interface TicketProps {
   rangeStart: number;
   rangeEnd?: number;
 }
 
-const Ticket = (props: TickeProps) => {
+const Ticket = (props: TicketProps) => {
   const [ticketList, setTicketList] = useState<ReservationData[]>([]);
   const [selectedTicket, setSelectedTicket] = useState<number | null>(null);
   const { rangeStart, rangeEnd } = props;

@@ -1,4 +1,3 @@
-/* stylelint-disable selector-class-pattern */
 import 'react-datepicker/dist/react-datepicker.css';
 
 import { ko } from 'date-fns/locale';
@@ -10,10 +9,6 @@ import { ArrowLeftIcon, ArrowRightIcon } from '../../assets/icon';
 // eslint-disable-next-line import/order
 import CalendarItem from './CalendarItem';
 
-type DateProps = {
-  $isSameDate: boolean;
-};
-
 type MoveBtnProps = {
   $headerCount: number;
 };
@@ -21,18 +16,14 @@ type MoveBtnProps = {
 const Calendar = () => {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
-  const [isSameDate, setIsSameDate] = useState(false);
-
   const selectDays = (dates: [Date | null, Date | null]) => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
-    startDate?.toString() === endDate?.toString() ? setIsSameDate(true) : setIsSameDate(false);
-    console.log(isSameDate);
   };
 
   return (
-    <CalendarWrapper $isSameDate={isSameDate}>
+    <CalendarWrapper>
       <StyledDatePicker
         renderCustomHeader={({ monthDate, customHeaderCount, decreaseMonth, increaseMonth }) => (
           <StyledHeader>
@@ -70,7 +61,7 @@ const Calendar = () => {
 
 export default Calendar;
 
-const CalendarWrapper = styled.section<DateProps>`
+const CalendarWrapper = styled.section`
   position: relative;
 
   & div {
@@ -87,6 +78,7 @@ const CalendarWrapper = styled.section<DateProps>`
     ${({ theme }) => theme.effects.boxDrop};
   }
 
+  /* stylelint-disable selector-class-pattern */
   .react-datepicker__input-container ::placeholder {
     color: ${({ theme }) => theme.colors.skscanGrey900};
   }
@@ -197,7 +189,7 @@ const CalendarWrapper = styled.section<DateProps>`
       background-color: ${({ theme }) => theme.colors.skscanSecondary2};
       width: 2.4rem;
       height: 100%;
-      content: ${({ $isSameDate }) => ($isSameDate ? 'none' : '')};
+      content: '';
     }
 
     &--selecting-range-end::after,
@@ -208,7 +200,7 @@ const CalendarWrapper = styled.section<DateProps>`
       background-color: ${({ theme }) => theme.colors.skscanSecondary2};
       width: 2.4rem;
       height: 100%;
-      content: ${({ $isSameDate }) => ($isSameDate ? 'none' : '')};
+      content: '';
     }
   }
 `;

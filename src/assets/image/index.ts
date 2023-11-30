@@ -1,7 +1,4 @@
 // 명명규칙은 xxxxImg로 통일
-export { default as BackwardArrow } from './chevron.backward.png';
-export { default as ForwardArrow } from './chevron.forward.png';
-export { default as HeadBanner } from './headbanner.png';
 export { default as CheckboxImg } from './checkbox@2x.png';
 export { default as BackwardArrow } from './chevron.backward.png';
 export { default as ForwardArrow } from './chevron.forward.png';
@@ -12,6 +9,8 @@ export { default as CarImg } from './icn_car@2x.png';
 export { default as HeartImg } from './icn_heart.png';
 export { default as SearchImg } from './icn_search.png';
 export { default as StarImg } from './icn_star@2x.png';
+export { default as RightArticleImg2 } from './image.png';
+export { default as RightArticleImg1 } from './image-1.png';
 export { default as JapanImg } from './img_card_m_1.png';
 export { default as PhilippinesImg } from './img_card_m_2.png';
 export { default as UKImg } from './img_card_m_3.png';
@@ -28,8 +27,6 @@ export { default as SingaporeImg } from './img_card_m_11 (1).png';
 export { default as IcelandImg } from './img_card_m_11.png';
 export { default as ItalyImg } from './img_card_m_12 (1).png';
 export { default as MexicoImg } from './img_card_m_12.png';
-export { default as RightArticleImg2 } from './image.png';
-export { default as RightArticleImg1 } from './image-1.png';
 export { default as AtlantaImg } from './img_card_s_1.png';
 export { default as BeijingImg } from './img_card_s_2.png';
 export { default as HKImg } from './img_card_s_3.png';

@@ -1,6 +1,8 @@
-// eslint-disable-next-line import/order
+/* eslint-disable import/order */
+import { useEffect, useState } from 'react';
+
+import { getMinPriceList } from '../../../apis/getMinPriceList';
 import { DownArrow, UpArrowImg } from '../../../assets/image';
-// eslint-disable-next-line import/order
 import { DropDownProps } from '../DropDown';
 import ButtonContainer from './ButtonContainer';
 import { Arrow, DropDownContainer, Name, Option, Select } from './styles/DropDown.style';
@@ -9,6 +11,22 @@ import { List, Path, Price, StyledInput, StyledLabel, StyledText } from './style
 // API 연결 필요
 const FlightDropDown = (props: DropDownProps) => {
   const { isOpen, onToggle } = props;
+
+  // state에 저장 필요
+  const getMinList = async () => {
+    try {
+      const {
+        data: { data },
+      } = await getMinPriceList();
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    getMinList();
+  }, []);
 
   return (
     <DropDownContainer>

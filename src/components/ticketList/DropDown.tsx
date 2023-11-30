@@ -13,6 +13,7 @@ type DropdownName = 'path' | 'time' | 'duration' | 'flight' | 'recommend';
 
 export interface DropDownProps {
   isOpen: boolean;
+  // eslint-disable-next-line no-unused-vars
   onToggle: (dropdownName: DropdownName) => void;
 }
 

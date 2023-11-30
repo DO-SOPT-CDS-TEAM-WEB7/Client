@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
-import { ArrowImg, HeartBlackImg, KoreanAirImg, LeafImg } from '../../assets/image';
+import { ArrowImg, HeartBlackImg, LeafImg } from '../../assets/image';
 import TICKET_AIR_IMG from '../../data/TicketItemData';
 import { ReservationData } from '../../types/ticketList';
 
-// reservationId 넣기
 const TicketItem = (props: ReservationData) => {
   const { reservationId, airName, startTime, endTime, price, CO2 } = props;
   const flight = TICKET_AIR_IMG.filter((item) => item.airName === airName);
@@ -133,6 +132,7 @@ const Depart = styled.div`
   flex-direction: column;
   align-items: flex-end;
   margin-right: 1.7rem;
+  width: 7.9rem;
 `;
 
 const Arrive = styled.div`
@@ -157,6 +157,8 @@ const DurationContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  margin: 0 1.8rem 0 2rem;
+  width: 11.1rem;
 `;
 
 const Path = styled.span`

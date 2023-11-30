@@ -15,7 +15,7 @@ const TicketList = () => {
       <AdvImg />
       <DropDown />
       <Ticket />
-      <HotelCarousel />
+      {/* <HotelCarousel /> */}
     </>
   );
 };

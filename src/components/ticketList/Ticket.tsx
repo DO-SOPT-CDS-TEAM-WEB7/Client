@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { getTicketList } from '../../apis/getTicketList';
 import { ReservationData } from '../../types/ticketList';
 // eslint-disable-next-line import/order
+import HotelCarousel from './HotelCarousel';
+// eslint-disable-next-line import/order
 import TicketItem from './TicketItem';
 
 const Ticket = () => {
@@ -33,19 +35,35 @@ const Ticket = () => {
   // }
 
   return (
-    <TicketContainer>
-      {ticketList.map((item) => (
-        <TicketItem
-          key={item.reservationId}
-          reservationId={item.reservationId}
-          airName={item.airName}
-          startTime={item.startTime}
-          endTime={item.endTime}
-          price={item.price}
-          CO2={item.CO2}
-        />
-      ))}
-    </TicketContainer>
+    <>
+      <TicketContainer>
+        {ticketList.slice(0, 4).map((item) => (
+          <TicketItem
+            key={item.reservationId}
+            reservationId={item.reservationId}
+            airName={item.airName}
+            startTime={item.startTime}
+            endTime={item.endTime}
+            price={item.price}
+            CO2={item.CO2}
+          />
+        ))}
+      </TicketContainer>
+      <HotelCarousel />
+      <TicketContainer>
+        {ticketList.slice(4).map((item) => (
+          <TicketItem
+            key={item.reservationId}
+            reservationId={item.reservationId}
+            airName={item.airName}
+            startTime={item.startTime}
+            endTime={item.endTime}
+            price={item.price}
+            CO2={item.CO2}
+          />
+        ))}
+      </TicketContainer>
+    </>
   );
 };
 

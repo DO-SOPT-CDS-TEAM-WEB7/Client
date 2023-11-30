@@ -10,3 +10,7 @@ export interface MainApiData {
 export interface MainApiObj {
   cards: MainApiData[];
 }
+
+export interface MainApiResponse {
+  data: MainApiObj;
+}

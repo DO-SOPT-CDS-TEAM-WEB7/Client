@@ -1,15 +1,16 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import TicketItem from './TicketItem';
 
 const Ticket = () => {
-  return <TicketContainer>
-    <TicketItem></TicketItem>
-    <TicketItem></TicketItem>
-    <TicketItem></TicketItem>
-    <TicketItem></TicketItem>
-  </TicketContainer>
+  return (
+    <TicketContainer>
+      <TicketItem></TicketItem>
+      <TicketItem></TicketItem>
+      <TicketItem></TicketItem>
+      <TicketItem></TicketItem>
+    </TicketContainer>
+  );
 };
 
 export default Ticket;

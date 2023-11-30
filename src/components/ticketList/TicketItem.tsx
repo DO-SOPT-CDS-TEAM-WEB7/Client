@@ -1,17 +1,20 @@
 import styled from 'styled-components';
 
 import { ArrowImg, HeartBlackImg, KoreanAirImg, LeafImg } from '../../assets/image';
+import TICKET_AIR_IMG from '../../data/TicketItemData';
 import { ReservationData } from '../../types/ticketList';
 
 // reservationId 넣기
 const TicketItem = (props: ReservationData) => {
   const { reservationId, airName, startTime, endTime, price, CO2 } = props;
+  const flight = TICKET_AIR_IMG.filter((item) => item.airName === airName);
+  const flightImg = flight[0].airImg;
 
   return (
     <TicketContainer key={reservationId}>
       <DepartContainer>
         <FlightCompany>
-          <FlightLogo src={KoreanAirImg} alt="항공사 로고" />
+          <FlightLogo src={flightImg} alt="항공사 로고" />
           <FlightName>{airName}</FlightName>
         </FlightCompany>
 
@@ -36,7 +39,7 @@ const TicketItem = (props: ReservationData) => {
 
       <ArrivalContainer>
         <FlightCompany>
-          <FlightLogo src={KoreanAirImg} alt="항공사 로고" />
+          <FlightLogo src={flightImg} alt="항공사 로고" />
           <FlightName>{airName}</FlightName>
         </FlightCompany>
 

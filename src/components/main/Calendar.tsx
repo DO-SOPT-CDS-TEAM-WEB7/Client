@@ -144,9 +144,11 @@ const CalendarWrapper = styled.section`
     &--selected,
     &--in-selecting-range,
     &--in-range {
+      margin: 1.1rem 0;
       border: none !important;
       border-radius: 0 !important;
       background-color: ${({ theme }) => theme.colors.skscanSecondary2}!important;
+      width: 4.8rem;
       color: ${({ theme }) => theme.colors.skscanSecondary}!important;
     }
 
@@ -154,9 +156,11 @@ const CalendarWrapper = styled.section`
     &--selecting-range-end,
     &--range-start,
     &--range-end {
+      margin: 1.1rem 0.5rem;
       border: none !important;
       border-radius: 50% !important;
       background-color: ${({ theme }) => theme.colors.skscanSecondary}!important;
+      width: 3.8rem;
       color: ${({ theme }) => theme.colors.skscanWt} !important;
     }
 
@@ -180,7 +184,7 @@ const CalendarWrapper = styled.section`
       top: 0;
       left: 50%;
       background-color: ${({ theme }) => theme.colors.skscanSecondary2};
-      width: 50%;
+      width: 2.4rem;
       height: 100%;
       content: '';
     }
@@ -191,7 +195,7 @@ const CalendarWrapper = styled.section`
       top: 0;
       right: 50%;
       background-color: ${({ theme }) => theme.colors.skscanSecondary2};
-      width: 50%;
+      width: 2.4rem;
       height: 100%;
       content: '';
     }
@@ -239,11 +243,6 @@ const IconImg = styled.img`
 `;
 
 const DayWrapper = styled.div`
-  display: flex;
   position: absolute;
-  align-items: center;
-  justify-content: center;
   z-index: 5;
-  width: 3.8rem;
-  height: 3.8rem;
 `;

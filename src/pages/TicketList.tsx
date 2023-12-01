@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
+
 import { useRecoilValue } from 'recoil';
+import styled from 'styled-components';
+
 
 import { getTicketList } from '../apis/getTicketList';
+import Footer from '../components/common/Footer';
 import SearchBar from '../components/common/SearchBar';
 import AdvImg from '../components/ticketList/AdvImg';
 import BackgroundImg from '../components/ticketList/BackgroundImg';
@@ -66,16 +70,38 @@ const TicketList = () => {
 
   return (
     <>
+      <Background />
       <Nav />
       <BackgroundImg />
       <SearchBar />
       <AdvImg />
       <DropDown checkboxHandler={onClickCheckbox} onClickApplyBtn={onClickApplyBtn} />
-      <Ticket rangeStart={0} rangeEnd={4} ticketList={filteredList} />
+      <Ticket rangeStart={0} rangeEnd={4} ticketList={filteredList} totalLength={filteredList.length}/>
       <HotelCarousel />
-      <Ticket rangeStart={4} ticketList={filteredList} />
+      <Ticket rangeStart={4} rangeEnd={filteredList.length} ticketList={filteredList} totalLength={filteredList.length-1}/>
+      <FooterBackground />
+      <Footer />
     </>
   );
 };
 
 export default TicketList;
+
+const Background = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: -99;
+  background-color: ${({ theme }) => theme.colors.skscanGrey50};
+  width: 100vw;
+  height: 100%;
+`;
+
+const FooterBackground = styled.div`
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  background-color: ${({ theme }) => theme.colors.skscanWt};
+  width: 100vw;
+  height: 28.3rem;
+`;

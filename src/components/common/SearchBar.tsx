@@ -52,7 +52,7 @@ const SearchBarContainer = styled.nav`
   display: flex;
   flex-direction: column;
   border-radius: 1.2rem;
-  ${({ theme }) => theme.effects.boxDrop}
+  ${({ theme }) => theme.effects.boxDrop};
 
   background-color: ${({ theme }) => theme.colors.skscanWt};
   width: 100%;

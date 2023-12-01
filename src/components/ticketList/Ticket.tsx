@@ -11,12 +11,14 @@ interface TicketProps {
   rangeStart: number;
   rangeEnd?: number;
   ticketList: ReservationData[] | null;
+  totalLength: number;
 }
 
 const Ticket = (props: TicketProps) => {
   const navigate = useNavigate();
-  const setReservationId = useSetRecoilState(reservationIdState);
-  const { rangeStart, rangeEnd, ticketList } = props;
+
+  const [selectedTicket, setSelectedTicket] = useState<number | null>(null);
+  const { rangeStart, rangeEnd, ticketList, totalLength } = props;
 
   // 선택된 티켓 저장
   const handleTicketSelect = (reservationId: number) => {
@@ -29,7 +31,7 @@ const Ticket = (props: TicketProps) => {
       {ticketList ? (
         ticketList
           .slice(rangeStart, rangeEnd)
-          .map((item) => (
+          .map((item, idx) => (
             <TicketItem
               key={item.reservationId}
               reservationId={item.reservationId}
@@ -39,6 +41,7 @@ const Ticket = (props: TicketProps) => {
               price={item.price}
               CO2={item.CO2}
               onSelect={() => handleTicketSelect(item.reservationId)}
+              isLast = {rangeStart >= 4 ? (idx+4 === totalLength ? true : false) : false}
             />
           ))
       ) : (

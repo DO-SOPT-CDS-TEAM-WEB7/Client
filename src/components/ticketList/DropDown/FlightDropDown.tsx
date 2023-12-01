@@ -3,7 +3,7 @@
 import { DownArrow, UpArrowImg } from '../../../assets/image';
 import { DropDownProps } from '../DropDown';
 import ButtonContainer from './ButtonContainer';
-import { Arrow, DropDownContainer, Name, Option, Select } from './styles/DropDown.style';
+import { Arrow, Name, Option, Select } from './styles/DropDown.style';
 import { List, Path, Price, StyledInput, StyledLabel, StyledText } from './styles/InputCustom.style';
 
 // API 연결 필요
@@ -11,7 +11,7 @@ const FlightDropDown = (props: DropDownProps) => {
   const { isOpen, onToggle, flightList, checkboxHandler, onCancel, onApply } = props;
 
   return (
-    <DropDownContainer>
+    <>
       <Select onClick={() => onToggle('flight')} $isOpen={isOpen}>
         <Name $isOpen={isOpen}>항공사</Name>
         {isOpen ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
@@ -31,7 +31,7 @@ const FlightDropDown = (props: DropDownProps) => {
         </List>
         <ButtonContainer onCancel={onCancel} onApply={onApply}/>
       </Option>
-    </DropDownContainer>
+    </>
   );
 };
 

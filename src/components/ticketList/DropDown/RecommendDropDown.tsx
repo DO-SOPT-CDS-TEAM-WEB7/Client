@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import { DownArrow, UpArrowImg } from '../../../assets/image';
 import { DropDownProps } from '../DropDown';
 // eslint-disable-next-line import/order
-import { Arrow, DropDownContainer, Name, Option, Select } from './styles/DropDown.style';
+import { Arrow, Name, Option, Select } from './styles/DropDown.style';
 
 const RecommendDropDown = (props: DropDownProps) => {
   const { isOpen, onToggle } = props;
 
   return (
-    <DropDownContainer>
+    <>
       <Select onClick={() => onToggle('recommend')} $isOpen={isOpen} className="end">
         <Name $isOpen={isOpen}>추천순</Name>
         {isOpen ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
@@ -23,7 +23,7 @@ const RecommendDropDown = (props: DropDownProps) => {
           <SortName className="end">귀국 시간순</SortName>
         </List>
       </Option>
-    </DropDownContainer>
+    </>
   );
 };
 

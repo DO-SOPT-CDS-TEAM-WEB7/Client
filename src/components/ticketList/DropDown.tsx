@@ -127,6 +127,6 @@ const DropDownContainer = styled.form`
   position: relative;
   align-items: center;
   justify-content: space-between;
-  margin: 4.8rem 0 2.5rem;
+  margin-bottom: 2.5rem;
   width: 100%;
 `;

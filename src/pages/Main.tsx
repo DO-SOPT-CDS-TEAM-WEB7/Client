@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 import { MainBannerImg } from '../assets/image';
 import Footer from '../components/common/Footer';
-import SearchBar from '../components/common/SearchBar';
 import Header from '../components/main/Header';
 import Insight from '../components/main/Insight';
 import LowestFlights from '../components/main/LowestFlights';
@@ -15,7 +14,6 @@ const Main = () => {
   return (
     <>
       <Header />
-      <SearchBar />
       <Container>
         <Nav />
         <Insight />
@@ -38,6 +36,12 @@ const Container = styled.main`
   top: 14.6rem;
   flex-direction: column;
   gap: 10rem;
+  margin-bottom: 14.6rem;
+`;
+
+
+const ADImg = styled.img`
+  object-fit: contain;
 `;
 
 const ADImg = styled.img`

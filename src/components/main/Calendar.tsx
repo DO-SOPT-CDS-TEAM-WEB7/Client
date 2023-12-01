@@ -18,7 +18,6 @@ type MoveBtnProps = {
 const Calendar = () => {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEnddate] = useState<Date | null>(null);
-
   const setUserInput = useSetRecoilState(userInputState);
 
   const selectDays = (dates: [Date, Date]) => {

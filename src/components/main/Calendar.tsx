@@ -14,21 +14,23 @@ type MoveBtnProps = {
 };
 
 const Calendar = () => {
-  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
+  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [endDate, setEnddate] = useState<Date | null>(null);
 
   const selectDays = (dates: [Date | null, Date | null]) => {
-    setDateRange(dates);
+    setStartDate(dates[0]);
+    setEnddate(dates[1]);
   };
 
   const [isSame, setSame] = useState(false);
 
   useEffect(() => {
     setSame(
-      dateRange[0]?.getFullYear() === dateRange[1]?.getFullYear() &&
-        dateRange[0]?.getMonth() === dateRange[1]?.getMonth() &&
-        dateRange[0]?.getDate() === dateRange[1]?.getDate(),
+      startDate?.getFullYear() === endDate?.getFullYear() &&
+        startDate?.getMonth() === endDate?.getMonth() &&
+        startDate?.getDate() === endDate?.getDate(),
     );
-  }, [dateRange]);
+  }, [startDate, endDate]);
 
   const [show, setShow] = useState(true);
 
@@ -55,8 +57,8 @@ const Calendar = () => {
         locale={ko}
         dateFormat="MM.dd(EE)"
         minDate={new Date()}
-        startDate={dateRange[0]}
-        endDate={dateRange[1]}
+        startDate={startDate}
+        endDate={endDate}
         selectsRange={true}
         onChange={selectDays}
         onInputClick={() => setShow(true)}

@@ -12,7 +12,7 @@ import Ticket from '../components/ticketList/Ticket';
 const TicketList = () => {
   return (
     <>
-      <TicketListContainer />
+      <Background />
       <Nav />
       <BackgroundImg />
       <SearchBar />
@@ -21,6 +21,7 @@ const TicketList = () => {
       <Ticket rangeStart={0} rangeEnd={4} />
       <HotelCarousel />
       <Ticket rangeStart={4} />
+      <FooterBackground />
       <Footer />
     </>
   );
@@ -28,12 +29,21 @@ const TicketList = () => {
 
 export default TicketList;
 
-const TicketListContainer = styled.div`
-  position: absolute;
+const Background = styled.div`
+  position: fixed;
   top: 0;
-  left: 0;
-  z-index: -5;
+  right: 0;
+  z-index: -99;
   background-color: ${({ theme }) => theme.colors.skscanGrey50};
-  width: 100%;
+  width: 100vw;
   height: 100%;
+`;
+
+const FooterBackground = styled.div`
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  background-color: ${({ theme }) => theme.colors.skscanWt};
+  width: 100vw;
+  height: 28.3rem;
 `;

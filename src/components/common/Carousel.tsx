@@ -25,7 +25,7 @@ const Carousel = (props: CarouselProps) => {
     nextArrow: <NextArrow currentslide={currentslide} disappearindex={disappearindex} />,
     prevArrow: <PrevArrow currentslide={currentslide} disappearindex={disappearindex} />,
     afterChange: (index: number) => setCurrentSlide(index),
-    beforeChange: (current: number, next: number) => setCurrentSlide(next),
+    beforeChange: (next: number) => setCurrentSlide(next),
   };
 
   // data에 따른 map, prop 전달

@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
-
+/* eslint-disable import/order */
 import { DownArrow, UpArrowImg } from '../../../assets/image';
 import { DropDownProps } from '../DropDown';
-// eslint-disable-next-line import/order
 import ButtonContainer from './ButtonContainer';
-// eslint-disable-next-line import/order
 import { Arrow, DropDownContainer, Name, Option, Select } from './styles/DropDown.style';
-// eslint-disable-next-line import/order
 import { List, Path, Price, StyledInput, StyledLabel, StyledText } from './styles/InputCustom.style';
 
 const PathDropDown = (props: DropDownProps) => {

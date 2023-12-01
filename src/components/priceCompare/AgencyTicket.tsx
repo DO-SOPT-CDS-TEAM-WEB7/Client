@@ -9,7 +9,7 @@ interface AgencyTicketProps {
 
 const AgencyTicket = (props: AgencyTicketProps) => {
   const { item } = props;
-  console.log(item);
+
   return (
     <AgencyTicketContainer>
       <AgencyContainer>

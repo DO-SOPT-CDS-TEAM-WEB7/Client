@@ -20,13 +20,13 @@ export interface AirResultDto {
   reservationId: number;
   airName: string;
   startTime: {
-    startTime: string;
-    endTime: string;
+    start: string;
+    end: string;
     during: string;
   };
   endTime: {
-    startTime: string;
-    endTime: string;
+    start: string;
+    end: string;
     during: string;
   };
 }

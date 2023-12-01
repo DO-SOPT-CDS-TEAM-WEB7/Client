@@ -1,40 +1,56 @@
 import styled from 'styled-components';
 
 import { ArrowDownBlueIcon, MovingArrowIcon } from '../../assets/icon';
-const TicketInfo = () => {
+import { AirResultDto } from '../../types/ticketReservationInfo';
+
+interface TicketInfoListProps {
+  airResultData?: AirResultDto;
+  isStartTicket?: boolean;
+}
+
+const TicketInfo = (props: TicketInfoListProps) => {
+  const { airResultData, isStartTicket } = props;
+
+  const dateInfo = isStartTicket ? airResultData?.dateDto.startDate : airResultData?.dateDto.endDate;
+  const movingInfo = isStartTicket ? airResultData?.startTime : airResultData?.endTime;
+
   return (
     <TicketInfoContainer>
-      <InfoTitle>
-        <TitleLeft>
-          <Title>가는 날 출발시간</Title>
-          <SubText>2023년 12월 22일 (금)</SubText>
-        </TitleLeft>
-        <SubText>모든 시간은 현지 시간</SubText>
-      </InfoTitle>
-      <InfoContents>
-        <AirLineInfo>
-          <Logo />
-          <AirLineName>대한항공</AirLineName>
-        </AirLineInfo>
-        <PassengerInfo>성인 1명 • 일반석</PassengerInfo>
-        <MovingInfo>
-          <DepartInfo>
-            <Time>13:15</Time>
-            <AirPort>ICN</AirPort>
-          </DepartInfo>
-          <MovingDetail>
-            <MovingType>직항</MovingType>
-            <StyledArrowImg src={MovingArrowIcon} />
-            <MovingDuration>02시간 50분</MovingDuration>
-          </MovingDetail>
-          <ArriveInfo>
-            <Time>16:05</Time>
-            <AirPort>CTS</AirPort>
-          </ArriveInfo>
-        </MovingInfo>
-        <PassengerInfo>무료 수하물 1개 • 직항</PassengerInfo>
-        <StyledToggleImg src={ArrowDownBlueIcon} />
-      </InfoContents>
+      {airResultData && movingInfo && (
+        <>
+          <InfoTitle>
+            <TitleLeft>
+              <Title>{isStartTicket ? '가는 날' : '오는 날'} 출발시간</Title>
+              <SubText>{dateInfo}</SubText>
+            </TitleLeft>
+            {isStartTicket && <SubText>모든 시간은 현지 시간</SubText>}
+          </InfoTitle>
+          <InfoContents>
+            <AirLineInfo>
+              <Logo />
+              <AirLineName>{airResultData.airName}</AirLineName>
+            </AirLineInfo>
+            <PassengerInfo>성인 1명 • 일반석</PassengerInfo>
+            <MovingInfo>
+              <DepartInfo>
+                <Time>{movingInfo.start}</Time>
+                <AirPort>ICN</AirPort>
+              </DepartInfo>
+              <MovingDetail>
+                <MovingType>직항</MovingType>
+                <StyledArrowImg src={MovingArrowIcon} />
+                <MovingDuration>{movingInfo.during}</MovingDuration>
+              </MovingDetail>
+              <ArriveInfo>
+                <Time>{movingInfo.end}</Time>
+                <AirPort>CTS</AirPort>
+              </ArriveInfo>
+            </MovingInfo>
+            <PassengerInfo>무료 수하물 1개 • 직항</PassengerInfo>
+            <StyledToggleImg src={ArrowDownBlueIcon} />
+          </InfoContents>
+        </>
+      )}
     </TicketInfoContainer>
   );
 };

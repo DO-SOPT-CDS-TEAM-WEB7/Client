@@ -1,11 +1,17 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { getTicketReservation } from '../apis/getTicketReservation';
+import AirLineTicketList from '../components/priceCompare/AirlineTicketList';
 import Banner from '../components/priceCompare/Banner';
 import Header from '../components/priceCompare/Header';
 import TicketInfoList from '../components/priceCompare/TicketInfoList';
+import { AirResultDto, TicketListDto } from '../types/ticketReservationInfo';
+
 const PriceCompare = () => {
+  const [airResultData, setAirResultData] = useState<AirResultDto>();
+  const [ticketListData, setTicketListData] = useState<TicketListDto[]>();
+
   const getTicketReservationInfo = async () => {
     try {
       const params = {
@@ -17,7 +23,8 @@ const PriceCompare = () => {
       const {
         data: { data },
       } = await getTicketReservation(params);
-      console.log(data);
+      setAirResultData(data.airResultDto);
+      setTicketListData(data.ticketListDto);
     } catch (e) {
       console.log(e);
     }
@@ -31,7 +38,8 @@ const PriceCompare = () => {
     <PriceCompoareContainer>
       <Header />
       <Banner />
-      <TicketInfoList />
+      <TicketInfoList airResultData={airResultData} />
+      <AirLineTicketList ticketListData={ticketListData} />
     </PriceCompoareContainer>
   );
 };

@@ -40,3 +40,15 @@ export interface TicketReservationRequest {
   endDate: string;
   reservationId: number;
 }
+export interface PostTicketReservationRequest {
+  startDate: string;
+  endDate: string;
+  ticketId: number;
+}
+
+export interface PostTicketReservationResponse {
+  startDateTime: string;
+  endDateTime: string;
+  companyName: string;
+  price: string;
+}

@@ -1,14 +1,46 @@
+import { useNavigate } from 'react-router-dom';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
+import { postTicketReservation } from '../../apis/postTicketReservation';
 import AGENCY_IMG from '../../data/AgencyData';
 import STARS_IMG from '../../data/StarsImgData';
+import { siteMovingState } from '../../states/siteMovingState';
+import { userInputState, userInputType } from '../../states/userInputState';
 import { TicketListDto } from '../../types/ticketReservationInfo';
+
 interface AgencyTicketProps {
   item: TicketListDto;
 }
 
 const AgencyTicket = (props: AgencyTicketProps) => {
   const { item } = props;
+
+  const [userInput, setUserInput] = useRecoilState(userInputState);
+  const setSiteMoving = useSetRecoilState(siteMovingState);
+
+  const navigate = useNavigate();
+  const handleTicketSelect = (ticketId: number) => {
+    setUserInput((prev: userInputType) => ({
+      ...prev,
+      ticketId: ticketId,
+    }));
+
+    postTicket();
+    navigate('/siteMoving');
+  };
+
+  const postTicket = async () => {
+    try {
+      const {
+        data: { data },
+      } = await postTicketReservation(userInput);
+      console.log(data);
+      setSiteMoving(data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <AgencyTicketContainer>
@@ -23,7 +55,7 @@ const AgencyTicket = (props: AgencyTicketProps) => {
           <Sum>합계</Sum>
           <Price>₩{item.price}</Price>
         </PriceContainer>
-        <ChooseBtn>선택하기</ChooseBtn>
+        <ChooseBtn onClick={() => handleTicketSelect(item.ticketId)}>선택하기</ChooseBtn>
       </PriceChooseContainer>
     </AgencyTicketContainer>
   );

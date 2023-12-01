@@ -1,7 +1,8 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
+import { reservationIdState } from '../../states/reservationId';
 import { ReservationData } from '../../types/ticketList';
 // eslint-disable-next-line import/order
 import TicketItem from './TicketItem';
@@ -15,12 +16,13 @@ interface TicketProps {
 
 const Ticket = (props: TicketProps) => {
   const navigate = useNavigate();
+
   const [selectedTicket, setSelectedTicket] = useState<number | null>(null);
   const { rangeStart, rangeEnd, ticketList, totalLength } = props;
 
   // 선택된 티켓 저장
   const handleTicketSelect = (reservationId: number) => {
-    setSelectedTicket(reservationId);
+    setReservationId(reservationId);
     navigate('/priceCompare');
   };
 

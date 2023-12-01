@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
 import { getTicketReservation } from '../apis/getTicketReservation';
@@ -6,18 +7,24 @@ import AirLineTicketList from '../components/priceCompare/AgencyTicketList';
 import Banner from '../components/priceCompare/Banner';
 import Header from '../components/priceCompare/Header';
 import TicketInfoList from '../components/priceCompare/TicketInfoList';
+import { reservationIdState } from '../states/reservationId';
+import { userInputState } from '../states/userInputState';
 import { AirResultDto, TicketListDto } from '../types/ticketReservationInfo';
 
 const PriceCompare = () => {
   const [airResultData, setAirResultData] = useState<AirResultDto>();
   const [ticketListData, setTicketListData] = useState<TicketListDto[]>();
 
+  const reservationId = useRecoilValue(reservationIdState);
+
+  const userInput = useRecoilValue(userInputState);
+
   const getTicketReservationInfo = async () => {
     try {
       const params = {
-        startDate: '2023-11-13',
-        endDate: '2023-11-15',
-        reservationId: 4,
+        startDate: userInput.startDate,
+        endDate: userInput.endDate,
+        reservationId: reservationId,
       };
 
       const {

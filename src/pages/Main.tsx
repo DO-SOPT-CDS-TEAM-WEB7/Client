@@ -43,3 +43,7 @@ const Container = styled.main`
 const ADImg = styled.img`
   object-fit: contain;
 `;
+
+const ADImg = styled.img`
+  object-fit: contain;
+`;

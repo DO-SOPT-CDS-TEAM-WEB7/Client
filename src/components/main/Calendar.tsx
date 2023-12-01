@@ -3,12 +3,14 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { ko } from 'date-fns/locale';
 import { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 import { ArrowLeftIcon, ArrowRightIcon } from '../../assets/icon';
+import { userInputState, userInputType } from '../../states/userInputState';
+import formatDate from '../../utils/formateDate';
 // eslint-disable-next-line import/order
 import CalendarItem from './CalendarItem';
-
 type MoveBtnProps = {
   $headerCount: number;
 };
@@ -16,10 +18,17 @@ type MoveBtnProps = {
 const Calendar = () => {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEnddate] = useState<Date | null>(null);
+  const setUserInput = useSetRecoilState(userInputState);
 
-  const selectDays = (dates: [Date | null, Date | null]) => {
+  const selectDays = (dates: [Date, Date]) => {
     setStartDate(dates[0]);
     setEnddate(dates[1]);
+
+    setUserInput((prev: userInputType) => ({
+      ...prev,
+      startDate: formatDate(dates[0]),
+      endDate: formatDate(dates[1]),
+    }));
   };
 
   const [isSame, setSame] = useState(false);

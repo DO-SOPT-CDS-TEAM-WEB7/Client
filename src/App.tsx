@@ -1,15 +1,19 @@
+import { RecoilRoot } from 'recoil';
 import styled, { ThemeProvider } from 'styled-components';
 
 import Router from './components/common/Router';
 import GlobalStyle from './styles/globalStyle';
 import { theme } from './styles/theme';
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Container>
-        <Router />
-      </Container>
+      <RecoilRoot>
+        <Container>
+          <Router />
+        </Container>
+      </RecoilRoot>
     </ThemeProvider>
   );
 }

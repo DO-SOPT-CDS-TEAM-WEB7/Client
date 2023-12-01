@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import SearchBar from '../components/common/SearchBar';
 import Header from '../components/main/Header';
 import Insight from '../components/main/Insight';
 import LowestFlights from '../components/main/LowestFlights';
@@ -11,6 +12,7 @@ const Main = () => {
   return (
     <>
       <Header />
+      <SearchBar />
       <Container>
         <Insight />
         <RecommendDestination />

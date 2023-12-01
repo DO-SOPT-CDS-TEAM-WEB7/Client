@@ -1,4 +1,5 @@
 /* eslint-disable import/order */
+import { useEffect, useState } from 'react';
 
 import { DownArrow, UpArrowImg } from '../../../assets/image';
 import { DropDownProps } from '../DropDown';
@@ -9,6 +10,24 @@ import { List, Path, Price, StyledInput, StyledLabel, StyledText } from './style
 // API 연결 필요
 const FlightDropDown = (props: DropDownProps) => {
   const { isOpen, onToggle, flightList } = props;
+  const [selectedAirName, setSelectedAirName] = useState<string[]>([]);
+
+  const onClickCheckbox = (e: React.MouseEvent<HTMLInputElement>) => {
+    const inputElement = e.target as HTMLInputElement;
+    const selectedName = inputElement.name;
+
+    setSelectedAirName((prev) => {
+      const isSelected = prev.includes(selectedName);
+
+      if (isSelected) {
+        return prev.filter((name) => name !== selectedName);
+      } else {
+        return [...prev, selectedName];
+      }
+    });
+  };
+
+  console.log(selectedAirName);
 
   return (
     <DropDownContainer>
@@ -21,7 +40,7 @@ const FlightDropDown = (props: DropDownProps) => {
         <List>
           {flightList?.map((item) => (
             <StyledLabel htmlFor={item.airId.toString()} key={item.airId}>
-              <StyledInput type="checkbox" id={item.airId.toString()} name={item.airName} />
+              <StyledInput type="checkbox" id={item.airId.toString()} name={item.airName} onClick={onClickCheckbox} />
               <StyledText>
                 <Path>{item.airName}</Path>
                 <Price>{item.minPriceString}</Price>

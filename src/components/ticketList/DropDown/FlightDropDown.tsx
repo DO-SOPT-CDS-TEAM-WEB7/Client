@@ -1,6 +1,6 @@
-// eslint-disable-next-line import/order
+/* eslint-disable import/order */
+
 import { DownArrow, UpArrowImg } from '../../../assets/image';
-// eslint-disable-next-line import/order
 import { DropDownProps } from '../DropDown';
 import ButtonContainer from './ButtonContainer';
 import { Arrow, DropDownContainer, Name, Option, Select } from './styles/DropDown.style';
@@ -8,7 +8,7 @@ import { List, Path, Price, StyledInput, StyledLabel, StyledText } from './style
 
 // API 연결 필요
 const FlightDropDown = (props: DropDownProps) => {
-  const { isOpen, onToggle } = props;
+  const { isOpen, onToggle, flightList, checkboxHandler, onCancel, onApply } = props;
 
   return (
     <DropDownContainer>
@@ -19,22 +19,17 @@ const FlightDropDown = (props: DropDownProps) => {
 
       <Option $isOpen={isOpen} $width="17.8rem" $left="43.4rem">
         <List>
-          <StyledLabel htmlFor="ANA">
-            <StyledInput type="checkbox" id="ANA" name="ANA" />
-            <StyledText>
-              <Path>ANA (전일본공수)</Path>
-              <Price>622,301원부터</Price>
-            </StyledText>
-          </StyledLabel>
-          <StyledLabel htmlFor="ANA">
-            <StyledInput type="checkbox" id="ANA" name="ANA" />
-            <StyledText>
-              <Path>Peach</Path>
-              <Price>330,500원부터</Price>
-            </StyledText>
-          </StyledLabel>
+          {flightList?.map((item) => (
+            <StyledLabel htmlFor={item.airId.toString()} key={item.airId}>
+              <StyledInput type="checkbox" id={item.airId.toString()} name={item.airName} onClick={checkboxHandler} />
+              <StyledText>
+                <Path>{item.airName}</Path>
+                <Price>{item.minPriceString}</Price>
+              </StyledText>
+            </StyledLabel>
+          ))}
         </List>
-        <ButtonContainer />
+        <ButtonContainer onCancel={onCancel} onApply={onApply}/>
       </Option>
     </DropDownContainer>
   );

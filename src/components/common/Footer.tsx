@@ -7,18 +7,18 @@ const Footer = () => {
     <FooterContainer>
       <LeftSide>
         <SelectBoxContainer>
-          <SelectBox className="country">
-            <SelectBoxOption disabled selected>
+          <SelectBox className="country" defaultValue="대한민국">
+            <SelectBoxOption disabled value="대한민국">
               대한민국
             </SelectBoxOption>
           </SelectBox>
-          <SelectBox className="language">
-            <SelectBoxOption disabled selected>
+          <SelectBox className="language" defaultValue="한국어">
+            <SelectBoxOption disabled value="한국어">
               한국어
             </SelectBoxOption>
           </SelectBox>
-          <SelectBox className="exchange">
-            <SelectBoxOption disabled selected>
+          <SelectBox className="exchange" defaultValue="KRW">
+            <SelectBoxOption disabled value="KRW">
               KRW
             </SelectBoxOption>
           </SelectBox>
@@ -55,8 +55,12 @@ export default Footer;
 
 const FooterContainer = styled.footer`
   display: flex;
+  position: absolute;
+  left: 0;
   justify-content: space-between;
-  padding: 5.1rem 0 10.2rem;
+  border-top: 0.1rem solid ${({ theme }) => theme.colors.skscanGrey150};
+  padding: 5.1rem calc((100vw - 104.6rem) / 2) 10.2rem;
+  width: 100%;
 `;
 
 const SelectBoxContainer = styled.div`

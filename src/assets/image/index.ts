@@ -68,6 +68,7 @@ export { default as KyotoImg } from './img_card_s_11 (2).png';
 export { default as ParisImg } from './img_card_s_11.png';
 export { default as PrahaImg } from './img_card_s_12 (2).png';
 export { default as NYImg } from './img_card_s_12.png';
+export { default as GotoBgImg } from './img_gotobackground.png';
 export { default as HotelImg1 } from './img_hotel_1@2x.png';
 export { default as HotelImg2 } from './img_hotel_2@2x.png';
 export { default as HotelImg3 } from './img_hotel_3@2x.png';

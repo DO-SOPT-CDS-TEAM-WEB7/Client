@@ -1,5 +1,6 @@
 import 'react-datepicker/dist/react-datepicker.css';
 
+import { useState } from 'react';
 import { CalendarContainer } from 'react-datepicker';
 import styled from 'styled-components';
 
@@ -10,14 +11,16 @@ type CalendarItemProps = {
 };
 
 const CalendarItem = ({ children }: CalendarItemProps) => {
+  const [popper, setPopper] = useState(true);
+
   return (
-    <StyledCalendarContainer>
+    <StyledCalendarContainer $popper={popper}>
       <CalendarHeader>
         <TypeWrapper>
           <Type className="blue">특정날짜</Type>
           <Type className="grey">조정가능</Type>
         </TypeWrapper>
-        <CloseBtn>
+        <CloseBtn type="button" onClick={() => setPopper(false)}>
           <IconImg src={CloseIcon} alt="CloseBtn" />
         </CloseBtn>
       </CalendarHeader>
@@ -28,8 +31,8 @@ const CalendarItem = ({ children }: CalendarItemProps) => {
 
 export default CalendarItem;
 
-const StyledCalendarContainer = styled(CalendarContainer)`
-  display: flex;
+const StyledCalendarContainer = styled(CalendarContainer)<{ $popper: boolean }>`
+  display: ${({ $popper }) => ($popper ? 'flex' : 'none')};
   flex-direction: column;
   gap: 2rem;
 `;

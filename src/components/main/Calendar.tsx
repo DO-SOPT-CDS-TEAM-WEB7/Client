@@ -14,24 +14,21 @@ type MoveBtnProps = {
 };
 
 const Calendar = () => {
-  const [startDate, setStartDate] = useState<Date | null>(null);
-  const [endDate, setEndDate] = useState<Date | null>(null);
-  const [date, setDate] = useState<[Date | null, Date | null]>([null, null]);
+  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
+
   const selectDays = (dates: [Date | null, Date | null]) => {
-    setStartDate(dates[0]);
-    setEndDate(dates[1]);
-    setDate(dates);
+    setDateRange(dates);
   };
 
   const [isSame, setSame] = useState(false);
 
   useEffect(() => {
     setSame(
-      date[0]?.getFullYear() === date[1]?.getFullYear() &&
-        date[0]?.getMonth() === date[1]?.getMonth() &&
-        date[0]?.getDate() === date[1]?.getDate(),
+      dateRange[0]?.getFullYear() === dateRange[1]?.getFullYear() &&
+        dateRange[0]?.getMonth() === dateRange[1]?.getMonth() &&
+        dateRange[0]?.getDate() === dateRange[1]?.getDate(),
     );
-  }, [date]);
+  }, [dateRange]);
 
   return (
     <CalendarWrapper $isSame={isSame}>
@@ -56,13 +53,14 @@ const Calendar = () => {
         locale={ko}
         dateFormat="MM.dd(EE)"
         minDate={new Date()}
-        startDate={startDate}
-        endDate={endDate}
+        startDate={dateRange[0]}
+        endDate={dateRange[1]}
         selectsRange={true}
         onChange={selectDays}
         monthsShown={2}
         showDisabledMonthNavigation
         disabledKeyboardNavigation
+        shouldCloseOnSelect={false}
         renderDayContents={(day) => <DayWrapper>{day}</DayWrapper>}
         calendarContainer={CalendarItem}
       />

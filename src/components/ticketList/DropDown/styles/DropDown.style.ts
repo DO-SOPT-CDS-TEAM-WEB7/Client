@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-export const DropDownContainer = styled.div``;
-
 export const Select = styled.div<{ $isOpen: boolean }>`
   display: flex;
   align-items: center;

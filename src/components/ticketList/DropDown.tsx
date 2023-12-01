@@ -1,6 +1,6 @@
 /* eslint-disable import/order */
 /* eslint-disable import/no-unresolved */
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import { getMinPriceList } from '../../apis/getMinPriceList';
@@ -19,9 +19,15 @@ export interface DropDownProps {
   // eslint-disable-next-line no-unused-vars
   onToggle: (dropdownName: DropdownName) => void;
   flightList?: MinPriceListData[];
+  checkboxHandler?: (e: React.MouseEvent<HTMLInputElement>) => void;
 }
 
-const DropDown = () => {
+export interface CheckboxHandlerProps {
+  checkboxHandler?: (e: React.MouseEvent<HTMLInputElement>) => void;
+}
+
+const DropDown = (props: CheckboxHandlerProps) => {
+  const { checkboxHandler } = props;
   // 각 드롭다운 handling
   const [activeDropdown, setActiveDropdown] = useState<DropdownName | null>(null);
   // 항공권 최소값 리스트 저장용
@@ -63,7 +69,12 @@ const DropDown = () => {
       <PathDropDown isOpen={activeDropdown === 'path'} onToggle={handleDropDownClick} />
       <TimeDropDown isOpen={activeDropdown === 'time'} onToggle={handleDropDownClick} />
       <DurationDropDown isOpen={activeDropdown === 'duration'} onToggle={handleDropDownClick} />
-      <FlightDropDown isOpen={activeDropdown === 'flight'} onToggle={handleDropDownFlightFilter} flightList={minPriceList}/>
+      <FlightDropDown
+        isOpen={activeDropdown === 'flight'}
+        onToggle={handleDropDownFlightFilter}
+        flightList={minPriceList}
+        checkboxHandler={checkboxHandler}
+      />
       <RecommendDropDown isOpen={activeDropdown === 'recommend'} onToggle={handleDropDownClick} />
     </DropDownContainer>
   );

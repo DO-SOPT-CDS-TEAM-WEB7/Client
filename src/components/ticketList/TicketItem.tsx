@@ -81,7 +81,7 @@ const TicketItem = (props: TicketItemProps) => {
 
 export default TicketItem;
 
-const TicketContainer = styled.article<{ $isLast: boolean }>`
+const TicketContainer = styled.article`
   display: flex;
   position: relative;
   flex-direction: column;
@@ -89,6 +89,7 @@ const TicketContainer = styled.article<{ $isLast: boolean }>`
   justify-content: center;
   border: 0.1rem solid ${({ theme }) => theme.colors.skscanGrey200};
   border-radius: 2.4rem;
+  background-color: ${({ theme }) => theme.colors.skscanWt};
   padding: 2.8rem 3.6rem;
   width: 100%;
 `;

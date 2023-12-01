@@ -6,13 +6,15 @@ import { ChevronLeft, PriceCompareLogo } from '../../assets/icon';
 const Header = () => {
   return (
     <HeaderContainer>
-      <Contents>
-        <GoBackContainer to="/ticketList">
-          <StyledImg src={ChevronLeft} />
-          <GoBackText>돌아가기</GoBackText>
-        </GoBackContainer>
-        <StyledLogo src={PriceCompareLogo} />
-      </Contents>
+      <ContentsContainer>
+        <Contents>
+          <GoBackContainer to="/ticketList">
+            <StyledImg src={ChevronLeft} />
+            <GoBackText>돌아가기</GoBackText>
+          </GoBackContainer>
+          <StyledLogo src={PriceCompareLogo} />
+        </Contents>
+      </ContentsContainer>
     </HeaderContainer>
   );
 };
@@ -25,8 +27,16 @@ const HeaderContainer = styled.header`
   top: 0;
   left: 0;
   justify-content: center;
+  z-index: -1;
+  background-color: ${({ theme }) => theme.colors.skscanGrey50};
   padding-top: 1rem;
   width: 100%;
+  height: 100%;
+`;
+
+const ContentsContainer = styled.div`
+  background-color: ${({ theme }) => theme.colors.skscanWt};
+  height: 3.6rem;
 `;
 
 const Contents = styled.div`

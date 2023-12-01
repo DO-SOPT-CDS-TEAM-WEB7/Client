@@ -1,4 +1,4 @@
-export interface ApiTestData {
+export interface TicketReservationInfo {
   airId: number;
   airName: string;
   minPriceString: string;

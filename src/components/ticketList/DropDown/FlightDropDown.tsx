@@ -8,7 +8,7 @@ import { List, Path, Price, StyledInput, StyledLabel, StyledText } from './style
 
 // API 연결 필요
 const FlightDropDown = (props: DropDownProps) => {
-  const { isOpen, onToggle, flightList, checkboxHandler, onCancle } = props;
+  const { isOpen, onToggle, flightList, checkboxHandler, onCancel, onApply } = props;
 
   return (
     <DropDownContainer>
@@ -29,7 +29,7 @@ const FlightDropDown = (props: DropDownProps) => {
             </StyledLabel>
           ))}
         </List>
-        <ButtonContainer onCancel={onCancle}/>
+        <ButtonContainer onCancel={onCancel} onApply={onApply}/>
       </Option>
     </DropDownContainer>
   );

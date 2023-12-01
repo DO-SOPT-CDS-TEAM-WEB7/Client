@@ -22,22 +22,25 @@ export interface DropDownProps {
   flightList?: MinPriceListData[];
   // eslint-disable-next-line no-unused-vars
   checkboxHandler?: (e: React.MouseEvent<HTMLInputElement>) => void;
-  onCancle: () => void;
+  onCancel: () => void;
+  onApply: () => void;
 }
 
 // 항공사 체크박스 Props
 export interface CheckboxHandlerProps {
   // eslint-disable-next-line no-unused-vars
   checkboxHandler?: (e: React.MouseEvent<HTMLInputElement>) => void;
+  onClickApplyBtn: () => void;
 }
 
 const DropDown = (props: CheckboxHandlerProps) => {
-  const { checkboxHandler } = props;
+  const { checkboxHandler, onClickApplyBtn } = props;
   // 각 드롭다운 handling
   const [activeDropdown, setActiveDropdown] = useState<DropdownName | null>(null);
   // 항공권 최소값 리스트 저장용
   const [minPriceList, setMinPriceList] = useState<MinPriceListData[]>([]);
 
+  // GET - 해당날짜 항공사 필터링 값 가져오기
   const getMinList = async () => {
     try {
       const {
@@ -76,21 +79,38 @@ const DropDown = (props: CheckboxHandlerProps) => {
 
   return (
     <DropDownContainer ref={dropDownRef}>
-      <PathDropDown isOpen={activeDropdown === 'path'} onToggle={handleDropDownClick} onCancle={handelCancelClick} />
-      <TimeDropDown isOpen={activeDropdown === 'time'} onToggle={handleDropDownClick} onCancle={handelCancelClick} />
+      <PathDropDown
+        isOpen={activeDropdown === 'path'}
+        onToggle={handleDropDownClick}
+        onCancel={handelCancelClick}
+        onApply={onClickApplyBtn}
+      />
+      <TimeDropDown
+        isOpen={activeDropdown === 'time'}
+        onToggle={handleDropDownClick}
+        onCancel={handelCancelClick}
+        onApply={onClickApplyBtn}
+      />
       <DurationDropDown
         isOpen={activeDropdown === 'duration'}
         onToggle={handleDropDownClick}
-        onCancle={handelCancelClick}
+        onCancel={handelCancelClick}
+        onApply={onClickApplyBtn}
       />
       <FlightDropDown
         isOpen={activeDropdown === 'flight'}
         onToggle={handleDropDownFlightFilter}
         flightList={minPriceList}
         checkboxHandler={checkboxHandler}
-        onCancle={handelCancelClick}
+        onCancel={handelCancelClick}
+        onApply={onClickApplyBtn}
       />
-      <RecommendDropDown isOpen={activeDropdown === 'recommend'} onToggle={handleDropDownClick} onCancle={handelCancelClick}/>
+      <RecommendDropDown
+        isOpen={activeDropdown === 'recommend'}
+        onToggle={handleDropDownClick}
+        onCancel={handelCancelClick}
+        onApply={onClickApplyBtn}
+      />
     </DropDownContainer>
   );
 };

@@ -86,6 +86,7 @@ const CalendarWrapper = styled.section<{ $isSame: boolean; $show: boolean }>`
     visibility: ${({ $show }) => ($show ? null : 'hidden')};
     margin-top: 5.35rem;
     border-radius: 1.2rem;
+    background-color: ${({ theme }) => theme.colors.skscanWt};
     padding: 2.4rem;
     color: ${({ theme }) => theme.colors.skscanGrey900};
     ${({ theme }) => theme.effects.boxDrop};

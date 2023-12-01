@@ -40,6 +40,7 @@ const QnAContainer = styled.section`
   display: flex;
   flex-direction: column;
   gap: 2.8rem;
+  margin-bottom: 7.9rem;
 `;
 
 const QnAHeader = styled.div`

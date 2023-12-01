@@ -8,9 +8,9 @@ const SearchBar = () => {
     <SearchBarContainer>
       <FlightWayContainer>
         <RoundOnewayContainer>
-          <WayBtn clicked={true}>왕복</WayBtn>
-          <WayBtn clicked={false}>편도</WayBtn>
-          <WayBtn clicked={false}>다구간</WayBtn>
+          <WayBtn $clicked={true}>왕복</WayBtn>
+          <WayBtn $clicked={false}>편도</WayBtn>
+          <WayBtn $clicked={false}>다구간</WayBtn>
         </RoundOnewayContainer>
         <DirectFlightContainer>
           <Checkbox src={CheckboxImg} alt="체크박스" />
@@ -19,11 +19,11 @@ const SearchBar = () => {
       </FlightWayContainer>
 
       <FlightInfoContainer>
-        <InfoDiv last={false}>
+        <InfoDiv $last={false}>
           <InfoTitle>출발지</InfoTitle>
           <InfoDeparture>서울 (모두)</InfoDeparture>
         </InfoDiv>
-        <InfoDiv last={false}>
+        <InfoDiv $last={false}>
           <InfoTitle>도착지</InfoTitle>
           <InfoDestination>삿포로</InfoDestination>
         </InfoDiv>
@@ -31,7 +31,7 @@ const SearchBar = () => {
           <InfoTitle>출발일 - 도착일</InfoTitle>
           <Calendar />
         </InfoDateContainer>
-        <InfoDiv last={true}>
+        <InfoDiv $last={true}>
           <InfoTitle>인원, 좌석등급</InfoTitle>
           <InfoSeat>1명, 일반석</InfoSeat>
         </InfoDiv>
@@ -47,7 +47,9 @@ const SearchBarContainer = styled.nav`
   display: flex;
   flex-direction: column;
   border-radius: 1.2rem;
-  box-shadow: 0 0.4rem 2.5rem 0 #0000001a;
+  ${({ theme }) => theme.effects.boxDrop}
+
+  background-color: ${({ theme }) => theme.colors.skscanWt};
   width: 100%;
 `;
 
@@ -69,13 +71,13 @@ const RoundOnewayContainer = styled.div`
   margin-right: 66.8rem;
 `;
 
-const WayBtn = styled.div<{ clicked: boolean }>`
+const WayBtn = styled.div<{ $clicked: boolean }>`
   border-radius: 2rem;
-  background-color: ${({ clicked, theme }) => (clicked ? theme.colors.skscanSecondary : theme.colors.skscanGrey100)};
+  background-color: ${({ $clicked, theme }) => ($clicked ? theme.colors.skscanSecondary : theme.colors.skscanGrey100)};
   cursor: pointer;
   padding: 0.8rem 1.5rem;
-  color: ${({ clicked, theme }) => (clicked ? theme.colors.skscanWt : theme.colors.skscanGrey800)};
-  ${({ clicked, theme }) => (clicked ? theme.fonts.heading12 : theme.fonts.body04)};
+  color: ${({ $clicked, theme }) => ($clicked ? theme.colors.skscanWt : theme.colors.skscanGrey800)};
+  ${({ $clicked, theme }) => ($clicked ? theme.fonts.heading12 : theme.fonts.body04)};
 `;
 
 const DirectFlightContainer = styled.div`
@@ -102,12 +104,12 @@ const FlightInfoContainer = styled.div`
   flex-direction: row;
 `;
 
-const InfoDiv = styled.div<{ last: boolean }>`
+const InfoDiv = styled.div<{ $last: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
-  ${({ last, theme }) => (last ? '' : `border-right: 1px solid ${theme.colors.skscanGrey150};`)};
+  ${({ $last, theme }) => ($last ? '' : `border-right: 1px solid ${theme.colors.skscanGrey150};`)};
 
   padding: 3rem 0 3rem 2rem;
 `;

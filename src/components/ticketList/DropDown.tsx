@@ -14,14 +14,17 @@ import TimeDropDown from './DropDown/TimeDropDown';
 
 type DropdownName = 'path' | 'time' | 'duration' | 'flight' | 'recommend';
 
+// 각 드롭다운 Props
 export interface DropDownProps {
   isOpen: boolean;
   // eslint-disable-next-line no-unused-vars
   onToggle: (dropdownName: DropdownName) => void;
   flightList?: MinPriceListData[];
   checkboxHandler?: (e: React.MouseEvent<HTMLInputElement>) => void;
+  onCancle?: () => void;
 }
 
+// 항공사 체크박스 Props
 export interface CheckboxHandlerProps {
   checkboxHandler?: (e: React.MouseEvent<HTMLInputElement>) => void;
 }
@@ -57,6 +60,11 @@ const DropDown = (props: CheckboxHandlerProps) => {
     getMinList();
   };
 
+  // 취소버튼 누르면 닫히게
+  const handelCancelClick = () => {
+    setActiveDropdown(null);
+  };
+
   // 화면 외부 클릭 handling
   const dropDownRef = useRef(null);
   const closeDropDown = () => {
@@ -66,14 +74,19 @@ const DropDown = (props: CheckboxHandlerProps) => {
 
   return (
     <DropDownContainer ref={dropDownRef}>
-      <PathDropDown isOpen={activeDropdown === 'path'} onToggle={handleDropDownClick} />
-      <TimeDropDown isOpen={activeDropdown === 'time'} onToggle={handleDropDownClick} />
-      <DurationDropDown isOpen={activeDropdown === 'duration'} onToggle={handleDropDownClick} />
+      <PathDropDown isOpen={activeDropdown === 'path'} onToggle={handleDropDownClick} onCancle={handelCancelClick} />
+      <TimeDropDown isOpen={activeDropdown === 'time'} onToggle={handleDropDownClick} onCancle={handelCancelClick} />
+      <DurationDropDown
+        isOpen={activeDropdown === 'duration'}
+        onToggle={handleDropDownClick}
+        onCancle={handelCancelClick}
+      />
       <FlightDropDown
         isOpen={activeDropdown === 'flight'}
         onToggle={handleDropDownFlightFilter}
         flightList={minPriceList}
         checkboxHandler={checkboxHandler}
+        onCancle={handelCancelClick}
       />
       <RecommendDropDown isOpen={activeDropdown === 'recommend'} onToggle={handleDropDownClick} />
     </DropDownContainer>

@@ -10,13 +10,15 @@ import TicketItem from './TicketItem';
 interface TicketProps {
   rangeStart: number;
   rangeEnd?: number;
+  selectedAirName: string[];
 }
 
 const Ticket = (props: TicketProps) => {
   const navigate = useNavigate();
   const [ticketList, setTicketList] = useState<ReservationData[]>([]);
   const [selectedTicket, setSelectedTicket] = useState<number | null>(null);
-  const { rangeStart, rangeEnd } = props;
+  const { rangeStart, rangeEnd, selectedAirName } = props;
+
 
   // 서버에서 티켓리스트 GET
   // 날짜 동적 변경 필요

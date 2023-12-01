@@ -33,9 +33,9 @@ const TicketList = () => {
       <SearchBar />
       <AdvImg />
       <DropDown checkboxHandler={onClickCheckbox}/>
-      <Ticket rangeStart={0} rangeEnd={4} />
+      <Ticket rangeStart={0} rangeEnd={4} selectedAirName={selectedAirName}/>
       <HotelCarousel />
-      <Ticket rangeStart={4} />
+      <Ticket rangeStart={4} selectedAirName={selectedAirName}/>
     </>
   );
 };

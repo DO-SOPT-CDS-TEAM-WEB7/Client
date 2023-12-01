@@ -1,10 +1,18 @@
 import styled from 'styled-components';
 
-const ButtonContainer = () => {
+interface ButtonContainerProps {
+  onCancel: () => void;
+}
+
+const ButtonContainer = (props: ButtonContainerProps) => {
+  const { onCancel } = props;
+
   return (
     <SelectBtnContainer>
-      <Cancle>취소</Cancle>
-      <Confirm>적용하기</Confirm>
+      <Cancle type="button" onClick={onCancel}>
+        취소
+      </Cancle>
+      <Confirm type="button">적용하기</Confirm>
     </SelectBtnContainer>
   );
 };

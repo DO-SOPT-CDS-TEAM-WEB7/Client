@@ -7,7 +7,7 @@ import { Arrow, DropDownContainer, Name, Option, Select } from './styles/DropDow
 import { Depart, GraphImg, Time, TimeContainer } from './styles/Graph.style';
 
 const TimeDropDown = (props: DropDownProps) => {
-  const { isOpen, onToggle } = props;
+  const { isOpen, onToggle, onCancle } = props;
 
   return (
     <DropDownContainer>
@@ -27,7 +27,7 @@ const TimeDropDown = (props: DropDownProps) => {
           <Time>오전 12:00 - 오후 11:59</Time>
           <GraphImg src={TabGraphImg} alt="그래프" />
         </TimeContainer>
-        <ButtonContainer />
+        <ButtonContainer onCancel={onCancle} />
       </Option>
     </DropDownContainer>
   );

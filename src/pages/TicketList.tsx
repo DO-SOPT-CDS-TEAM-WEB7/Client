@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useRecoilValue } from 'recoil';
 
 import { getTicketList } from '../apis/getTicketList';
 import SearchBar from '../components/common/SearchBar';
@@ -8,6 +9,7 @@ import DropDown from '../components/ticketList/DropDown';
 import HotelCarousel from '../components/ticketList/HotelCarousel';
 import Nav from '../components/ticketList/Nav';
 import Ticket from '../components/ticketList/Ticket';
+import { userInputState } from '../states/userInputState';
 import { ReservationData } from '../types/ticketList';
 
 const TicketList = () => {
@@ -15,13 +17,14 @@ const TicketList = () => {
   const [ticketList, setTicketList] = useState<ReservationData[]>([]);
   const [filteredList, setFilteredList] = useState<ReservationData[]>([]);
 
+  const userInput = useRecoilValue(userInputState);
+
   // 서버에서 티켓리스트 GET
-  // 날짜 동적 변경 필요
   const getTickets = async () => {
     try {
       const params = {
-        startDate: '2023-11-13',
-        endDate: '2023-11-15',
+        startDate: userInput.startDate,
+        endDate: userInput.endDate,
       };
 
       const {

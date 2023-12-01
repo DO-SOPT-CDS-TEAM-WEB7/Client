@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
+import { postTicketReservation } from '../../apis/postTicketReservation';
 import AGENCY_IMG from '../../data/AgencyData';
 import STARS_IMG from '../../data/StarsImgData';
 import { userInputState, userInputType } from '../../states/userInputState';
@@ -14,7 +15,7 @@ interface AgencyTicketProps {
 const AgencyTicket = (props: AgencyTicketProps) => {
   const { item } = props;
 
-  const setUserInput = useSetRecoilState(userInputState);
+  const [userInput, setUserInput] = useRecoilState(userInputState);
 
   const navigate = useNavigate();
   const handleTicketSelect = (ticketId: number) => {
@@ -22,7 +23,20 @@ const AgencyTicket = (props: AgencyTicketProps) => {
       ...prev,
       ticketId: ticketId,
     }));
+
+    postTicket();
     navigate('/siteMoving');
+  };
+
+  const postTicket = async () => {
+    try {
+      const {
+        data: { data },
+      } = await postTicketReservation(userInput);
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
   };
   return (
     <AgencyTicketContainer>

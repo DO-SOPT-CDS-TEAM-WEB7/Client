@@ -56,6 +56,17 @@
            메인 페이지 뷰 <br/>
       </td>
     </tr>
+	<tr align="center">
+       <td>
+            항공편 예약 정보 GET, 항공편 예약 생성 POST <br/>
+      </td>
+       <td>
+           항공권 리스트 GET, 항공사별 최저가 정보 GET  <br/>
+      </td>
+       <td>
+           최저가 항공 정보 GET <br/>
+      </td>
+    </tr>
 </table>
 
 <h2> 🛠 기술스택 </h2>

@@ -57,7 +57,8 @@ const TicketList = () => {
   // 체크된 항공사 이름으로 받아온 티켓 필터링
   const onClickApplyBtn = () => {
     const filteredFlight = ticketList.filter((ticket) => selectedAirName.includes(ticket.airName));
-    setFilteredList(filteredFlight);
+    // 아무것도 선택하지 않을 경우 전체 티켓 렌더링
+    filteredFlight.length === 0 ? setFilteredList(ticketList) : setFilteredList(filteredFlight);
   };
 
   return (
@@ -66,10 +67,10 @@ const TicketList = () => {
       <BackgroundImg />
       <SearchBar />
       <AdvImg />
-      <DropDown checkboxHandler={onClickCheckbox} onClickApplyBtn={onClickApplyBtn}/>
-      <Ticket rangeStart={0} rangeEnd={4} ticketList={filteredList}/>
+      <DropDown checkboxHandler={onClickCheckbox} onClickApplyBtn={onClickApplyBtn} />
+      <Ticket rangeStart={0} rangeEnd={4} ticketList={filteredList} />
       <HotelCarousel />
-      <Ticket rangeStart={4} ticketList={filteredList}/>
+      <Ticket rangeStart={4} ticketList={filteredList} />
     </>
   );
 };

@@ -1,18 +1,24 @@
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
 import { LogoBigIcon } from '../../assets/icon';
 import { MovingAirplane } from '../../assets/image';
 import AGENCY_NO_BG_IMG from '../../data/AgencyNoBgData';
-
+import { siteMovingState } from '../../states/siteMovingState';
+// eslint-disable-next-line import/order
+import TicketDetail from './TicketDetail';
 const MovingInfo = () => {
+  const siteMoving = useRecoilValue(siteMovingState);
+
   return (
     <MovingInfoContainer>
       <Title>예약 사이트로 이동 중 입니다.</Title>
       <MovingIllust>
         <StyledImg src={LogoBigIcon} />
         <StyledImg src={MovingAirplane} />
-        <StyledImg src={AGENCY_NO_BG_IMG['노랑풍선']} />
+        <StyledImg src={AGENCY_NO_BG_IMG[siteMoving.companyName]} />
       </MovingIllust>
+      <TicketDetail />
     </MovingInfoContainer>
   );
 };

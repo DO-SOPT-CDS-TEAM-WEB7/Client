@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
@@ -17,11 +18,14 @@ interface TicketProps {
 const Ticket = (props: TicketProps) => {
   const navigate = useNavigate();
 
+  const setReservationId = useSetRecoilState(reservationIdState);
   const [selectedTicket, setSelectedTicket] = useState<number | null>(null);
   const { rangeStart, rangeEnd, ticketList, totalLength } = props;
 
+  console.log(selectedTicket);
   // 선택된 티켓 저장
   const handleTicketSelect = (reservationId: number) => {
+    setSelectedTicket(reservationId);
     setReservationId(reservationId);
     navigate('/priceCompare');
   };
@@ -41,7 +45,7 @@ const Ticket = (props: TicketProps) => {
               price={item.price}
               CO2={item.CO2}
               onSelect={() => handleTicketSelect(item.reservationId)}
-              isLast = {rangeStart >= 4 ? (idx+4 === totalLength ? true : false) : false}
+              isLast={rangeStart >= 4 ? (idx + 4 === totalLength ? true : false) : false}
             />
           ))
       ) : (

@@ -4,6 +4,10 @@ export interface MinPriceListData {
   minPriceString: string;
 }
 
+export interface airMinPriceDtoList {
+  airMinPriceDtoList: MinPriceListData[];
+}
+
 export interface MinPriceResponse {
-  data: MinPriceListData[];
+  data: airMinPriceDtoList;
 }

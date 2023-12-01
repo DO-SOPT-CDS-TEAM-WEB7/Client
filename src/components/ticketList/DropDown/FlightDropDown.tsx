@@ -18,7 +18,7 @@ const FlightDropDown = (props: DropDownProps) => {
       const {
         data: { data },
       } = await getMinPriceList();
-      console.log(data);
+      console.log(data.airMinPriceDtoList);
     } catch (e) {
       console.log(e);
     }

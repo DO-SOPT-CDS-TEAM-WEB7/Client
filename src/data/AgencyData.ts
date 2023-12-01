@@ -1,12 +1,12 @@
 import {
-  내일투어Img,
-  노랑풍선Img,
-  마이리얼트립Img,
-  익스피디아Img,
-  인터파크Img,
-  참좋은여행Img,
-  트리플Img,
-  트립닷컴Img,
+  ExpediaImg,
+  InterparkImg,
+  MyrealtripImg,
+  TommorowTourImg,
+  TripDotComImg,
+  TripleImg,
+  VerygoodTravelImg,
+  YellowBallonImg,
 } from '../assets/image';
 
 type AgencyImgType = {
@@ -15,14 +15,14 @@ type AgencyImgType = {
 };
 
 const AGENCY_IMG: AgencyImgType = {
-  인터파크: 인터파크Img,
-  트리플: 트리플Img,
-  마이리얼트립: 마이리얼트립Img,
-  노랑풍선: 노랑풍선Img,
-  트립닷컴: 트립닷컴Img,
-  참좋은여행: 참좋은여행Img,
-  내일여행: 내일투어Img,
-  익스피디아: 익스피디아Img,
+  인터파크: InterparkImg,
+  트리플: TripleImg,
+  마이리얼트립: MyrealtripImg,
+  노랑풍선: YellowBallonImg,
+  트립닷컴: TripDotComImg,
+  참좋은여행: VerygoodTravelImg,
+  내일여행: TommorowTourImg,
+  익스피디아: ExpediaImg,
 };
 
 export default AGENCY_IMG;

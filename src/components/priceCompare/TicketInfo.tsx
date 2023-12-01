@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 import { ArrowDownBlueIcon, ArrowUpBlueIcon, MovingArrowIcon, VerticalLineIcon } from '../../assets/icon';
+import TICKET_AIR_IMG from '../../data/TicketItemData';
 import { AirResultDto } from '../../types/ticketReservationInfo';
 interface TicketInfoListProps {
   airResultData?: AirResultDto;
@@ -40,6 +41,12 @@ const TicketInfo = (props: TicketInfoListProps) => {
     return tempDate;
   };
 
+  const airlineImageGetter = (airName: string): string => {
+    const flight = TICKET_AIR_IMG.filter((item) => item.airName === airName);
+    const flightImg = flight[0].airImg;
+    return flightImg;
+  };
+
   return (
     <TicketInfoContainer>
       {airResultData && movingInfo && (
@@ -53,7 +60,7 @@ const TicketInfo = (props: TicketInfoListProps) => {
           </InfoTitle>
           <InfoContents $isToggleOpen={isToggleOpen}>
             <AirLineInfo>
-              <Logo />
+              <Logo src={airlineImageGetter(airResultData.airName)} alt={airResultData.airName} />
               <AirLineName>{airResultData.airName}</AirLineName>
             </AirLineInfo>
             <PassengerInfo>성인 1명 • 일반석</PassengerInfo>

@@ -23,7 +23,6 @@ const Main = () => {
         <LowestFlights />
         <QnA />
       </Container>
-      <Blank />
       <Footer />
     </>
   );
@@ -37,10 +36,8 @@ const Container = styled.main`
   top: 14.6rem;
   flex-direction: column;
   gap: 10rem;
+  margin-bottom: 14.6rem;
 `;
-
-const Blank = styled.div`
-  height: 14.6rem;
 
 const ADImg = styled.img`
   object-fit: contain;

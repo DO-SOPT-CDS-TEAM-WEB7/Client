@@ -7,6 +7,5 @@ interface ResponseType {
 }
 
 export const postTicketReservation = (body: PostTicketReservationRequest) => {
-  console.log(body);
   return client.post<ResponseType>(`/air/reservation`, body);
 };

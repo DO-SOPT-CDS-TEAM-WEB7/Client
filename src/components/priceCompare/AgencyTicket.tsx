@@ -35,7 +35,6 @@ const AgencyTicket = (props: AgencyTicketProps) => {
       const {
         data: { data },
       } = await postTicketReservation(userInput);
-      console.log(data);
       setSiteMoving(data);
     } catch (e) {
       console.log(e);

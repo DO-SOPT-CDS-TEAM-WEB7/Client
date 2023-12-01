@@ -20,7 +20,6 @@ const Calendar = () => {
   const [endDate, setEnddate] = useState<Date | null>(null);
   const setUserInput = useSetRecoilState(userInputState);
   const userInput = useRecoilValue(userInputState);
-  console.log(userInput);
 
   // 요일 변환
   // '2024-01-04'

@@ -30,8 +30,10 @@ const Calendar = () => {
     );
   }, [dateRange]);
 
+  const [show, setShow] = useState(true);
+
   return (
-    <CalendarWrapper $isSame={isSame}>
+    <CalendarWrapper $isSame={isSame} $show={show}>
       <StyledDatePicker
         renderCustomHeader={({ monthDate, customHeaderCount, decreaseMonth, increaseMonth }) => (
           <StyledHeader>
@@ -57,12 +59,12 @@ const Calendar = () => {
         endDate={dateRange[1]}
         selectsRange={true}
         onChange={selectDays}
+        onInputClick={() => setShow(true)}
         monthsShown={2}
         showDisabledMonthNavigation
         disabledKeyboardNavigation
-        shouldCloseOnSelect={false}
         renderDayContents={(day) => <DayWrapper>{day}</DayWrapper>}
-        calendarContainer={CalendarItem}
+        calendarContainer={(props) => <CalendarItem test={props} setShow={setShow} />}
       />
     </CalendarWrapper>
   );
@@ -70,7 +72,7 @@ const Calendar = () => {
 
 export default Calendar;
 
-const CalendarWrapper = styled.section<{ $isSame: boolean }>`
+const CalendarWrapper = styled.section<{ $isSame: boolean; $show: boolean }>`
   position: relative;
 
   & div {
@@ -80,6 +82,7 @@ const CalendarWrapper = styled.section<{ $isSame: boolean }>`
 
   .react-datepicker-popper {
     inset: 0 -33.8rem auto auto !important;
+    visibility: ${({ $show }) => ($show ? null : 'hidden')};
     margin-top: 5.35rem;
     border-radius: 1.2rem;
     padding: 2.4rem;

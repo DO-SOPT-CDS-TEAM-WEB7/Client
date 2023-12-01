@@ -1,38 +1,41 @@
 import 'react-datepicker/dist/react-datepicker.css';
 
-import { useState } from 'react';
-import { CalendarContainer } from 'react-datepicker';
+import { CalendarContainer, CalendarContainerProps } from 'react-datepicker';
 import styled from 'styled-components';
 
 import { CloseIcon } from '../../assets/icon';
 
-type CalendarItemProps = {
-  children: React.ReactNode;
-};
+interface CalendarItemProps {
+  setShow: React.Dispatch<React.SetStateAction<boolean>>;
+  test: CalendarContainerProps;
+}
 
-const CalendarItem = ({ children }: CalendarItemProps) => {
-  const [popper, setPopper] = useState(true);
-
+const CalendarItem = (props: CalendarItemProps) => {
+  const { test, setShow } = props;
   return (
-    <StyledCalendarContainer $popper={popper}>
+    <StyledCalendarContainer>
       <CalendarHeader>
         <TypeWrapper>
           <Type className="blue">특정날짜</Type>
           <Type className="grey">조정가능</Type>
         </TypeWrapper>
-        <CloseBtn type="button" onClick={() => setPopper(false)}>
+        <CloseBtn
+          type="button"
+          onClick={() => {
+            setShow(false);
+          }}>
           <IconImg src={CloseIcon} alt="CloseBtn" />
         </CloseBtn>
       </CalendarHeader>
-      <MonthContainer>{children}</MonthContainer>
+      <MonthContainer>{test.children}</MonthContainer>
     </StyledCalendarContainer>
   );
 };
 
 export default CalendarItem;
 
-const StyledCalendarContainer = styled(CalendarContainer)<{ $popper: boolean }>`
-  display: ${({ $popper }) => ($popper ? 'flex' : 'none')};
+const StyledCalendarContainer = styled(CalendarContainer)`
+  display: flex;
   flex-direction: column;
   gap: 2rem;
 `;

@@ -7,7 +7,7 @@ import AirLineTicketList from '../components/priceCompare/AgencyTicketList';
 import Banner from '../components/priceCompare/Banner';
 import Header from '../components/priceCompare/Header';
 import TicketInfoList from '../components/priceCompare/TicketInfoList';
-import { reservationIdState } from '../states/reservationId';
+import { reservationIdState } from '../states/reservationIdState';
 import { AirResultDto, TicketListDto } from '../types/ticketReservationInfo';
 const PriceCompare = () => {
   const [airResultData, setAirResultData] = useState<AirResultDto>();

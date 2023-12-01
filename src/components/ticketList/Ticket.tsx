@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
-import { reservationIdState } from '../../states/reservationId';
+import { reservationIdState } from '../../states/reservationIdState';
 import { ReservationData } from '../../types/ticketList';
 // eslint-disable-next-line import/order
 import TicketItem from './TicketItem';

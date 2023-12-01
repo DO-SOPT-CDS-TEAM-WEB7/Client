@@ -24,6 +24,7 @@ export interface DropDownProps {
 const DropDown = () => {
   // 각 드롭다운 handling
   const [activeDropdown, setActiveDropdown] = useState<DropdownName | null>(null);
+  // 항공권 최소값 리스트 저장용
   const [minPriceList, setMinPriceList] = useState<MinPriceListData[]>([]);
 
   const getMinList = async () => {
@@ -32,17 +33,19 @@ const DropDown = () => {
         data: { data },
       } = await getMinPriceList();
       setMinPriceList(data.airMinPriceDtoList);
-      console.log(data.airMinPriceDtoList);
-      console.log(minPriceList);
     } catch (e) {
       console.log(e);
     }
   };
 
+  // 기본 드롭다운 handler
+  // 열고 닫힘만 관여
   const handleDropDownClick = (dropdownName: DropdownName) => {
     setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
   };
 
+  // 항공권 리스트 드롭다운 handler
+  // 체크리스트 동적 생성
   const handleDropDownFlightFilter = (dropdownName: DropdownName) => {
     setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
     getMinList();

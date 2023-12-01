@@ -22,7 +22,7 @@ const AgencyTicket = (props: AgencyTicketProps) => {
       ...prev,
       ticketId: ticketId,
     }));
-    navigate('/priceCompare');
+    navigate('/siteMoving');
   };
   return (
     <AgencyTicketContainer>

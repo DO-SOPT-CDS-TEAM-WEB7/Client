@@ -71,10 +71,9 @@ const TicketList = () => {
       <SearchBar />
       <AdvImg />
       <DropDown checkboxHandler={onClickCheckbox} onClickApplyBtn={onClickApplyBtn} />
-      <Ticket rangeStart={0} rangeEnd={4} ticketList={filteredList} />
+      <Ticket rangeStart={0} rangeEnd={4} ticketList={filteredList} totalLength={filteredList.length}/>
       <HotelCarousel />
-      <Ticket rangeStart={4} ticketList={filteredList} />
-      <Ticket rangeStart={4} />
+      <Ticket rangeStart={4} rangeEnd={filteredList.length} ticketList={filteredList} totalLength={filteredList.length-1}/>
       <FooterBackground />
       <Footer />
     </>

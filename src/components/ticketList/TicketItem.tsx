@@ -5,12 +5,12 @@ import TICKET_AIR_IMG from '../../data/TicketItemData';
 import { TicketItemProps } from '../../types/ticketList';
 
 const TicketItem = (props: TicketItemProps) => {
-  const { airName, startTime, endTime, price, CO2, onSelect } = props;
+  const { airName, startTime, endTime, price, CO2, onSelect, isLast } = props;
   const flight = TICKET_AIR_IMG.filter((item) => item.airName === airName);
   const flightImg = flight[0].airImg;
 
   return (
-    <TicketContainer>
+    <TicketContainer $isLast={isLast}>
       <DepartContainer>
         <FlightCompany>
           <FlightLogo src={flightImg} alt="항공사 로고" />
@@ -81,7 +81,7 @@ const TicketItem = (props: TicketItemProps) => {
 
 export default TicketItem;
 
-const TicketContainer = styled.article`
+const TicketContainer = styled.article<{ $isLast: boolean }>`
   display: flex;
   position: relative;
   flex-direction: column;
@@ -92,6 +92,8 @@ const TicketContainer = styled.article`
   background-color: ${({ theme }) => theme.colors.skscanWt};
   padding: 2.8rem 3.6rem;
   width: 100%;
+
+  ${({ $isLast }) => $isLast && 'margin-bottom: 8rem;'}
 `;
 
 const DepartContainer = styled.div`

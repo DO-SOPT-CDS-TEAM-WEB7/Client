@@ -55,8 +55,12 @@ export default Footer;
 
 const FooterContainer = styled.footer`
   display: flex;
+  position: absolute;
+  left: 0;
   justify-content: space-between;
-  padding: 5.1rem 0 10.2rem;
+  border-top: 0.1rem solid ${({ theme }) => theme.colors.skscanGrey150};
+  padding: 5.1rem calc((100vw - 104.6rem) / 2) 10.2rem;
+  width: 100%;
 `;
 
 const SelectBoxContainer = styled.div`

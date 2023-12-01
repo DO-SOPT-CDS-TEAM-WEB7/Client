@@ -8,6 +8,7 @@ export const Select = styled.div<{ $isOpen: boolean }>`
   justify-content: center;
   border: 0.1rem solid ${({ $isOpen, theme }) => ($isOpen ? theme.colors.skscanSecondary : theme.colors.skscanGrey150)};
   border-radius: 0.8rem;
+  background-color: ${({ theme }) => theme.colors.skscanWt};
   cursor: pointer;
   padding: 0.8rem 1rem 0.8rem 1.6rem;
 

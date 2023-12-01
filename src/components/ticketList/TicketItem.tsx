@@ -1,30 +1,36 @@
 import styled from 'styled-components';
 
-import { ArrowImg, HeartBlackImg, KoreanAirImg, LeafImg } from '../../assets/image';
+import { ArrowImg, HeartBlackImg, LeafImg } from '../../assets/image';
+import TICKET_AIR_IMG from '../../data/TicketItemData';
+import { TicketItemProps } from '../../types/ticketList';
 
-const TicketItem = () => {
+const TicketItem = (props: TicketItemProps) => {
+  const { airName, startTime, endTime, price, CO2, onSelect } = props;
+  const flight = TICKET_AIR_IMG.filter((item) => item.airName === airName);
+  const flightImg = flight[0].airImg;
+
   return (
     <TicketContainer>
       <DepartContainer>
         <FlightCompany>
-          <FlightLogo src={KoreanAirImg} alt="항공사 로고" />
-          <FlightName>대한항공</FlightName>
+          <FlightLogo src={flightImg} alt="항공사 로고" />
+          <FlightName>{airName}</FlightName>
         </FlightCompany>
 
         <FlightContainer>
           <Depart>
-            <Time>13:15</Time>
+            <Time>{startTime.start}</Time>
             <Place>ICN</Place>
           </Depart>
 
           <DurationContainer>
             <Path>직항</Path>
             <PathArrow src={ArrowImg} alt="화살표" />
-            <DurationTime>02시간 50분</DurationTime>
+            <DurationTime>{startTime.during}</DurationTime>
           </DurationContainer>
 
           <Arrive>
-            <Time>16:05</Time>
+            <Time>{startTime.end}</Time>
             <Place>CTS</Place>
           </Arrive>
         </FlightContainer>
@@ -32,24 +38,24 @@ const TicketItem = () => {
 
       <ArrivalContainer>
         <FlightCompany>
-          <FlightLogo src={KoreanAirImg} alt="항공사 로고" />
-          <FlightName>대한항공</FlightName>
+          <FlightLogo src={flightImg} alt="항공사 로고" />
+          <FlightName>{airName}</FlightName>
         </FlightCompany>
 
         <FlightContainer>
           <Depart>
-            <Time>17:05</Time>
+            <Time>{endTime.start}</Time>
             <Place>CTS</Place>
           </Depart>
 
           <DurationContainer>
             <Path>직항</Path>
             <PathArrow src={ArrowImg} alt="화살표" />
-            <DurationTime>02시간 50분</DurationTime>
+            <DurationTime>{endTime.during}</DurationTime>
           </DurationContainer>
 
           <Arrive>
-            <Time>11:15</Time>
+            <Time>{endTime.end}</Time>
             <Place>ICN</Place>
           </Arrive>
         </FlightContainer>
@@ -59,13 +65,13 @@ const TicketItem = () => {
         <Carbon>
           <CarbonImg src={LeafImg} alt="탄소 나뭇잎" />
           <CarbonMsg>탄소배출량</CarbonMsg>
-          <CarbonMsgBold>21% 감소</CarbonMsgBold>
+          <CarbonMsgBold>{`${CO2}% 감소`}</CarbonMsgBold>
           <CarbonMsg>항공편</CarbonMsg>
         </Carbon>
         <PriceChooseContainer>
-          <Price>467,900</Price>
+          <Price>{price}</Price>
           <Won>원</Won>
-          <ChooseBtn>선택하기</ChooseBtn>
+          <ChooseBtn onClick={onSelect}>선택하기</ChooseBtn>
         </PriceChooseContainer>
       </CarbonPriceContainer>
       <Like src={HeartBlackImg} alt="좋아요" />
@@ -103,6 +109,7 @@ const ArrivalContainer = styled.div`
 const FlightCompany = styled.div`
   display: flex;
   align-items: center;
+  width: 22.8rem;
 `;
 
 const FlightLogo = styled.img`
@@ -112,7 +119,6 @@ const FlightLogo = styled.img`
 `;
 
 const FlightName = styled.span`
-  margin-right: 11.2rem;
   ${({ theme }) => theme.fonts.body06};
 `;
 
@@ -126,6 +132,7 @@ const Depart = styled.div`
   flex-direction: column;
   align-items: flex-end;
   margin-right: 1.7rem;
+  width: 7.9rem;
 `;
 
 const Arrive = styled.div`
@@ -150,6 +157,8 @@ const DurationContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  margin: 0 1.8rem 0 2rem;
+  width: 11.1rem;
 `;
 
 const Path = styled.span`

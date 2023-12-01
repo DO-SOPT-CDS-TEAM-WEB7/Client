@@ -20,12 +20,14 @@ export interface DropDownProps {
   // eslint-disable-next-line no-unused-vars
   onToggle: (dropdownName: DropdownName) => void;
   flightList?: MinPriceListData[];
+  // eslint-disable-next-line no-unused-vars
   checkboxHandler?: (e: React.MouseEvent<HTMLInputElement>) => void;
-  onCancle?: () => void;
+  onCancle: () => void;
 }
 
 // 항공사 체크박스 Props
 export interface CheckboxHandlerProps {
+  // eslint-disable-next-line no-unused-vars
   checkboxHandler?: (e: React.MouseEvent<HTMLInputElement>) => void;
 }
 
@@ -88,7 +90,7 @@ const DropDown = (props: CheckboxHandlerProps) => {
         checkboxHandler={checkboxHandler}
         onCancle={handelCancelClick}
       />
-      <RecommendDropDown isOpen={activeDropdown === 'recommend'} onToggle={handleDropDownClick} />
+      <RecommendDropDown isOpen={activeDropdown === 'recommend'} onToggle={handleDropDownClick} onCancle={handelCancelClick}/>
     </DropDownContainer>
   );
 };

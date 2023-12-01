@@ -2,25 +2,19 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ChevronLeft, PriceCompareLogo } from '../../assets/icon';
-import { HeadBanner } from '../../assets/image';
 
 const Header = () => {
   return (
     <HeaderContainer>
-      <Contents>
-        <GoBackContainer to="/ticketList">
-          <StyledImg src={ChevronLeft} />
-          <GoBackText>돌아가기</GoBackText>
-        </GoBackContainer>
-        <StyledImg src={PriceCompareLogo} />
-      </Contents>
-      <BannerContainer>
-        <Banner src={HeadBanner} />
-        <BannerContents>
-          <Title>삿포로</Title>
-          <Description>서울 · 삿포로 왕복 항공편</Description>
-        </BannerContents>
-      </BannerContainer>
+      <ContentsContainer>
+        <Contents>
+          <GoBackContainer to="/ticketList">
+            <StyledImg src={ChevronLeft} />
+            <GoBackText>돌아가기</GoBackText>
+          </GoBackContainer>
+          <StyledLogo src={PriceCompareLogo} />
+        </Contents>
+      </ContentsContainer>
     </HeaderContainer>
   );
 };
@@ -28,15 +22,27 @@ const Header = () => {
 export default Header;
 
 const HeaderContainer = styled.header`
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  z-index: -1;
+  background-color: ${({ theme }) => theme.colors.skscanGrey50};
   padding-top: 1rem;
   width: 100%;
+  height: 100%;
+`;
+
+const ContentsContainer = styled.div`
+  background-color: ${({ theme }) => theme.colors.skscanWt};
+  height: 3.6rem;
 `;
 
 const Contents = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 57.3rem;
+  width: 104.6rem;
 `;
 
 const GoBackContainer = styled(Link)`
@@ -55,38 +61,6 @@ const GoBackText = styled.span`
 
 const StyledImg = styled.img``;
 
-const Banner = styled.img`
-  position: absolute;
-  width: 100%;
-  height: 17.3rem;
-`;
-
-const BannerContainer = styled.div`
-  position: relative;
-  width: 100%;
-`;
-
-const BannerContents = styled.div`
-  display: flex;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  flex-direction: column;
-  gap: 0.3rem;
-  align-items: center;
-  justify-content: center;
-  transform: translate(-50%, -50%);
-  margin-top: 7.2rem;
-`;
-
-const Title = styled.h1`
-  ${({ theme }) => theme.fonts.heading01}
-
-  color: ${({ theme }) => theme.colors.skscanWt};
-`;
-
-const Description = styled.p`
-  ${({ theme }) => theme.fonts.caption03}
-
-  color: ${({ theme }) => theme.colors.skscanWt};
+const StyledLogo = styled.img`
+  margin-left: 40rem;
 `;

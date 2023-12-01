@@ -1,3 +1,6 @@
+import styled from 'styled-components';
+
+import Footer from '../components/common/Footer';
 import SearchBar from '../components/common/SearchBar';
 import AdvImg from '../components/ticketList/AdvImg';
 import BackgroundImg from '../components/ticketList/BackgroundImg';
@@ -9,6 +12,7 @@ import Ticket from '../components/ticketList/Ticket';
 const TicketList = () => {
   return (
     <>
+      <TicketListContainer />
       <Nav />
       <BackgroundImg />
       <SearchBar />
@@ -17,8 +21,19 @@ const TicketList = () => {
       <Ticket rangeStart={0} rangeEnd={4} />
       <HotelCarousel />
       <Ticket rangeStart={4} />
+      <Footer />
     </>
   );
 };
 
 export default TicketList;
+
+const TicketListContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -5;
+  background-color: ${({ theme }) => theme.colors.skscanGrey50};
+  width: 100%;
+  height: 100%;
+`;

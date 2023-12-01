@@ -81,7 +81,7 @@ const TicketItem = (props: TicketItemProps) => {
 
 export default TicketItem;
 
-const TicketContainer = styled.article`
+const TicketContainer = styled.article<{ $isLast: boolean }>`
   display: flex;
   position: relative;
   flex-direction: column;

@@ -14,8 +14,9 @@ const TicketList = () => {
       <SearchBar />
       <AdvImg />
       <DropDown />
-      <Ticket />
+      <Ticket rangeStart={0} rangeEnd={4} />
       <HotelCarousel />
+      <Ticket rangeStart={4} />
     </>
   );
 };

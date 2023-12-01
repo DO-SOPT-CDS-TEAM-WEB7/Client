@@ -14,6 +14,7 @@ export { default as ArrowRightGrayIcon } from './ic_arrow_right_gray.svg';
 export { default as ArrowDownBlueIcon } from './ic_arrowdown_blue.svg';
 export { default as ArrowUpBlueIcon } from './ic_arrowup_blue.svg';
 export { default as Logo } from './logo.svg';
+export { default as LogoBigIcon } from './logo-big.svg';
 export { default as MenuIcon } from './menu.svg';
 export { default as MovingArrowIcon } from './movingArrow.svg';
 export { default as CloseIcon } from './multiply.svg';

@@ -41,6 +41,7 @@ const Container = styled.main`
 
 const Blank = styled.div`
   height: 14.6rem;
+`;
 
 const ADImg = styled.img`
   object-fit: contain;

@@ -8,6 +8,7 @@ import styled from 'styled-components';
 
 import { ArrowLeftIcon, ArrowRightIcon } from '../../assets/icon';
 import { userInputState, userInputType } from '../../states/userInputState';
+import formatDate from '../../utils/formateDate';
 // eslint-disable-next-line import/order
 import CalendarItem from './CalendarItem';
 type MoveBtnProps = {
@@ -47,8 +48,8 @@ const Calendar = () => {
 
     setUserInput((prev: userInputType) => ({
       ...prev,
-      startDate: searchBarFormatDate(dates[0]),
-      endDate: searchBarFormatDate(dates[1]),
+      startDate: formatDate(dates[0]),
+      endDate: formatDate(dates[1]),
     }));
   };
 

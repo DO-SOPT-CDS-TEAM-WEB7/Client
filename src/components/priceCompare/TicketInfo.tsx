@@ -16,6 +16,30 @@ const TicketInfo = (props: TicketInfoListProps) => {
   const dateInfo = isStartTicket ? airResultData?.dateDto.startDate : airResultData?.dateDto.endDate;
   const movingInfo = isStartTicket ? airResultData?.startTime : airResultData?.endTime;
 
+  const dateFormatter = (date?: string): string => {
+    let tempDate = date && date.toString();
+
+    const year = tempDate && tempDate.substring(0, 4);
+    const month = tempDate && tempDate.substring(5, 7);
+    const day = tempDate && tempDate.substring(8, 10);
+    let weekday = tempDate && tempDate.substring(11, 15);
+
+    const cases: Record<string, string> = {
+      Mon: '월',
+      Tue: '화',
+      Wed: '수',
+      Thu: '목',
+      Fri: '금',
+      Sat: '토',
+      Sun: '일',
+    };
+    if (weekday) weekday = cases[weekday];
+
+    tempDate = `${year}년 ${month}월 ${day}일 (${weekday})`;
+
+    return tempDate;
+  };
+
   return (
     <TicketInfoContainer>
       {airResultData && movingInfo && (
@@ -23,7 +47,7 @@ const TicketInfo = (props: TicketInfoListProps) => {
           <InfoTitle>
             <TitleLeft>
               <Title>{isStartTicket ? '가는 날' : '오는 날'} 출발시간</Title>
-              <SubText>{dateInfo}</SubText>
+              <SubText>{dateFormatter(dateInfo)}</SubText>
             </TitleLeft>
             {isStartTicket && <SubText>모든 시간은 현지 시간</SubText>}
           </InfoTitle>

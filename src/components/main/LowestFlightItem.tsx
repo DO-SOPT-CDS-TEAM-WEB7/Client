@@ -1,43 +1,79 @@
 import styled from 'styled-components';
 
 import { ArrowRightBlueIcon } from '../../assets/icon';
-import { ParisImg, SampleAirlineImg } from '../../assets/image';
+import LOWEST_FLIGHT_ITEM from '../../data/LowestFlightItemData';
+import { MainApiData } from '../../types/Main';
 
-const LowestFlightItem = () => {
+const LowestFlightItem = (props: MainApiData) => {
+  const { cityName, country, startDate, endDate, companyAir, minPriceString } = props;
+  const { img = '', icon = '', go = '', back = '' } = LOWEST_FLIGHT_ITEM.find((e) => e.place === cityName) || {};
+
+  const dateFormatter = (date: Date): string => {
+    let tempDate = date.toString();
+
+    const month = tempDate.substring(5, 7);
+    const day = tempDate.substring(8, 10);
+    let weekday = tempDate.substring(11, 15);
+
+    const cases: Record<string, string> = {
+      Mon: '월',
+      Tue: '화',
+      Wed: '수',
+      Thu: '목',
+      Fri: '금',
+      Sat: '토',
+      Sun: '일',
+    };
+    weekday = cases[weekday];
+
+    tempDate = `${month}월 ${day}일 (${weekday})`;
+
+    return tempDate;
+  };
+
+  const start = dateFormatter(startDate);
+  const end = dateFormatter(endDate);
+
   return (
     <CardContainer>
       <ImgWrapper>
-        <DesImg src={ParisImg} alt="ParisImg" />
+        <DesImg src={img} alt={img} />
         <Destination>
-          <City>제주</City>
-          <Country>대한민국</Country>
+          <City>{cityName}</City>
+          <Country>{country}</Country>
         </Destination>
       </ImgWrapper>
       <InfoWrapper>
         <TwoWayFlight>
           <Flight>
-            <AirlineImg src={SampleAirlineImg} alt="SampleAirlineImg" />
+            <AirlineImg src={icon} alt={icon} />
             <FlightInfo>
               <FlightDetail>
-                <FlightDate>11월 21일 (화)</FlightDate>
-                <FlightCode>티웨이 항공 TAE - CJU 항공</FlightCode>
+                <FlightDate>{start}</FlightDate>
+                <FlightCode>
+                  {companyAir}&nbsp;
+                  {go}
+                </FlightCode>
               </FlightDetail>
               <FlightType>직항</FlightType>
             </FlightInfo>
           </Flight>
           <Flight>
-            <AirlineImg src={SampleAirlineImg} alt="SampleAirlineImg" />
+            <AirlineImg src={icon} alt={icon} />
             <FlightInfo>
               <FlightDetail>
-                <FlightDate>11월 21일 (화)</FlightDate>
-                <FlightCode>티웨이 항공 TAE - CJU 항공</FlightCode>
+                <FlightDate>{end}</FlightDate>
+                <FlightCode>
+                  {companyAir}&nbsp;
+                  {back}
+                </FlightCode>
               </FlightDetail>
               <FlightType>직항</FlightType>
             </FlightInfo>
           </Flight>
         </TwoWayFlight>
         <PriceLink>
-          <Price>218,390원 출발</Price>
+          <Price>{minPriceString}</Price>
           <ImgIcon src={ArrowRightBlueIcon} alt="ArrowRightBlueIcon" />
         </PriceLink>
       </InfoWrapper>
@@ -110,6 +146,7 @@ const TwoWayFlight = styled.div`
 
 const Flight = styled.div`
   display: flex;
+  position: relative;
   gap: 1.2rem;
   width: 100%;
 `;
@@ -139,12 +176,16 @@ const FlightDate = styled.span`
 `;
 
 const FlightCode = styled.span`
+  white-space: nowrap;
   ${({ theme }) => theme.fonts.body06};
 
   color: ${({ theme }) => theme.colors.skscanGrey600};
 `;
 
 const FlightType = styled.span`
+  position: absolute;
+  top: 0;
+  right: 0;
   ${({ theme }) => theme.fonts.body06};
 
   color: ${({ theme }) => theme.colors.skscanGrey900};

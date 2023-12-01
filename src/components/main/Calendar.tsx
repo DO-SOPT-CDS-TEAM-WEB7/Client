@@ -63,6 +63,7 @@ const Calendar = () => {
         monthsShown={2}
         showDisabledMonthNavigation
         disabledKeyboardNavigation
+        onChangeRaw={(e) => e.preventDefault()}
         renderDayContents={(day) => <DayWrapper>{day}</DayWrapper>}
         calendarContainer={(props) => <CalendarItem data={props} setShow={setShow} />}
       />
@@ -221,6 +222,7 @@ const CalendarWrapper = styled.section<{ $isSame: boolean; $show: boolean }>`
 
 const StyledDatePicker = styled(DatePicker)`
   border: none;
+  cursor: pointer;
   width: 100%;
   color: ${({ theme }) => theme.colors.skscanGrey900};
   ${({ theme }) => theme.fonts.heading09};

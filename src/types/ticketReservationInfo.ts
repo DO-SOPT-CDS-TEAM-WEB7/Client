@@ -1,9 +1,42 @@
 export interface TicketReservationInfo {
-  airId: number;
-  airName: string;
-  minPriceString: string;
+  airResultDto: AirResultDto;
+  ticketListDto: TicketListDto[];
 }
 
-export interface ApiTestResponse {
-  data: ApiTestData[]; // 꼭 data : ~~ 여야 한다! 왜냐하면 서버에서 들어오는 형식이 data : [~~~]니까!
+export interface TicketListDto {
+  ticketId: number;
+  companyName: string;
+  stars: number;
+  card: string;
+  price: string;
+  comment: number;
+}
+
+export interface AirResultDto {
+  dateDto: {
+    startDate: string;
+    endDate: string;
+  };
+  reservationId: number;
+  airName: string;
+  startTime: {
+    startTime: string;
+    endTime: string;
+    during: string;
+  };
+  endTime: {
+    startTime: string;
+    endTime: string;
+    during: string;
+  };
+}
+
+export interface TicketReservationResponse {
+  data: TicketReservationInfo;
+}
+
+export interface TicketReservationRequest {
+  startDate: string;
+  endDate: string;
+  reservationId: number;
 }

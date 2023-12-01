@@ -13,6 +13,7 @@ import { ReservationData } from '../types/ticketList';
 const TicketList = () => {
   const [selectedAirName, setSelectedAirName] = useState<string[]>([]);
   const [ticketList, setTicketList] = useState<ReservationData[]>([]);
+  const [filteredList, setFilteredList] = useState<ReservationData[]>([]);
 
   // 서버에서 티켓리스트 GET
   // 날짜 동적 변경 필요
@@ -27,6 +28,7 @@ const TicketList = () => {
         data: { data },
       } = await getTicketList(params);
       setTicketList(data.reservationListDto);
+      setFilteredList(data.reservationListDto);
     } catch (e) {
       console.log(e);
     }
@@ -36,6 +38,7 @@ const TicketList = () => {
     getTickets();
   }, []);
 
+  // 체크된 항공사 이름 저장
   const onClickCheckbox = (e: React.MouseEvent<HTMLInputElement>) => {
     const inputElement = e.target as HTMLInputElement;
     const selectedName = inputElement.name;
@@ -51,10 +54,12 @@ const TicketList = () => {
     });
   };
 
+  // 체크된 항공사 이름으로 받아온 티켓 필터링
   const onClickApplyBtn = () => {
     const filteredFlight = ticketList.filter((ticket) => selectedAirName.includes(ticket.airName));
-    setTicketList(filteredFlight);
+    setFilteredList(filteredFlight);
   };
+  console.log(ticketList);
 
   return (
     <>
@@ -63,9 +68,9 @@ const TicketList = () => {
       <SearchBar />
       <AdvImg />
       <DropDown checkboxHandler={onClickCheckbox} onClickApplyBtn={onClickApplyBtn}/>
-      <Ticket rangeStart={0} rangeEnd={4} ticketList={ticketList}/>
+      <Ticket rangeStart={0} rangeEnd={4} ticketList={filteredList}/>
       <HotelCarousel />
-      <Ticket rangeStart={4} ticketList={ticketList}/>
+      <Ticket rangeStart={4} ticketList={filteredList}/>
     </>
   );
 };

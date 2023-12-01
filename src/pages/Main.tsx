@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import Footer from '../components/common/Footer';
 import Header from '../components/main/Header';
 import Insight from '../components/main/Insight';
 import QnA from '../components/main/QnA';
@@ -8,13 +9,16 @@ import RecommendFlight from '../components/main/RecommendFlight';
 
 const Main = () => {
   return (
-    <Container>
+    <>
       <Header />
-      <Insight />
-      <RecommendDestination />
-      <RecommendFlight />
-      <QnA />
-    </Container>
+      <Container>
+        <Insight />
+        <RecommendDestination />
+        <RecommendFlight />
+        <QnA />
+      </Container>
+      <Footer />
+    </>
   );
 };
 

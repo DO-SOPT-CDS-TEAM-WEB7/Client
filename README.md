@@ -77,7 +77,7 @@
 <br/>
 
 <h2>  📄 컨벤션 및 브랜치 전략 </h2>
-<a href="https://rumbling-niece-12d.notion.site/3ffcd7b4508b439d826411956c69bf0d?pvs=4">우리의 컨벤션이 담긴 노션링크</a>
+<a href="https://lively-kumquat-587.notion.site/afb661ceea9449e295f7e2f29ba3e8f6?pvs=4">우리의 컨벤션이 담긴 노션링크</a>
 
 <br/>
 

@@ -260,6 +260,5 @@ const IconImg = styled.img`
 `;
 
 const DayWrapper = styled.span`
-  position: absolute;
   z-index: 5;
 `;

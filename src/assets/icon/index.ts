@@ -17,3 +17,4 @@ export { default as MovingArrowIcon } from './movingArrow.svg';
 export { default as PriceCompareLogo } from './priceCompareLogo.svg';
 export { default as ProfileIcon } from './profile.svg';
 export { default as LogoIcon } from './ticket_logo.svg';
+export { default as VerticalLineIcon } from './verticalLine.svg';

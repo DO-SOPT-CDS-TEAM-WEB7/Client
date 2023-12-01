@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { getTicketReservation } from '../apis/getTicketReservation';
-import AirLineTicketList from '../components/priceCompare/AirlineTicketList';
+import AirLineTicketList from '../components/priceCompare/AgencyTicketList';
 import Banner from '../components/priceCompare/Banner';
 import Header from '../components/priceCompare/Header';
 import TicketInfoList from '../components/priceCompare/TicketInfoList';

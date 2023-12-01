@@ -48,6 +48,7 @@ export default PriceCompare;
 
 const PriceCompoareContainer = styled.div`
   position: absolue;
+  margin-bottom: 7.3rem;
   background-color: ${({ theme }) => theme.colors.skscanGrey50};
   width: 100%;
   height: 100%;

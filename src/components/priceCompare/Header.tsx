@@ -23,7 +23,7 @@ export default Header;
 
 const HeaderContainer = styled.header`
   display: flex;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   justify-content: center;

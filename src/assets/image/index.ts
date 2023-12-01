@@ -87,6 +87,7 @@ export { default as PeachImg } from './img_peach.png';
 export { default as InterparkImg } from './interpark.png';
 export { default as InterparkNoBgImg } from './interpark_no_bg.png';
 export { default as LeafImg } from './leaf.fill@2x.png';
+export { default as MainBannerImg } from './main_banner.png';
 export { default as MovingAirplane } from './moving_airplane.png';
 export { default as MyrealtripImg } from './myrealtrip.png';
 export { default as MyrealtripNoBgImg } from './myrealtrip_no_bg.png';

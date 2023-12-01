@@ -7,6 +7,7 @@ export { default as GlobeIcon } from './globe.svg';
 export { default as LikeIcon } from './heart.svg';
 export { default as HotelIcon } from './hotel.svg';
 export { default as ArrowDownIcon } from './ic_arrow_down.svg';
+export { default as ArrowRightBlueIcon } from './ic_arrow_right_blue.svg';
 export { default as ArrowRightGrayIcon } from './ic_arrow_right_gray.svg';
 export { default as Logo } from './logo.svg';
 export { default as MenuIcon } from './menu.svg';

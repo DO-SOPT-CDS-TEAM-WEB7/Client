@@ -1,7 +1,5 @@
 /* eslint-disable import/order */
-import { useEffect, useState } from 'react';
 
-import { getMinPriceList } from '../../../apis/getMinPriceList';
 import { DownArrow, UpArrowImg } from '../../../assets/image';
 import { DropDownProps } from '../DropDown';
 import ButtonContainer from './ButtonContainer';
@@ -10,23 +8,7 @@ import { List, Path, Price, StyledInput, StyledLabel, StyledText } from './style
 
 // API 연결 필요
 const FlightDropDown = (props: DropDownProps) => {
-  const { isOpen, onToggle } = props;
-
-  // state에 저장 필요
-  const getMinList = async () => {
-    try {
-      const {
-        data: { data },
-      } = await getMinPriceList();
-      console.log(data.airMinPriceDtoList);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  useEffect(() => {
-    getMinList();
-  }, []);
+  const { isOpen, onToggle, flightList } = props;
 
   return (
     <DropDownContainer>
@@ -37,20 +19,15 @@ const FlightDropDown = (props: DropDownProps) => {
 
       <Option $isOpen={isOpen} $width="17.8rem" $left="43.4rem">
         <List>
-          <StyledLabel htmlFor="ANA">
-            <StyledInput type="checkbox" id="ANA" name="ANA" />
-            <StyledText>
-              <Path>ANA (전일본공수)</Path>
-              <Price>622,301원부터</Price>
-            </StyledText>
-          </StyledLabel>
-          <StyledLabel htmlFor="ANA">
-            <StyledInput type="checkbox" id="ANA" name="ANA" />
-            <StyledText>
-              <Path>Peach</Path>
-              <Price>330,500원부터</Price>
-            </StyledText>
-          </StyledLabel>
+          {flightList?.map((item) => (
+            <StyledLabel htmlFor={item.airId.toString()} key={item.airId}>
+              <StyledInput type="checkbox" id={item.airId.toString()} name={item.airName} />
+              <StyledText>
+                <Path>{item.airName}</Path>
+                <Price>{item.minPriceString}</Price>
+              </StyledText>
+            </StyledLabel>
+          ))}
         </List>
         <ButtonContainer />
       </Option>

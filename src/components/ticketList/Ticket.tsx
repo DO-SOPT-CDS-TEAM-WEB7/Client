@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { getTicketList } from '../../apis/getTicketList';
 import { ReservationData } from '../../types/ticketList';
 // eslint-disable-next-line import/order
 import TicketItem from './TicketItem';
@@ -10,35 +9,13 @@ import TicketItem from './TicketItem';
 interface TicketProps {
   rangeStart: number;
   rangeEnd?: number;
+  ticketList: ReservationData[] | null;
 }
 
 const Ticket = (props: TicketProps) => {
   const navigate = useNavigate();
-  const [ticketList, setTicketList] = useState<ReservationData[]>([]);
   const [selectedTicket, setSelectedTicket] = useState<number | null>(null);
-  const { rangeStart, rangeEnd } = props;
-
-  // 서버에서 티켓리스트 GET
-  // 날짜 동적 변경 필요
-  const getTickets = async () => {
-    try {
-      const params = {
-        startDate: '2023-11-13',
-        endDate: '2023-11-15',
-      };
-
-      const {
-        data: { data },
-      } = await getTicketList(params);
-      setTicketList(data.reservationListDto);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  useEffect(() => {
-    getTickets();
-  }, []);
+  const { rangeStart, rangeEnd, ticketList } = props;
 
   // 선택된 티켓 저장
   const handleTicketSelect = (reservationId: number) => {
@@ -48,18 +25,24 @@ const Ticket = (props: TicketProps) => {
 
   return (
     <TicketContainer>
-      {ticketList.slice(rangeStart, rangeEnd).map((item) => (
-        <TicketItem
-          key={item.reservationId}
-          reservationId={item.reservationId}
-          airName={item.airName}
-          startTime={item.startTime}
-          endTime={item.endTime}
-          price={item.price}
-          CO2={item.CO2}
-          onSelect={() => handleTicketSelect(item.reservationId)}
-        />
-      ))}
+      {ticketList ? (
+        ticketList
+          .slice(rangeStart, rangeEnd)
+          .map((item) => (
+            <TicketItem
+              key={item.reservationId}
+              reservationId={item.reservationId}
+              airName={item.airName}
+              startTime={item.startTime}
+              endTime={item.endTime}
+              price={item.price}
+              CO2={item.CO2}
+              onSelect={() => handleTicketSelect(item.reservationId)}
+            />
+          ))
+      ) : (
+        <></>
+      )}
     </TicketContainer>
   );
 };

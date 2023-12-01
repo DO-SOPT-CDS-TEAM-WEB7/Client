@@ -83,6 +83,7 @@ export { default as MainImg } from './img_main.png';
 export { default as PeachImg } from './img_peach.png';
 export { default as InterparkImg } from './interpark.png';
 export { default as LeafImg } from './leaf.fill@2x.png';
+export { default as MainBannerImg } from './main_banner.png';
 export { default as MyrealtripImg } from './myrealtrip.png';
 export { default as LeftArticleImg } from './Rectangle 34624743.png';
 export { default as TabGraphImg } from './tabbox_depart_graph_default.png';

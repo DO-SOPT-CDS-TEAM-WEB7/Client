@@ -1,9 +1,12 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { CheckboxImg } from '../../assets/image';
 import Calendar from '../main/Calendar';
 
 const SearchBar = () => {
+  const navigate = useNavigate();
+
   return (
     <SearchBarContainer>
       <FlightWayContainer>
@@ -35,7 +38,9 @@ const SearchBar = () => {
           <InfoTitle>인원, 좌석등급</InfoTitle>
           <InfoSeat>1명, 일반석</InfoSeat>
         </InfoDiv>
-        <SearchBtn>검색하기</SearchBtn>
+        <SearchBtn type="button" onClick={() => navigate(`/ticketList`)}>
+          검색하기
+        </SearchBtn>
       </FlightInfoContainer>
     </SearchBarContainer>
   );
@@ -141,19 +146,13 @@ const InfoDestination = styled.span`
   ${({ theme }) => theme.fonts.heading09};
 `;
 
-const InfoDate = styled.span`
-  margin-right: 1.3rem;
-  color: ${({ theme }) => theme.colors.skscanGrey900};
-  ${({ theme }) => theme.fonts.heading09};
-`;
-
 const InfoSeat = styled.span`
   margin-right: 8.5rem;
   color: ${({ theme }) => theme.colors.skscanGrey900};
   ${({ theme }) => theme.fonts.heading09};
 `;
 
-const SearchBtn = styled.div`
+const SearchBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;

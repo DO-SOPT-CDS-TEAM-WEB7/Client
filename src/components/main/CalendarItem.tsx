@@ -38,6 +38,7 @@ const StyledCalendarContainer = styled(CalendarContainer)`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  background-color: ${({ theme }) => theme.colors.skscanWt};
 `;
 
 const CalendarHeader = styled.div`

@@ -44,15 +44,15 @@ const HeaderContainer = styled.header`
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.skscanPrimary};
   padding: 3.4rem calc((100vw - 104.6rem) / 2) 0;
-  width: 100vw;
-  height: 14.6rem;
+  width: 100%;
+  height: 35.3rem;
   color: ${({ theme }) => theme.colors.skscanWt};
 `;
 
 const HeaderBar = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 4.4rem;
   width: 100%;
   height: 100%;
 `;

@@ -11,7 +11,7 @@ const HotelCarousel = () => {
       <Carousel dataLength={HOTEL_ITEM_DATA.length}>
         {HOTEL_ITEM_DATA.map((item: HotelItemProps, idx: number) => (
           <HotelItem
-            key={idx}
+            key={String(idx) + item.hotelName}
             hotelImg={item.hotelImg}
             hotelName={item.hotelName}
             hotelRoom={item.hotelRoom}

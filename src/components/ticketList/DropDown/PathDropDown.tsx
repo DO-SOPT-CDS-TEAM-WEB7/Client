@@ -6,7 +6,7 @@ import { Arrow, DropDownContainer, Name, Option, Select } from './styles/DropDow
 import { List, Path, Price, StyledInput, StyledLabel, StyledText } from './styles/InputCustom.style';
 
 const PathDropDown = (props: DropDownProps) => {
-  const { isOpen, onToggle } = props;
+  const { isOpen, onToggle, onCancel, onApply } = props;
 
   return (
     <DropDownContainer>
@@ -39,7 +39,7 @@ const PathDropDown = (props: DropDownProps) => {
             </StyledText>
           </StyledLabel>
         </List>
-        <ButtonContainer />
+        <ButtonContainer onCancel={onCancel} onApply={onApply} />
       </Option>
     </DropDownContainer>
   );

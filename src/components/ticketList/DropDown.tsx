@@ -70,6 +70,11 @@ const DropDown = (props: CheckboxHandlerProps) => {
     setActiveDropdown(null);
   };
 
+  const handleApplyClick = () => {
+    onClickApplyBtn();
+    setActiveDropdown(null);
+  };
+
   // 화면 외부 클릭 handling
   const dropDownRef = useRef(null);
   const closeDropDown = () => {
@@ -83,19 +88,19 @@ const DropDown = (props: CheckboxHandlerProps) => {
         isOpen={activeDropdown === 'path'}
         onToggle={handleDropDownClick}
         onCancel={handelCancelClick}
-        onApply={onClickApplyBtn}
+        onApply={handleApplyClick}
       />
       <TimeDropDown
         isOpen={activeDropdown === 'time'}
         onToggle={handleDropDownClick}
         onCancel={handelCancelClick}
-        onApply={onClickApplyBtn}
+        onApply={handleApplyClick}
       />
       <DurationDropDown
         isOpen={activeDropdown === 'duration'}
         onToggle={handleDropDownClick}
         onCancel={handelCancelClick}
-        onApply={onClickApplyBtn}
+        onApply={handleApplyClick}
       />
       <FlightDropDown
         isOpen={activeDropdown === 'flight'}
@@ -103,13 +108,13 @@ const DropDown = (props: CheckboxHandlerProps) => {
         flightList={minPriceList}
         checkboxHandler={checkboxHandler}
         onCancel={handelCancelClick}
-        onApply={onClickApplyBtn}
+        onApply={handleApplyClick}
       />
       <RecommendDropDown
         isOpen={activeDropdown === 'recommend'}
         onToggle={handleDropDownClick}
         onCancel={handelCancelClick}
-        onApply={onClickApplyBtn}
+        onApply={handleApplyClick}
       />
     </DropDownContainer>
   );

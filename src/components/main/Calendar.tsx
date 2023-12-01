@@ -64,7 +64,7 @@ const Calendar = () => {
         showDisabledMonthNavigation
         disabledKeyboardNavigation
         renderDayContents={(day) => <DayWrapper>{day}</DayWrapper>}
-        calendarContainer={(props) => <CalendarItem test={props} setShow={setShow} />}
+        calendarContainer={(props) => <CalendarItem data={props} setShow={setShow} />}
       />
     </CalendarWrapper>
   );

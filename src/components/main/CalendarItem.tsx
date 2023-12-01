@@ -7,11 +7,11 @@ import { CloseIcon } from '../../assets/icon';
 
 interface CalendarItemProps {
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
-  test: CalendarContainerProps;
+  data: CalendarContainerProps;
 }
 
 const CalendarItem = (props: CalendarItemProps) => {
-  const { test, setShow } = props;
+  const { data, setShow } = props;
   return (
     <StyledCalendarContainer>
       <CalendarHeader>
@@ -27,7 +27,7 @@ const CalendarItem = (props: CalendarItemProps) => {
           <IconImg src={CloseIcon} alt="CloseBtn" />
         </CloseBtn>
       </CalendarHeader>
-      <MonthContainer>{test.children}</MonthContainer>
+      <MonthContainer>{data.children}</MonthContainer>
     </StyledCalendarContainer>
   );
 };

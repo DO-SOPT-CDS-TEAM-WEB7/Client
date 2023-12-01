@@ -7,18 +7,18 @@ const Footer = () => {
     <FooterContainer>
       <LeftSide>
         <SelectBoxContainer>
-          <SelectBox className="country">
-            <SelectBoxOption disabled selected>
+          <SelectBox className="country" defaultValue="대한민국">
+            <SelectBoxOption disabled value="대한민국">
               대한민국
             </SelectBoxOption>
           </SelectBox>
-          <SelectBox className="language">
-            <SelectBoxOption disabled selected>
+          <SelectBox className="language" defaultValue="한국어">
+            <SelectBoxOption disabled value="한국어">
               한국어
             </SelectBoxOption>
           </SelectBox>
-          <SelectBox className="exchange">
-            <SelectBoxOption disabled selected>
+          <SelectBox className="exchange" defaultValue="KRW">
+            <SelectBoxOption disabled value="KRW">
               KRW
             </SelectBoxOption>
           </SelectBox>

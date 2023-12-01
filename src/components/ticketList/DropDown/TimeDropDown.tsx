@@ -3,14 +3,14 @@ import { DownArrow, TabGraphImg, UpArrowImg } from '../../../assets/image';
 // eslint-disable-next-line import/order
 import { DropDownProps } from '../DropDown';
 import ButtonContainer from './ButtonContainer';
-import { Arrow, DropDownContainer, Name, Option, Select } from './styles/DropDown.style';
+import { Arrow, Name, Option, Select } from './styles/DropDown.style';
 import { Depart, GraphImg, Time, TimeContainer } from './styles/Graph.style';
 
 const TimeDropDown = (props: DropDownProps) => {
   const { isOpen, onToggle, onCancel, onApply } = props;
 
   return (
-    <DropDownContainer>
+    <>
       <Select onClick={() => onToggle('time')} $isOpen={isOpen}>
         <Name $isOpen={isOpen}>출발 시간대 설정</Name>
         {isOpen ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
@@ -29,7 +29,7 @@ const TimeDropDown = (props: DropDownProps) => {
         </TimeContainer>
         <ButtonContainer onCancel={onCancel} onApply={onApply}/>
       </Option>
-    </DropDownContainer>
+    </>
   );
 };
 

@@ -2,14 +2,14 @@
 import { DownArrow, UpArrowImg } from '../../../assets/image';
 import { DropDownProps } from '../DropDown';
 import ButtonContainer from './ButtonContainer';
-import { Arrow, DropDownContainer, Name, Option, Select } from './styles/DropDown.style';
+import { Arrow, Name, Option, Select } from './styles/DropDown.style';
 import { List, Path, Price, StyledInput, StyledLabel, StyledText } from './styles/InputCustom.style';
 
 const PathDropDown = (props: DropDownProps) => {
   const { isOpen, onToggle, onCancel, onApply } = props;
 
   return (
-    <DropDownContainer>
+    <>
       <Select onClick={() => onToggle('path')} $isOpen={isOpen} id="path">
         <Name $isOpen={isOpen}>경유</Name>
         {isOpen ? <Arrow src={UpArrowImg} alt="닫기 화살표" /> : <Arrow src={DownArrow} alt="열기 화살표" />}
@@ -41,7 +41,7 @@ const PathDropDown = (props: DropDownProps) => {
         </List>
         <ButtonContainer onCancel={onCancel} onApply={onApply} />
       </Option>
-    </DropDownContainer>
+    </>
   );
 };
 

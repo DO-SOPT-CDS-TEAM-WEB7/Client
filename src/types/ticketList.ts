@@ -26,6 +26,7 @@ export interface TicketItemProps {
   price: string;
   CO2: number;
   onSelect: () => void;
+  isLast: boolean
 }
 
 export interface TicketListRequestBody {

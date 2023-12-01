@@ -39,6 +39,7 @@ const Container = styled.main`
   margin-bottom: 14.6rem;
 `;
 
+
 const ADImg = styled.img`
   object-fit: contain;
 `;

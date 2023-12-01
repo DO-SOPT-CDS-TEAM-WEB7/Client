@@ -27,8 +27,8 @@ const TicketList = () => {
       const {
         data: { data },
       } = await getTicketList(params);
-      setTicketList(data.reservationListDto);
-      setFilteredList(data.reservationListDto);
+      setTicketList(data.reservationListDto); // 서버에서 받아온 기본 티켓 리스트
+      setFilteredList(data.reservationListDto); // 체크박스에 따라 필터링된 티켓 리스트
     } catch (e) {
       console.log(e);
     }
@@ -59,7 +59,6 @@ const TicketList = () => {
     const filteredFlight = ticketList.filter((ticket) => selectedAirName.includes(ticket.airName));
     setFilteredList(filteredFlight);
   };
-  console.log(ticketList);
 
   return (
     <>

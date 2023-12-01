@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { getTicketList } from '../../apis/getTicketList';
 import { ReservationData } from '../../types/ticketList';
 // eslint-disable-next-line import/order
 import TicketItem from './TicketItem';
@@ -17,7 +16,6 @@ const Ticket = (props: TicketProps) => {
   const navigate = useNavigate();
   const [selectedTicket, setSelectedTicket] = useState<number | null>(null);
   const { rangeStart, rangeEnd, ticketList } = props;
-
 
   // 선택된 티켓 저장
   const handleTicketSelect = (reservationId: number) => {

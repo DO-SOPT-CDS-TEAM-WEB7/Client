@@ -3,7 +3,7 @@ import { atom } from 'recoil';
 export interface userInputType {
   startDate: string;
   endDate: string;
-  ticketId: string;
+  ticketId: number;
 }
 
 export const userInputState = atom<userInputType>({
@@ -11,6 +11,6 @@ export const userInputState = atom<userInputType>({
   default: {
     startDate: '',
     endDate: '',
-    ticketId: '',
+    ticketId: 1,
   },
 });

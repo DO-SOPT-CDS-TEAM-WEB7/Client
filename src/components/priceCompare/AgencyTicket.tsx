@@ -1,8 +1,12 @@
+import { useNavigate } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 import AGENCY_IMG from '../../data/AgencyData';
 import STARS_IMG from '../../data/StarsImgData';
+import { userInputState, userInputType } from '../../states/userInputState';
 import { TicketListDto } from '../../types/ticketReservationInfo';
+
 interface AgencyTicketProps {
   item: TicketListDto;
 }
@@ -10,6 +14,16 @@ interface AgencyTicketProps {
 const AgencyTicket = (props: AgencyTicketProps) => {
   const { item } = props;
 
+  const setUserInput = useSetRecoilState(userInputState);
+
+  const navigate = useNavigate();
+  const handleTicketSelect = (ticketId: number) => {
+    setUserInput((prev: userInputType) => ({
+      ...prev,
+      ticketId: ticketId,
+    }));
+    navigate('/priceCompare');
+  };
   return (
     <AgencyTicketContainer>
       <AgencyContainer>
@@ -23,7 +37,7 @@ const AgencyTicket = (props: AgencyTicketProps) => {
           <Sum>합계</Sum>
           <Price>₩{item.price}</Price>
         </PriceContainer>
-        <ChooseBtn>선택하기</ChooseBtn>
+        <ChooseBtn onClick={() => handleTicketSelect(item.ticketId)}>선택하기</ChooseBtn>
       </PriceChooseContainer>
     </AgencyTicketContainer>
   );

@@ -16,7 +16,6 @@ const PriceCompare = () => {
   const reservationId = useRecoilValue(reservationIdState);
 
   const getTicketReservationInfo = async () => {
-    console.log(reservationId);
     try {
       const params = {
         startDate: '2023-11-13',

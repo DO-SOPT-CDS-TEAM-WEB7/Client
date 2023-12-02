@@ -3,7 +3,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { ko } from 'date-fns/locale';
 import { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 import { ArrowLeftIcon, ArrowRightIcon } from '../../assets/icon';
@@ -19,6 +19,27 @@ const Calendar = () => {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEnddate] = useState<Date | null>(null);
   const setUserInput = useSetRecoilState(userInputState);
+  const userInput = useRecoilValue(userInputState);
+
+  // 요일 변환
+  // '2024-01-04'
+  function searchBarFormatDate(inputDate: Date | string): string {
+    const daysOfWeek: string[] = ['일', '월', '화', '수', '목', '금', '토'];
+
+    const dateObject: Date = new Date(inputDate);
+    const month: number = dateObject.getMonth() + 1;
+    const day: number = dateObject.getDate();
+    const dayOfWeek: string = daysOfWeek[dateObject.getDay()];
+
+    const formattedDate: string = `${String(month).padStart(2, '0')}.${String(day).padStart(2, '0')}(${dayOfWeek})`;
+
+    return formattedDate;
+  }
+
+  const formattedStartDate = searchBarFormatDate(userInput.startDate);
+  const formattedEndDate = searchBarFormatDate(userInput.endDate);
+  const placeholder =
+    userInput.startDate && userInput.endDate ? `${formattedStartDate} ~ ${formattedEndDate}` : '날짜 선택';
 
   const selectDays = (dates: [Date, Date]) => {
     setStartDate(dates[0]);
@@ -62,7 +83,7 @@ const Calendar = () => {
             </MoveBtn>
           </StyledHeader>
         )}
-        placeholderText="날짜 선택"
+        placeholderText={placeholder}
         locale={ko}
         dateFormat="MM.dd(EE)"
         minDate={new Date()}

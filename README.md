@@ -10,8 +10,8 @@
 
 <h2> 👥 Team </h2>
 
-<table align="center">
-    <tr align="center">
+<table>
+    <tr>
       <td style="min-width: 150px;">
             <a href="github.com/simeunseo">
               <img src="https://github.com/DO-SOPT-CDS-TEAM-WEB7/Client/assets/101045330/516fdf4b-9e3e-435d-9755-a7e81f39f275" width="200" alt="깃허브계정-프로필사진">
@@ -69,15 +69,44 @@
     </tr>
 </table>
 
+<h2> ⭐️ 구현 스크린샷 </h2>
+<h3> 메인 뷰 </h3><br/>
+<img src="https://github.com/DO-SOPT-CDS-TEAM-WEB7/Client/assets/55528304/e6318c6e-e73e-43a0-9280-0a14c3b163b3" width="500px"/><br/>
+<img width="300" alt="스크린샷 2023-12-02 오후 2 10 30" src="https://github.com/DO-SOPT-CDS-TEAM-WEB7/Client/assets/55528304/15bbf671-4433-411d-b245-4b5affa5be2c"><br/>
+
+<h3> 항공권 리스트 뷰 </h3><br/>
+<img src="https://github.com/DO-SOPT-CDS-TEAM-WEB7/Client/assets/55528304/39579045-cc8d-460b-812d-bdeae4a52373" width="500px"/><br/>
+<img width="300" alt="image" src="https://github.com/DO-SOPT-CDS-TEAM-WEB7/Client/assets/55528304/e1974a0a-e629-4bbd-9385-f8621070c425"><br/>
+<img width="300" alt="image" src="https://github.com/DO-SOPT-CDS-TEAM-WEB7/Client/assets/55528304/c80017b8-b776-423c-85b1-631f42ad65b5"><br/>
+
+<h3> 가격 비교 뷰 </h3><br/>
+<img src="https://github.com/DO-SOPT-CDS-TEAM-WEB7/Client/assets/55528304/870c669d-3ab3-4fe3-a478-28ff641a5917" width="500px"/><br/>
+<img width="300" alt="스크린샷 2023-12-02 오후 2 11 19" src="https://github.com/DO-SOPT-CDS-TEAM-WEB7/Client/assets/55528304/574e9649-5ba7-4aba-9d0c-14ce37555a61"><br/>
+
+<h3> 사이트 이동 뷰 </h3><br/>
+<img src="https://github.com/DO-SOPT-CDS-TEAM-WEB7/Client/assets/55528304/127859bf-c96f-42e6-8e65-507d19902628" width="500px"/><br/>
+
+<br/>
 <h2> 🛠 기술스택 </h2>
 
-| 빌드 툴 | 웹 프레임워크 |  개발 언어  | 
-| :--------:| :--------: | :----------: | 
-|   VITE  |     REACT    |  TYPESCRIPT | 
+
+
+| 역할                 | 종류                                                                                                                                                                                                                                                                                                                            |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Library              | ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black)                                                                                                                                                                                                                              |
+| Programming Language | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white)                                                                                                                                                                                                               |
+| Styling              | ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)                                                                                                                                                                                         |
+| Data Fetching        | ![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white)  |
+| State Management     | ![State Management](https://img.shields.io/badge/recoil-007af4?style=for-the-badge&logo=Recoil&logoColor=white)                                                                                                                                                                                                                 |
+| Formatting           | ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white) ![Prettier](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E) ![StyleLint](https://img.shields.io/badge/stylelint-E0EFEF?style=for-the-badge&logo=stylelint&logoColor=000) |
+| Package Manager      | ![Yarn](https://img.shields.io/badge/Yarn-2C8EBB?style=for-the-badge&logo=yarn&logoColor=white)   |
+| Version Control      | ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)                                                                                                                |
+| Deployment           | ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)                                                                                                                                                                                                                           |
+
 <br/>
 
 <h2>  📄 컨벤션 및 브랜치 전략 </h2>
-<a href="https://rumbling-niece-12d.notion.site/3ffcd7b4508b439d826411956c69bf0d?pvs=4">우리의 컨벤션이 담긴 노션링크</a>
+<a href="https://lively-kumquat-587.notion.site/afb661ceea9449e295f7e2f29ba3e8f6?pvs=4">우리의 컨벤션이 담긴 노션링크</a>
 
 <br/>
 

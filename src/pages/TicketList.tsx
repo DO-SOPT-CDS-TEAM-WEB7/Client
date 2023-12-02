@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
-
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
-
 
 import { getTicketList } from '../apis/getTicketList';
 import Footer from '../components/common/Footer';
@@ -76,9 +74,14 @@ const TicketList = () => {
       <SearchBar />
       <AdvImg />
       <DropDown checkboxHandler={onClickCheckbox} onClickApplyBtn={onClickApplyBtn} />
-      <Ticket rangeStart={0} rangeEnd={4} ticketList={filteredList} totalLength={filteredList.length}/>
+      <Ticket rangeStart={0} rangeEnd={4} ticketList={filteredList} totalLength={filteredList.length} />
       <HotelCarousel />
-      <Ticket rangeStart={4} rangeEnd={filteredList.length} ticketList={filteredList} totalLength={filteredList.length-1}/>
+      <Ticket
+        rangeStart={4}
+        rangeEnd={filteredList.length}
+        ticketList={filteredList}
+        totalLength={filteredList.length - 1}
+      />
       <FooterBackground />
       <Footer />
     </>

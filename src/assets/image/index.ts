@@ -2,6 +2,7 @@
 export { default as UpArrowImg } from './arrow_up.png';
 export { default as BannerAd1Img } from './bannerAd1.png';
 export { default as BannerAd2Img } from './bannerAd2.png';
+export { default as BeforeReservationBtn } from './beforeReservationBtn.png';
 export { default as GotoSiteBtnImg } from './btn_gotosite.png';
 export { default as CheckImg } from './check.png';
 export { default as CheckboxImg } from './checkbox@2x.png';

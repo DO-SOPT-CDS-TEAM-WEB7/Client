@@ -1,15 +1,35 @@
-import { useRecoilValue } from 'recoil';
+import { useEffect } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
+import { postTicketReservation } from '../../apis/postTicketReservation';
 import { LogoBigIcon } from '../../assets/icon';
 import { MovingAirplane } from '../../assets/image';
 import AGENCY_NO_BG_IMG from '../../data/AgencyNoBgData';
 import { siteMovingState } from '../../states/siteMovingState';
+import { userInputState } from '../../states/userInputState';
 // eslint-disable-next-line import/order
 import TicketDetail from './TicketDetail';
 const MovingInfo = () => {
-  const siteMoving = useRecoilValue(siteMovingState);
+  const userInput = useRecoilValue(userInputState);
 
+  const [siteMoving, setSiteMoving] = useRecoilState(siteMovingState);
+
+  const postTicket = async () => {
+    try {
+      const {
+        data: { data },
+      } = await postTicketReservation(userInput);
+
+      setSiteMoving(data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    postTicket();
+  }, []);
   return (
     <MovingInfoContainer>
       <Title>예약 사이트로 이동 중 입니다.</Title>
